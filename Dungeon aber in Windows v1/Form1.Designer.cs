@@ -232,6 +232,7 @@
             this.tabGenButtonGenerate.TabIndex = 1;
             this.tabGenButtonGenerate.Text = "Generieren starten";
             this.tabGenButtonGenerate.UseVisualStyleBackColor = true;
+            this.tabGenButtonGenerate.Click += new System.EventHandler(this.tabGenButtonGenerate_Click);
             // 
             // tabPageSettings
             // 
