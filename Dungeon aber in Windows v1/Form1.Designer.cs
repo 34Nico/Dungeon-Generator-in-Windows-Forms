@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.tabsUI = new System.Windows.Forms.TabControl();
             this.tabPageGenerate = new System.Windows.Forms.TabPage();
+            this.tabGenDropPreset = new System.Windows.Forms.ComboBox();
+            this.tabGenLabelPreset = new System.Windows.Forms.Label();
             this.tabGenLabelHeight = new System.Windows.Forms.Label();
             this.tabGenLabelWidth = new System.Windows.Forms.Label();
             this.tabGenTextTrapPercent = new System.Windows.Forms.TextBox();
@@ -45,6 +47,8 @@
             this.tabGenButtonTreasureYes = new System.Windows.Forms.Button();
             this.tabGenButtonGenerate = new System.Windows.Forms.Button();
             this.tabPageSettings = new System.Windows.Forms.TabPage();
+            this.tabSettingLabelConfigExpImp = new System.Windows.Forms.Label();
+            this.tabSettingTextConfigExpImp = new System.Windows.Forms.TextBox();
             this.tabSettingDropWalls = new System.Windows.Forms.ComboBox();
             this.tabSettingLabelWalls = new System.Windows.Forms.Label();
             this.tabSettingDropFloor = new System.Windows.Forms.ComboBox();
@@ -58,6 +62,7 @@
             this.tabSettingLabelStart = new System.Windows.Forms.Label();
             this.tabSettingDropStart = new System.Windows.Forms.ComboBox();
             this.tabPageExport = new System.Windows.Forms.TabPage();
+            this.tabExportButtonRandomName = new System.Windows.Forms.Button();
             this.tabExportButtonExport = new System.Windows.Forms.Button();
             this.tabExportTextFilePath = new System.Windows.Forms.TextBox();
             this.tabExportTextFileName = new System.Windows.Forms.TextBox();
@@ -66,6 +71,8 @@
             this.panelUserInterface = new System.Windows.Forms.Panel();
             this.buttonQuit = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tabSettingButtonConfigExport = new System.Windows.Forms.Button();
+            this.tabSettingButtonConfigImport = new System.Windows.Forms.Button();
             this.tabsUI.SuspendLayout();
             this.tabPageGenerate.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
@@ -91,6 +98,8 @@
             // tabPageGenerate
             // 
             this.tabPageGenerate.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabPageGenerate.Controls.Add(this.tabGenDropPreset);
+            this.tabPageGenerate.Controls.Add(this.tabGenLabelPreset);
             this.tabPageGenerate.Controls.Add(this.tabGenLabelHeight);
             this.tabPageGenerate.Controls.Add(this.tabGenLabelWidth);
             this.tabPageGenerate.Controls.Add(this.tabGenTextTrapPercent);
@@ -112,10 +121,28 @@
             this.tabPageGenerate.TabIndex = 0;
             this.tabPageGenerate.Text = "Genierung";
             // 
+            // tabGenDropPreset
+            // 
+            this.tabGenDropPreset.FormattingEnabled = true;
+            this.tabGenDropPreset.Location = new System.Drawing.Point(115, 24);
+            this.tabGenDropPreset.Name = "tabGenDropPreset";
+            this.tabGenDropPreset.Size = new System.Drawing.Size(109, 21);
+            this.tabGenDropPreset.TabIndex = 17;
+            this.tabGenDropPreset.SelectedIndexChanged += new System.EventHandler(this.tabGenDropPreset_SelectedIndexChanged);
+            // 
+            // tabGenLabelPreset
+            // 
+            this.tabGenLabelPreset.AutoSize = true;
+            this.tabGenLabelPreset.Location = new System.Drawing.Point(13, 27);
+            this.tabGenLabelPreset.Name = "tabGenLabelPreset";
+            this.tabGenLabelPreset.Size = new System.Drawing.Size(84, 13);
+            this.tabGenLabelPreset.TabIndex = 16;
+            this.tabGenLabelPreset.Text = "Dungeon Preset";
+            // 
             // tabGenLabelHeight
             // 
             this.tabGenLabelHeight.AutoSize = true;
-            this.tabGenLabelHeight.Location = new System.Drawing.Point(8, 56);
+            this.tabGenLabelHeight.Location = new System.Drawing.Point(13, 94);
             this.tabGenLabelHeight.Name = "tabGenLabelHeight";
             this.tabGenLabelHeight.Size = new System.Drawing.Size(83, 13);
             this.tabGenLabelHeight.TabIndex = 15;
@@ -124,7 +151,7 @@
             // tabGenLabelWidth
             // 
             this.tabGenLabelWidth.AutoSize = true;
-            this.tabGenLabelWidth.Location = new System.Drawing.Point(8, 23);
+            this.tabGenLabelWidth.Location = new System.Drawing.Point(13, 61);
             this.tabGenLabelWidth.Name = "tabGenLabelWidth";
             this.tabGenLabelWidth.Size = new System.Drawing.Size(84, 13);
             this.tabGenLabelWidth.TabIndex = 14;
@@ -132,40 +159,40 @@
             // 
             // tabGenTextTrapPercent
             // 
-            this.tabGenTextTrapPercent.Location = new System.Drawing.Point(171, 119);
+            this.tabGenTextTrapPercent.Location = new System.Drawing.Point(176, 157);
             this.tabGenTextTrapPercent.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextTrapPercent.Name = "tabGenTextTrapPercent";
-            this.tabGenTextTrapPercent.Size = new System.Drawing.Size(34, 20);
+            this.tabGenTextTrapPercent.Size = new System.Drawing.Size(48, 20);
             this.tabGenTextTrapPercent.TabIndex = 13;
             // 
             // tabGenTextTreasurePercent
             // 
-            this.tabGenTextTreasurePercent.Location = new System.Drawing.Point(171, 86);
+            this.tabGenTextTreasurePercent.Location = new System.Drawing.Point(176, 124);
             this.tabGenTextTreasurePercent.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextTreasurePercent.Name = "tabGenTextTreasurePercent";
-            this.tabGenTextTreasurePercent.Size = new System.Drawing.Size(34, 20);
+            this.tabGenTextTreasurePercent.Size = new System.Drawing.Size(48, 20);
             this.tabGenTextTreasurePercent.TabIndex = 12;
             // 
             // tabGenTextHeight
             // 
-            this.tabGenTextHeight.Location = new System.Drawing.Point(110, 53);
+            this.tabGenTextHeight.Location = new System.Drawing.Point(115, 91);
             this.tabGenTextHeight.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextHeight.Name = "tabGenTextHeight";
-            this.tabGenTextHeight.Size = new System.Drawing.Size(95, 20);
+            this.tabGenTextHeight.Size = new System.Drawing.Size(109, 20);
             this.tabGenTextHeight.TabIndex = 11;
             // 
             // tabGenTextWidth
             // 
-            this.tabGenTextWidth.Location = new System.Drawing.Point(110, 20);
+            this.tabGenTextWidth.Location = new System.Drawing.Point(115, 58);
             this.tabGenTextWidth.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextWidth.Name = "tabGenTextWidth";
-            this.tabGenTextWidth.Size = new System.Drawing.Size(95, 20);
+            this.tabGenTextWidth.Size = new System.Drawing.Size(109, 20);
             this.tabGenTextWidth.TabIndex = 10;
             // 
             // tabGenLabelTrap
             // 
             this.tabGenLabelTrap.AutoSize = true;
-            this.tabGenLabelTrap.Location = new System.Drawing.Point(7, 122);
+            this.tabGenLabelTrap.Location = new System.Drawing.Point(12, 160);
             this.tabGenLabelTrap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelTrap.Name = "tabGenLabelTrap";
             this.tabGenLabelTrap.Size = new System.Drawing.Size(35, 13);
@@ -175,7 +202,7 @@
             // tabGenLabelTreasure
             // 
             this.tabGenLabelTreasure.AutoSize = true;
-            this.tabGenLabelTreasure.Location = new System.Drawing.Point(7, 89);
+            this.tabGenLabelTreasure.Location = new System.Drawing.Point(12, 127);
             this.tabGenLabelTreasure.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelTreasure.Name = "tabGenLabelTreasure";
             this.tabGenLabelTreasure.Size = new System.Drawing.Size(41, 13);
@@ -184,7 +211,7 @@
             // 
             // tabGenButtonTrapNo
             // 
-            this.tabGenButtonTrapNo.Location = new System.Drawing.Point(110, 119);
+            this.tabGenButtonTrapNo.Location = new System.Drawing.Point(115, 157);
             this.tabGenButtonTrapNo.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTrapNo.Name = "tabGenButtonTrapNo";
             this.tabGenButtonTrapNo.Size = new System.Drawing.Size(56, 19);
@@ -194,7 +221,7 @@
             // 
             // tabGenButtonTrapYes
             // 
-            this.tabGenButtonTrapYes.Location = new System.Drawing.Point(55, 119);
+            this.tabGenButtonTrapYes.Location = new System.Drawing.Point(60, 157);
             this.tabGenButtonTrapYes.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTrapYes.Name = "tabGenButtonTrapYes";
             this.tabGenButtonTrapYes.Size = new System.Drawing.Size(56, 19);
@@ -204,7 +231,7 @@
             // 
             // tabGenButtonTreasureNo
             // 
-            this.tabGenButtonTreasureNo.Location = new System.Drawing.Point(110, 86);
+            this.tabGenButtonTreasureNo.Location = new System.Drawing.Point(115, 124);
             this.tabGenButtonTreasureNo.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTreasureNo.Name = "tabGenButtonTreasureNo";
             this.tabGenButtonTreasureNo.Size = new System.Drawing.Size(56, 19);
@@ -214,7 +241,7 @@
             // 
             // tabGenButtonTreasureYes
             // 
-            this.tabGenButtonTreasureYes.Location = new System.Drawing.Point(55, 86);
+            this.tabGenButtonTreasureYes.Location = new System.Drawing.Point(60, 124);
             this.tabGenButtonTreasureYes.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTreasureYes.Name = "tabGenButtonTreasureYes";
             this.tabGenButtonTreasureYes.Size = new System.Drawing.Size(56, 19);
@@ -232,10 +259,15 @@
             this.tabGenButtonGenerate.TabIndex = 1;
             this.tabGenButtonGenerate.Text = "Generieren starten";
             this.tabGenButtonGenerate.UseVisualStyleBackColor = true;
+            this.tabGenButtonGenerate.Click += new System.EventHandler(this.tabGenButtonGenerate_Click);
             // 
             // tabPageSettings
             // 
             this.tabPageSettings.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.tabPageSettings.Controls.Add(this.tabSettingButtonConfigImport);
+            this.tabPageSettings.Controls.Add(this.tabSettingButtonConfigExport);
+            this.tabPageSettings.Controls.Add(this.tabSettingLabelConfigExpImp);
+            this.tabPageSettings.Controls.Add(this.tabSettingTextConfigExpImp);
             this.tabPageSettings.Controls.Add(this.tabSettingDropWalls);
             this.tabPageSettings.Controls.Add(this.tabSettingLabelWalls);
             this.tabPageSettings.Controls.Add(this.tabSettingDropFloor);
@@ -255,6 +287,22 @@
             this.tabPageSettings.Size = new System.Drawing.Size(272, 571);
             this.tabPageSettings.TabIndex = 1;
             this.tabPageSettings.Text = "Einstellungen";
+            // 
+            // tabSettingLabelConfigExpImp
+            // 
+            this.tabSettingLabelConfigExpImp.AutoSize = true;
+            this.tabSettingLabelConfigExpImp.Location = new System.Drawing.Point(16, 497);
+            this.tabSettingLabelConfigExpImp.Name = "tabSettingLabelConfigExpImp";
+            this.tabSettingLabelConfigExpImp.Size = new System.Drawing.Size(182, 13);
+            this.tabSettingLabelConfigExpImp.TabIndex = 13;
+            this.tabSettingLabelConfigExpImp.Text = "Konfiguration Importieren/Exportieren";
+            // 
+            // tabSettingTextConfigExpImp
+            // 
+            this.tabSettingTextConfigExpImp.Location = new System.Drawing.Point(5, 517);
+            this.tabSettingTextConfigExpImp.Name = "tabSettingTextConfigExpImp";
+            this.tabSettingTextConfigExpImp.Size = new System.Drawing.Size(262, 20);
+            this.tabSettingTextConfigExpImp.TabIndex = 12;
             // 
             // tabSettingDropWalls
             // 
@@ -373,6 +421,7 @@
             // tabPageExport
             // 
             this.tabPageExport.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.tabPageExport.Controls.Add(this.tabExportButtonRandomName);
             this.tabPageExport.Controls.Add(this.tabExportButtonExport);
             this.tabPageExport.Controls.Add(this.tabExportTextFilePath);
             this.tabPageExport.Controls.Add(this.tabExportTextFileName);
@@ -384,6 +433,17 @@
             this.tabPageExport.Size = new System.Drawing.Size(272, 571);
             this.tabPageExport.TabIndex = 2;
             this.tabPageExport.Text = "Export";
+            // 
+            // tabExportButtonRandomName
+            // 
+            this.tabExportButtonRandomName.Location = new System.Drawing.Point(146, 62);
+            this.tabExportButtonRandomName.Margin = new System.Windows.Forms.Padding(2);
+            this.tabExportButtonRandomName.Name = "tabExportButtonRandomName";
+            this.tabExportButtonRandomName.Size = new System.Drawing.Size(85, 19);
+            this.tabExportButtonRandomName.TabIndex = 4;
+            this.tabExportButtonRandomName.Text = "Zufällig";
+            this.tabExportButtonRandomName.UseVisualStyleBackColor = true;
+            this.tabExportButtonRandomName.Click += new System.EventHandler(this.tabExportButtonRandomName_Click);
             // 
             // tabExportButtonExport
             // 
@@ -409,7 +469,7 @@
             this.tabExportTextFileName.Location = new System.Drawing.Point(37, 61);
             this.tabExportTextFileName.Margin = new System.Windows.Forms.Padding(2);
             this.tabExportTextFileName.Name = "tabExportTextFileName";
-            this.tabExportTextFileName.Size = new System.Drawing.Size(194, 20);
+            this.tabExportTextFileName.Size = new System.Drawing.Size(101, 20);
             this.tabExportTextFileName.TabIndex = 1;
             this.tabExportTextFileName.Text = "Name";
             // 
@@ -465,6 +525,26 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // tabSettingButtonConfigExport
+            // 
+            this.tabSettingButtonConfigExport.Location = new System.Drawing.Point(5, 543);
+            this.tabSettingButtonConfigExport.Name = "tabSettingButtonConfigExport";
+            this.tabSettingButtonConfigExport.Size = new System.Drawing.Size(130, 23);
+            this.tabSettingButtonConfigExport.TabIndex = 14;
+            this.tabSettingButtonConfigExport.Text = "Exportieren (copy)";
+            this.tabSettingButtonConfigExport.UseVisualStyleBackColor = true;
+            this.tabSettingButtonConfigExport.Click += new System.EventHandler(this.tabSettingButtonConfigExport_Click);
+            // 
+            // tabSettingButtonConfigImport
+            // 
+            this.tabSettingButtonConfigImport.Location = new System.Drawing.Point(139, 543);
+            this.tabSettingButtonConfigImport.Name = "tabSettingButtonConfigImport";
+            this.tabSettingButtonConfigImport.Size = new System.Drawing.Size(128, 23);
+            this.tabSettingButtonConfigImport.TabIndex = 15;
+            this.tabSettingButtonConfigImport.Text = "Importieren (paste)";
+            this.tabSettingButtonConfigImport.UseVisualStyleBackColor = true;
+            this.tabSettingButtonConfigImport.Click += new System.EventHandler(this.tabSettingButtonConfigImport_Click);
             // 
             // Form1
             // 
@@ -529,6 +609,13 @@
         private System.Windows.Forms.Label tabSettingLabelFloor;
         private System.Windows.Forms.ComboBox tabSettingDropWalls;
         private System.Windows.Forms.Label tabSettingLabelWalls;
+        private System.Windows.Forms.Button tabExportButtonRandomName;
+        private System.Windows.Forms.Label tabGenLabelPreset;
+        private System.Windows.Forms.ComboBox tabGenDropPreset;
+        private System.Windows.Forms.Label tabSettingLabelConfigExpImp;
+        private System.Windows.Forms.TextBox tabSettingTextConfigExpImp;
+        private System.Windows.Forms.Button tabSettingButtonConfigImport;
+        private System.Windows.Forms.Button tabSettingButtonConfigExport;
     }
 }
 
