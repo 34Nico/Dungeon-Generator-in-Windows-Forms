@@ -31,6 +31,8 @@ namespace Dungeon_aber_in_Windows_v1
          *  - Exportieren/Importieren der Einstellungen als String hinzufügen
          */
 
+        Random random = new Random();
+
         static string[] colors = new string[] { "Rot", "Grüner", "Blau", "Gelb", "Türkis", "Lila", "Weiß", "Grau" };
 
         static string[] presetNames = new string[] { "Small", "Medium", "Large", "Goldkammer", "Hölle" };
@@ -43,13 +45,13 @@ namespace Dungeon_aber_in_Windows_v1
             {20, 20, 25, 4}
         };
 
-        int maxHeightDungeonWindow = 580;
-
         // Generate Defaults
         int dungeonHeight = 10;
         int dungeonWidth = 10;
         int dungeonTrapPercent = 5;
         int dungeonTreasurePercent = 5;
+
+        int dungeonSeed = 0;
 
         // Settings Defaults (Index von colors)
         int settingsStartColor = 5;
@@ -59,6 +61,11 @@ namespace Dungeon_aber_in_Windows_v1
         int settingsFloorColor = 6;
         int settingsWallColor = 7;
 
+        int minRoomSizeWidth = 3;
+        int maxRoomSizeWidth = 7;
+        int minRoomSizeHeight = 3;
+        int maxRoomSizeHeight = 7;
+
         // Export Defaults
         string exportFileName = "Dungeon";
         string exportFilePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -67,6 +74,7 @@ namespace Dungeon_aber_in_Windows_v1
         {
             InitializeComponent();
             loadUserInterfaceDefaults();
+
         }
 
         private void loadUserInterfaceDefaults()
@@ -81,7 +89,7 @@ namespace Dungeon_aber_in_Windows_v1
             tabGenTextTrapPercent.Text = dungeonTrapPercent.ToString();
             tabGenTextTreasurePercent.Text = dungeonTreasurePercent.ToString();
 
-            for(int i = 0; i < presetNames.Length; i++)
+            for (int i = 0; i < presetNames.Length; i++)
             {
                 tabGenDropPreset.Items.Add(presetNames[i]);
             }
@@ -193,6 +201,15 @@ namespace Dungeon_aber_in_Windows_v1
 
             if (!validateUserInterface())
                 return;
+
+            if(dungeonSeed == 0 || )
+            {
+                dungeonSeed = random.Next(1, 1000000);
+            }
+
+            // Dungeon Seed generieren
+            dungeonSeed = random.Next(1, 1000000);
+            random = new Random(dungeonSeed);
 
         }
 
@@ -310,7 +327,7 @@ namespace Dungeon_aber_in_Windows_v1
                 errors.Add("Treasure Prozent muss zwischen 0 und 100 liegen!");
             }
 
-            if(dungeonTrapPercent + dungeonTrapPercent > 100)
+            if (dungeonTrapPercent + dungeonTrapPercent > 100)
             {
                 errors.Add("Die Summe von Trap Prozent und Treasure Prozent darf nicht über 100 sein!");
             }
@@ -350,7 +367,6 @@ namespace Dungeon_aber_in_Windows_v1
 
             return true;
         }
-
 
     }
 
