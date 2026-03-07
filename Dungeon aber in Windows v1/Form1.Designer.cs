@@ -90,10 +90,12 @@
             this.buttonQuit = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.dungeonAnzeige = new System.Windows.Forms.RichTextBox();
             this.tabsUI.SuspendLayout();
             this.tabPageGenerate.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
             this.tabPageExport.SuspendLayout();
+            this.panelDungeon.SuspendLayout();
             this.panelUserInterface.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -700,6 +702,7 @@
             // panelDungeon
             // 
             this.panelDungeon.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelDungeon.Controls.Add(this.dungeonAnzeige);
             this.panelDungeon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDungeon.Location = new System.Drawing.Point(0, 0);
             this.panelDungeon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -746,6 +749,20 @@
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
+            // dungeonAnzeige
+            // 
+            this.dungeonAnzeige.BackColor = System.Drawing.Color.DimGray;
+            this.dungeonAnzeige.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dungeonAnzeige.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.dungeonAnzeige.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dungeonAnzeige.ForeColor = System.Drawing.Color.White;
+            this.dungeonAnzeige.Location = new System.Drawing.Point(439, 90);
+            this.dungeonAnzeige.Name = "dungeonAnzeige";
+            this.dungeonAnzeige.ReadOnly = true;
+            this.dungeonAnzeige.Size = new System.Drawing.Size(715, 433);
+            this.dungeonAnzeige.TabIndex = 0;
+            this.dungeonAnzeige.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -765,6 +782,7 @@
             this.tabPageSettings.PerformLayout();
             this.tabPageExport.ResumeLayout(false);
             this.tabPageExport.PerformLayout();
+            this.panelDungeon.ResumeLayout(false);
             this.panelUserInterface.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -834,7 +852,7 @@
         private System.Windows.Forms.Label tabGenLabelRoomWidthMin;
         private System.Windows.Forms.Label tabGenLabelRoomWidth;
         private System.Windows.Forms.Label tabGenTitleLabelObjects;
-
+        private System.Windows.Forms.RichTextBox dungeonAnzeige;
     }
 }
 

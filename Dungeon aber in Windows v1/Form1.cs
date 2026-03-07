@@ -172,7 +172,7 @@ namespace Dungeon_aber_in_Windows_v1
                 dungeon += "\n";
             }
 
-            MessageBox.Show(dungeon);
+            dungeonAnzeige.Text = dungeon;
 
         }
 
