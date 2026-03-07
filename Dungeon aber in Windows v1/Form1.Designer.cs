@@ -395,7 +395,7 @@
             this.tabGenButtonTrapNo.Location = new System.Drawing.Point(113, 325);
             this.tabGenButtonTrapNo.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTrapNo.Name = "tabGenButtonTrapNo";
-            this.tabGenButtonTrapNo.Size = new System.Drawing.Size(38, 15);
+            this.tabGenButtonTrapNo.Size = new System.Drawing.Size(42, 22);
             this.tabGenButtonTrapNo.TabIndex = 5;
             this.tabGenButtonTrapNo.Text = "Aus";
             this.tabGenButtonTrapNo.UseVisualStyleBackColor = true;
@@ -405,7 +405,7 @@
             this.tabGenButtonTrapYes.Location = new System.Drawing.Point(72, 325);
             this.tabGenButtonTrapYes.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTrapYes.Name = "tabGenButtonTrapYes";
-            this.tabGenButtonTrapYes.Size = new System.Drawing.Size(38, 15);
+            this.tabGenButtonTrapYes.Size = new System.Drawing.Size(43, 22);
             this.tabGenButtonTrapYes.TabIndex = 4;
             this.tabGenButtonTrapYes.Text = "An";
             this.tabGenButtonTrapYes.UseVisualStyleBackColor = true;
@@ -415,7 +415,7 @@
             this.tabGenButtonTreasureNo.Location = new System.Drawing.Point(113, 299);
             this.tabGenButtonTreasureNo.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTreasureNo.Name = "tabGenButtonTreasureNo";
-            this.tabGenButtonTreasureNo.Size = new System.Drawing.Size(38, 15);
+            this.tabGenButtonTreasureNo.Size = new System.Drawing.Size(42, 22);
             this.tabGenButtonTreasureNo.TabIndex = 3;
             this.tabGenButtonTreasureNo.Text = "Aus";
             this.tabGenButtonTreasureNo.UseVisualStyleBackColor = true;
@@ -425,7 +425,7 @@
             this.tabGenButtonTreasureYes.Location = new System.Drawing.Point(72, 299);
             this.tabGenButtonTreasureYes.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTreasureYes.Name = "tabGenButtonTreasureYes";
-            this.tabGenButtonTreasureYes.Size = new System.Drawing.Size(38, 15);
+            this.tabGenButtonTreasureYes.Size = new System.Drawing.Size(42, 22);
             this.tabGenButtonTreasureYes.TabIndex = 2;
             this.tabGenButtonTreasureYes.Text = "An";
             this.tabGenButtonTreasureYes.UseVisualStyleBackColor = true;
@@ -486,7 +486,7 @@
             this.tabSettingButtonConfigImport.Location = new System.Drawing.Point(104, 441);
             this.tabSettingButtonConfigImport.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingButtonConfigImport.Name = "tabSettingButtonConfigImport";
-            this.tabSettingButtonConfigImport.Size = new System.Drawing.Size(96, 19);
+            this.tabSettingButtonConfigImport.Size = new System.Drawing.Size(96, 25);
             this.tabSettingButtonConfigImport.TabIndex = 15;
             this.tabSettingButtonConfigImport.Text = "Importieren (paste)";
             this.tabSettingButtonConfigImport.UseVisualStyleBackColor = true;
@@ -497,7 +497,7 @@
             this.tabSettingButtonConfigExport.Location = new System.Drawing.Point(4, 441);
             this.tabSettingButtonConfigExport.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingButtonConfigExport.Name = "tabSettingButtonConfigExport";
-            this.tabSettingButtonConfigExport.Size = new System.Drawing.Size(98, 19);
+            this.tabSettingButtonConfigExport.Size = new System.Drawing.Size(98, 25);
             this.tabSettingButtonConfigExport.TabIndex = 14;
             this.tabSettingButtonConfigExport.Text = "Exportieren (copy)";
             this.tabSettingButtonConfigExport.UseVisualStyleBackColor = true;
@@ -506,7 +506,7 @@
             // tabSettingLabelConfigExpImp
             // 
             this.tabSettingLabelConfigExpImp.AutoSize = true;
-            this.tabSettingLabelConfigExpImp.Location = new System.Drawing.Point(21, 612);
+            this.tabSettingLabelConfigExpImp.Location = new System.Drawing.Point(7, 423);
             this.tabSettingLabelConfigExpImp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tabSettingLabelConfigExpImp.Name = "tabSettingLabelConfigExpImp";
             this.tabSettingLabelConfigExpImp.Size = new System.Drawing.Size(226, 16);
@@ -754,7 +754,7 @@
             this.dungeonAnzeige.BackColor = System.Drawing.Color.DimGray;
             this.dungeonAnzeige.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dungeonAnzeige.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.dungeonAnzeige.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dungeonAnzeige.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dungeonAnzeige.ForeColor = System.Drawing.Color.White;
             this.dungeonAnzeige.Location = new System.Drawing.Point(439, 90);
             this.dungeonAnzeige.Name = "dungeonAnzeige";

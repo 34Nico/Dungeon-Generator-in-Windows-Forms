@@ -10,8 +10,7 @@ namespace Dungeon_aber_in_Windows_v1
 
         /*
          * TODO:
-         *  - Dungeon generieren
-         *      - Dungeon als 2D Array generieren und irgendwie schön darstellen
+         *  - Farben machen
          *  - Dungeon exportieren
          *      - Dungeon als Textdatei exportieren
          *      - Toggle, ob man die Settings mit exportieren möchte oder nicht
@@ -30,6 +29,8 @@ namespace Dungeon_aber_in_Windows_v1
          *  - Presets zum Generieren hinzufügen
          *  - Exportieren/Importieren der Einstellungen als String hinzufügen
          *  - Dungeon Seedbasiert machen
+         *  - Dungeon generieren
+         *      - Dungeon als 2D Array generieren und irgendwie schön darstellen
          */
 
         Random random = new Random();
@@ -315,12 +316,12 @@ namespace Dungeon_aber_in_Windows_v1
                 ValidateInt(tabGenTextHeight, 10, 40, "Die Höhe des Dungeons", errors, out dungeonHeight);
                 ValidateInt(tabGenTextWidth, 10, 40, "Die Breite des Dungeons", errors, out dungeonWidth);
 
-                ValidateInt(tabGenTextTrapPercent, 0, 100, "Trap Prozent", errors, out dungeonTrapPercent);
-                ValidateInt(tabGenTextTreasurePercent, 0, 100, "Treasure Prozent", errors, out dungeonTreasurePercent);
+                ValidateInt(tabGenTextTrapPercent, 0, 100, "Falle Prozent", errors, out dungeonTrapPercent);
+                ValidateInt(tabGenTextTreasurePercent, 0, 100, "Truhe Prozent", errors, out dungeonTreasurePercent);
 
                 if (dungeonTrapPercent + dungeonTreasurePercent > 100)
                 {
-                    errors.Add("Die Summe von Trap Prozent und Treasure Prozent darf nicht über 100 sein!");
+                    errors.Add("Die Summe von Falle Prozent und Truhe Prozent darf nicht über 100 sein!");
                 }
 
                 ValidateInt(tabGenTextRoomWidthMin, 1, 10, "Minimale Raumgröße (Breite)", errors, out dungeonMinRoomSizeWidth);
@@ -347,10 +348,10 @@ namespace Dungeon_aber_in_Windows_v1
 
             ValidateDropdown(tabSettingDropStart, "Startfarbe", errors, out settingsStartColor);
             ValidateDropdown(tabSettingDropEnd, "Endfarbe", errors, out settingsEndColor);
-            ValidateDropdown(tabSettingDropTrap, "Trapfarbe", errors, out settingsTrapColor);
-            ValidateDropdown(tabSettingDropTreasure, "Treasurefarbe", errors, out settingsTreasureColor);
-            ValidateDropdown(tabSettingDropFloor, "Floorfarbe", errors, out settingsFloorColor);
-            ValidateDropdown(tabSettingDropWalls, "Wallfarbe", errors, out settingsWallColor);
+            ValidateDropdown(tabSettingDropTrap, "Fallenfarbe", errors, out settingsTrapColor);
+            ValidateDropdown(tabSettingDropTreasure, "Truhenfarbe", errors, out settingsTreasureColor);
+            ValidateDropdown(tabSettingDropFloor, "Bodenfarbe", errors, out settingsFloorColor);
+            ValidateDropdown(tabSettingDropWalls, "Wandfarbe", errors, out settingsWallColor);
 
             if (errors.Any())
             {
