@@ -34,6 +34,8 @@ namespace Dungeon_aber_in_Windows_v1
 
         Random random = new Random();
 
+        static char[,] map;
+
         static string[] colors = new string[] { "Rot", "Grüner", "Blau", "Gelb", "Türkis", "Lila", "Weiß", "Grau" };
 
         static string[] presetNames = new string[] { "Small", "Medium", "Large", "Goldkammer", "Hölle" };
@@ -65,11 +67,6 @@ namespace Dungeon_aber_in_Windows_v1
         int settingsTreasureColor = 3;
         int settingsFloorColor = 6;
         int settingsWallColor = 7;
-
-        int minRoomSizeWidth = 3;
-        int maxRoomSizeWidth = 7;
-        int minRoomSizeHeight = 3;
-        int maxRoomSizeHeight = 7;
 
         // Export Defaults
         string exportFileName = "Dungeon";
@@ -159,6 +156,23 @@ namespace Dungeon_aber_in_Windows_v1
 
             random = new Random(dungeonSeed);
             tabGenTextSeed.Text = dungeonSeed.ToString();
+
+            generateDungeon();
+
+            string dungeon = "";
+
+            for (int y = 0; y < dungeonHeight; y++)
+            {
+                for (int x = 0; x < dungeonWidth; x++)
+                {
+                    // Gibt die Wände und Gänge aus
+                    dungeon += map[x,y];
+
+                }
+                dungeon += "\n";
+            }
+
+            MessageBox.Show(dungeon);
 
         }
 
@@ -381,6 +395,229 @@ namespace Dungeon_aber_in_Windows_v1
             }
         }
 
-    }
 
+        private void generateDungeon()
+        {
+
+            // Array Initialiesieren
+            map = new char[dungeonWidth, dungeonHeight];
+
+            // Methoden aufrufen zum generieren des Dungeons
+            int[] startCoords = generateStart();
+
+            int roomCount = (dungeonWidth * dungeonHeight) / 150; // 1 Raum pro 150 Felder
+            roomCount = Math.Max(0, Math.Min(roomCount, 6)); // mindestens 0  maximal 6
+            generateRandomRooms(roomCount);
+
+            generateMaze(startCoords[0], startCoords[1]);
+            generateEnd(startCoords[0], startCoords[1]);
+            generateObjects();
+
+
+            // Restlichen Wände hinzufügen
+            // Zwei for Schleifen um ein Koordinatensystem zu simulieren
+            for (int y = 0; y < dungeonHeight; y++)
+            {
+                for (int x = 0; x < dungeonWidth; x++)
+                {
+
+                    // Setzt den Rand
+                    if (y == 0 || y == dungeonHeight - 1 || x == 0 || x == dungeonWidth - 1)
+                    {
+                        map[x, y] = '#';
+                        continue;
+                    }
+                    // Überspringt die Koordinate wenn sie schon besetzt ist
+                    if (map[x, y] != '\0')
+                    {
+                        continue;
+                    }
+                    // Füllt jede freie Koordinate mit einer Wand
+                    map[x, y] = '#';
+
+                }
+            }
+        }
+
+
+        /* 
+        * generateStart()
+        * Wählt eine zufällige Startposition für den Dungeon und markiert sie mit S.
+        * Gibt die Koordinaten x y zurück.
+        */
+        private int[] generateStart()
+        {
+
+            int startWidth = random.Next(1, dungeonWidth - 1);      // Erstellt eine Random Zahl zwischen 1 und der Dungeon Breite -1
+            int startHeight = random.Next(1, dungeonHeight - 1);    // Erstellt eine Random Zahl zwischen 1 und der Dungeon Höhe -1
+            map[startWidth, startHeight] = 'S';                     // Speichert diese Zahlen dann im Koordinatensystem und speichert S bei diesen Koordinaten 
+
+            return new int[] { startWidth, startHeight };
+
+        }
+
+
+        /* 
+        * generateRandomRooms(int roomCount)
+        * Erstellt eine bestimmte Anzahl rechteckiger Räume im Dungeon.
+        *  - Räume werden zufällig positioniert
+        *  - Größe zwischen 3x3 und 6x6
+        *  - Räume überschreiben nur leere Felder
+        *  - Räume werden mit . markiert
+        */
+        private void generateRandomRooms(int roomCount)
+        {
+
+            for (int i = 0; i < roomCount; i++)
+            {
+                // Erstellt Random Zahlen zwischen 3 und 6 für die obere und Linke Wand des Raums
+                int roomWidth = random.Next(3, 6);
+                int roomHeight = random.Next(3, 6);
+
+                // Erstellt eine Random Koordinate wo der Raum spawnt
+                int roomX = random.Next(1, dungeonWidth - roomWidth - 1);
+                int roomY = random.Next(1, dungeonHeight - roomHeight - 1);
+
+                for (int y = roomY; y < roomY + roomHeight; y++)
+                {
+                    for (int x = roomX; x < roomX + roomWidth; x++)
+                    {
+                        // Überprüft ob die Koordinate schon besetzt ist
+                        if (map[x, y] != '\0')
+                        {
+                            continue;
+                        }
+                        map[x, y] = '.';
+                    }
+                }
+            }
+
+        }
+
+
+        /* 
+        * generateMaze(int startX, int startY)
+        * Erstellt ein Labyrinth ab einer Startposition.
+        *  - Bewegt sich nur in vertikal/horizontal (keine Diagonalen)
+        *  - Markiert den Pfad mit .
+        */
+        private void generateMaze(int startX, int startY)
+        {
+            // 4 mögliche Richtungen
+            int[,] directions = new int[,]
+            {              // x, y
+                { 0, -2 }, // nach oben
+                { 2, 0 },  // nach rechts
+                { 0, 2 },  // nach unten
+                { -2, 0 }  // nach links
+            };
+
+            // Direction Array zufällig anordnen
+            for (int i = 3; i > 0; i--)
+            {
+                int j = random.Next(i + 1); // 0 bis i
+                                            // Tausche i und j
+                int tempX = directions[i, 0];
+                int tempY = directions[i, 1];
+                directions[i, 0] = directions[j, 0];
+                directions[i, 1] = directions[j, 1];
+                directions[j, 0] = tempX;
+                directions[j, 1] = tempY;
+            }
+
+            // Führt den Code vier mal pro Methodenaufruf auf
+            for (int i = 0; i < 4; i++)
+            {
+                // Berechnet wo der nächste Weg hingeht
+                int targetX = startX + directions[i, 0];
+                int targetY = startY + directions[i, 1];
+
+                // Die nächste Koordinate darf nicht außerhalb des Dungeons sein
+                if (targetX < 1 || targetX > dungeonWidth - 2 || targetY < 1 || targetY > dungeonHeight - 2)
+                    continue;
+
+                // Wenn die berechnete Koordinate nicht besetzt ist
+                if (map[targetX, targetY] == '\0')
+                {
+                    // Berechnet die Zwischenkoordinate und setzt beide Koordinaten als Weg
+                    int zwischenX = startX + directions[i, 0] / 2;
+                    int zwischenY = startY + directions[i, 1] / 2;
+                    map[zwischenX, zwischenY] = '.';
+                    map[targetX, targetY] = '.';
+
+                    // Führt solange aus bis der Weg nicht mehr weitergeführt werden kann
+                    generateMaze(targetX, targetY);
+                }
+            }
+        }
+
+
+        /* 
+        * generateEnd(int startX, int startY)
+        * Wählt eine zufällige Endposition für den Dungeon und markiert sie mit E.
+        * - Endpunkt wird nur gewählt wenn er mindestens minDistance Felder vom Start entfernt ist
+        * - Gibt die Koordinaten x y zurück
+        */
+        private int[] generateEnd(int startX, int startY)
+        {
+
+            // Variablen Deklarieren
+            int endX;
+            int endY;
+            int distance;
+            int minDistance = 7; // Mindestabstand zwischen Start und Ende
+
+            // Überprüft ob der Abstand zwischen Start und Ende minDistance beträgt
+            do
+            {
+                // Erstellt Random Koordinaten für das Ende
+                endX = random.Next(1, dungeonWidth - 1);
+                endY = random.Next(1, dungeonHeight - 1);
+
+                // Rechnet den Abstand zwischen Start und Ende aus
+                distance = Math.Abs(endX - startX) + Math.Abs(endY - startY);
+
+            } while (map[endX, endY] != '.' || distance < minDistance);
+
+            map[endX, endY] = 'E';      // Speichert diese Zahlen dann im Koordinatensystem und speichert S bei diesen Koordinaten
+
+            return new int[] { endX, endY };
+
+        }
+
+
+        /* 
+        * generateObjects()
+        * Verteilt zufällig Schatzkisten T und Fallen F im Dungeon.
+        *  - Nur auf freien Feldern .
+        *  - Wahrscheinlichkeit für Objekte liegt bei 5%
+        *  - Für jedes gewählte Feld 50/50 Chance: T oder F
+        */
+        private void generateObjects()
+        {
+            for (int y = 0; y < dungeonHeight; y++)
+            {
+                for (int x = 0; x < dungeonWidth; x++)
+                {
+                    // Überspringt die Koordinate wenn sie schon belegt ist
+                    if (map[x, y] != '.')
+                        continue;
+
+                    // Setzt die Chance der Objekte auf 5%
+                    if (random.NextDouble() > 0.05)
+                        continue;
+
+                    // Entscheidet mit einer 50/50 Chance ob es eine Truhe oder eine Falle sein soll
+                    if (random.NextDouble() > 0.5)
+                    {
+                        map[x, y] = 'T';
+                    }
+                    else
+                    {
+                        map[x, y] = 'F';
+                    }
+                }
+            }
+        }
+    }
 }

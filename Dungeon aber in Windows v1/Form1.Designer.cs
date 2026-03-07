@@ -157,102 +157,102 @@
             // 
             this.tabGenTitleLabelObjects.AutoSize = true;
             this.tabGenTitleLabelObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabGenTitleLabelObjects.Location = new System.Drawing.Point(5, 231);
+            this.tabGenTitleLabelObjects.Location = new System.Drawing.Point(12, 280);
             this.tabGenTitleLabelObjects.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenTitleLabelObjects.Name = "tabGenTitleLabelObjects";
-            this.tabGenTitleLabelObjects.Size = new System.Drawing.Size(110, 13);
+            this.tabGenTitleLabelObjects.Size = new System.Drawing.Size(139, 17);
             this.tabGenTitleLabelObjects.TabIndex = 32;
             this.tabGenTitleLabelObjects.Text = "Dungeon Objekte:";
             // 
             // tabGenTextRoomHeightMax
             // 
-            this.tabGenTextRoomHeightMax.Location = new System.Drawing.Point(127, 205);
+            this.tabGenTextRoomHeightMax.Location = new System.Drawing.Point(195, 250);
             this.tabGenTextRoomHeightMax.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextRoomHeightMax.Name = "tabGenTextRoomHeightMax";
-            this.tabGenTextRoomHeightMax.Size = new System.Drawing.Size(44, 20);
+            this.tabGenTextRoomHeightMax.Size = new System.Drawing.Size(44, 22);
             this.tabGenTextRoomHeightMax.TabIndex = 31;
             // 
             // tabGenLabelRoomHeightMax
             // 
             this.tabGenLabelRoomHeightMax.AutoSize = true;
-            this.tabGenLabelRoomHeightMax.Location = new System.Drawing.Point(94, 207);
+            this.tabGenLabelRoomHeightMax.Location = new System.Drawing.Point(145, 250);
             this.tabGenLabelRoomHeightMax.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelRoomHeightMax.Name = "tabGenLabelRoomHeightMax";
-            this.tabGenLabelRoomHeightMax.Size = new System.Drawing.Size(27, 13);
+            this.tabGenLabelRoomHeightMax.Size = new System.Drawing.Size(32, 16);
             this.tabGenLabelRoomHeightMax.TabIndex = 30;
             this.tabGenLabelRoomHeightMax.Text = "Max";
             // 
             // tabGenTextRoomHeightMin
             // 
-            this.tabGenTextRoomHeightMin.Location = new System.Drawing.Point(44, 205);
+            this.tabGenTextRoomHeightMin.Location = new System.Drawing.Point(86, 250);
             this.tabGenTextRoomHeightMin.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextRoomHeightMin.Name = "tabGenTextRoomHeightMin";
-            this.tabGenTextRoomHeightMin.Size = new System.Drawing.Size(47, 20);
+            this.tabGenTextRoomHeightMin.Size = new System.Drawing.Size(47, 22);
             this.tabGenTextRoomHeightMin.TabIndex = 29;
             // 
             // tabGenLabelRoomHeightMin
             // 
             this.tabGenLabelRoomHeightMin.AutoSize = true;
-            this.tabGenLabelRoomHeightMin.Location = new System.Drawing.Point(12, 207);
+            this.tabGenLabelRoomHeightMin.Location = new System.Drawing.Point(19, 253);
             this.tabGenLabelRoomHeightMin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelRoomHeightMin.Name = "tabGenLabelRoomHeightMin";
-            this.tabGenLabelRoomHeightMin.Size = new System.Drawing.Size(24, 13);
+            this.tabGenLabelRoomHeightMin.Size = new System.Drawing.Size(28, 16);
             this.tabGenLabelRoomHeightMin.TabIndex = 28;
             this.tabGenLabelRoomHeightMin.Text = "Min";
             // 
             // tabGenLabelRoomHeight
             // 
             this.tabGenLabelRoomHeight.AutoSize = true;
-            this.tabGenLabelRoomHeight.Location = new System.Drawing.Point(12, 188);
+            this.tabGenLabelRoomHeight.Location = new System.Drawing.Point(13, 222);
             this.tabGenLabelRoomHeight.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelRoomHeight.Name = "tabGenLabelRoomHeight";
-            this.tabGenLabelRoomHeight.Size = new System.Drawing.Size(36, 13);
+            this.tabGenLabelRoomHeight.Size = new System.Drawing.Size(43, 16);
             this.tabGenLabelRoomHeight.TabIndex = 27;
             this.tabGenLabelRoomHeight.Text = "Höhe:";
             // 
             // tabGenTextRoomWidthMax
             // 
-            this.tabGenTextRoomWidthMax.Location = new System.Drawing.Point(127, 168);
+            this.tabGenTextRoomWidthMax.Location = new System.Drawing.Point(195, 203);
             this.tabGenTextRoomWidthMax.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextRoomWidthMax.Name = "tabGenTextRoomWidthMax";
-            this.tabGenTextRoomWidthMax.Size = new System.Drawing.Size(44, 20);
+            this.tabGenTextRoomWidthMax.Size = new System.Drawing.Size(44, 22);
             this.tabGenTextRoomWidthMax.TabIndex = 26;
             // 
             // tabGenLabelRoomWidthMax
             // 
             this.tabGenLabelRoomWidthMax.AutoSize = true;
-            this.tabGenLabelRoomWidthMax.Location = new System.Drawing.Point(94, 171);
+            this.tabGenLabelRoomWidthMax.Location = new System.Drawing.Point(146, 206);
             this.tabGenLabelRoomWidthMax.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelRoomWidthMax.Name = "tabGenLabelRoomWidthMax";
-            this.tabGenLabelRoomWidthMax.Size = new System.Drawing.Size(27, 13);
+            this.tabGenLabelRoomWidthMax.Size = new System.Drawing.Size(32, 16);
             this.tabGenLabelRoomWidthMax.TabIndex = 25;
             this.tabGenLabelRoomWidthMax.Text = "Max";
             // 
             // tabGenTextRoomWidthMin
             // 
-            this.tabGenTextRoomWidthMin.Location = new System.Drawing.Point(44, 168);
+            this.tabGenTextRoomWidthMin.Location = new System.Drawing.Point(86, 203);
             this.tabGenTextRoomWidthMin.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextRoomWidthMin.Name = "tabGenTextRoomWidthMin";
-            this.tabGenTextRoomWidthMin.Size = new System.Drawing.Size(47, 20);
+            this.tabGenTextRoomWidthMin.Size = new System.Drawing.Size(47, 22);
             this.tabGenTextRoomWidthMin.TabIndex = 24;
             // 
             // tabGenLabelRoomWidthMin
             // 
             this.tabGenLabelRoomWidthMin.AutoSize = true;
-            this.tabGenLabelRoomWidthMin.Location = new System.Drawing.Point(12, 171);
+            this.tabGenLabelRoomWidthMin.Location = new System.Drawing.Point(19, 206);
             this.tabGenLabelRoomWidthMin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelRoomWidthMin.Name = "tabGenLabelRoomWidthMin";
-            this.tabGenLabelRoomWidthMin.Size = new System.Drawing.Size(24, 13);
+            this.tabGenLabelRoomWidthMin.Size = new System.Drawing.Size(28, 16);
             this.tabGenLabelRoomWidthMin.TabIndex = 23;
             this.tabGenLabelRoomWidthMin.Text = "Min";
             // 
             // tabGenLabelRoomWidth
             // 
             this.tabGenLabelRoomWidth.AutoSize = true;
-            this.tabGenLabelRoomWidth.Location = new System.Drawing.Point(12, 152);
+            this.tabGenLabelRoomWidth.Location = new System.Drawing.Point(11, 179);
             this.tabGenLabelRoomWidth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelRoomWidth.Name = "tabGenLabelRoomWidth";
-            this.tabGenLabelRoomWidth.Size = new System.Drawing.Size(37, 13);
+            this.tabGenLabelRoomWidth.Size = new System.Drawing.Size(45, 16);
             this.tabGenLabelRoomWidth.TabIndex = 22;
             this.tabGenLabelRoomWidth.Text = "Breite:";
             // 
@@ -260,10 +260,10 @@
             // 
             this.tabGenTitleLabelRooms.AutoSize = true;
             this.tabGenTitleLabelRooms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabGenTitleLabelRooms.Location = new System.Drawing.Point(5, 132);
+            this.tabGenTitleLabelRooms.Location = new System.Drawing.Point(6, 149);
             this.tabGenTitleLabelRooms.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenTitleLabelRooms.Name = "tabGenTitleLabelRooms";
-            this.tabGenTitleLabelRooms.Size = new System.Drawing.Size(50, 13);
+            this.tabGenTitleLabelRooms.Size = new System.Drawing.Size(63, 17);
             this.tabGenTitleLabelRooms.TabIndex = 21;
             this.tabGenTitleLabelRooms.Text = "Räume:";
             // 
@@ -274,32 +274,32 @@
             this.tabGenTitleLabelGeneral.Location = new System.Drawing.Point(5, 11);
             this.tabGenTitleLabelGeneral.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenTitleLabelGeneral.Name = "tabGenTitleLabelGeneral";
-            this.tabGenTitleLabelGeneral.Size = new System.Drawing.Size(65, 13);
+            this.tabGenTitleLabelGeneral.Size = new System.Drawing.Size(83, 17);
             this.tabGenTitleLabelGeneral.TabIndex = 20;
             this.tabGenTitleLabelGeneral.Text = "Allgemein:";
             // 
             // tabGenLabelSeed
             // 
             this.tabGenLabelSeed.AutoSize = true;
-            this.tabGenLabelSeed.Location = new System.Drawing.Point(11, 30);
+            this.tabGenLabelSeed.Location = new System.Drawing.Point(11, 37);
             this.tabGenLabelSeed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelSeed.Name = "tabGenLabelSeed";
-            this.tabGenLabelSeed.Size = new System.Drawing.Size(79, 13);
+            this.tabGenLabelSeed.Size = new System.Drawing.Size(98, 16);
             this.tabGenLabelSeed.TabIndex = 19;
             this.tabGenLabelSeed.Text = "Dungeon Seed";
             // 
             // tabGenTextSeed
             // 
-            this.tabGenTextSeed.Location = new System.Drawing.Point(88, 28);
+            this.tabGenTextSeed.Location = new System.Drawing.Point(148, 31);
             this.tabGenTextSeed.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextSeed.Name = "tabGenTextSeed";
-            this.tabGenTextSeed.Size = new System.Drawing.Size(84, 20);
+            this.tabGenTextSeed.Size = new System.Drawing.Size(84, 22);
             this.tabGenTextSeed.TabIndex = 18;
             // 
             // tabGenDropPreset
             // 
             this.tabGenDropPreset.FormattingEnabled = true;
-            this.tabGenDropPreset.Location = new System.Drawing.Point(88, 53);
+            this.tabGenDropPreset.Location = new System.Drawing.Point(148, 53);
             this.tabGenDropPreset.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenDropPreset.Name = "tabGenDropPreset";
             this.tabGenDropPreset.Size = new System.Drawing.Size(144, 24);
@@ -309,7 +309,7 @@
             // tabGenLabelPreset
             // 
             this.tabGenLabelPreset.AutoSize = true;
-            this.tabGenLabelPreset.Location = new System.Drawing.Point(11, 54);
+            this.tabGenLabelPreset.Location = new System.Drawing.Point(11, 61);
             this.tabGenLabelPreset.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelPreset.Name = "tabGenLabelPreset";
             this.tabGenLabelPreset.Size = new System.Drawing.Size(104, 16);
@@ -319,7 +319,7 @@
             // tabGenLabelHeight
             // 
             this.tabGenLabelHeight.AutoSize = true;
-            this.tabGenLabelHeight.Location = new System.Drawing.Point(11, 110);
+            this.tabGenLabelHeight.Location = new System.Drawing.Point(11, 117);
             this.tabGenLabelHeight.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelHeight.Name = "tabGenLabelHeight";
             this.tabGenLabelHeight.Size = new System.Drawing.Size(101, 16);
@@ -329,7 +329,7 @@
             // tabGenLabelWidth
             // 
             this.tabGenLabelWidth.AutoSize = true;
-            this.tabGenLabelWidth.Location = new System.Drawing.Point(11, 82);
+            this.tabGenLabelWidth.Location = new System.Drawing.Point(11, 89);
             this.tabGenLabelWidth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelWidth.Name = "tabGenLabelWidth";
             this.tabGenLabelWidth.Size = new System.Drawing.Size(103, 16);
@@ -338,7 +338,7 @@
             // 
             // tabGenTextTrapPercent
             // 
-            this.tabGenTextTrapPercent.Location = new System.Drawing.Point(134, 279);
+            this.tabGenTextTrapPercent.Location = new System.Drawing.Point(159, 325);
             this.tabGenTextTrapPercent.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextTrapPercent.Name = "tabGenTextTrapPercent";
             this.tabGenTextTrapPercent.Size = new System.Drawing.Size(63, 22);
@@ -346,7 +346,7 @@
             // 
             // tabGenTextTreasurePercent
             // 
-            this.tabGenTextTreasurePercent.Location = new System.Drawing.Point(134, 253);
+            this.tabGenTextTreasurePercent.Location = new System.Drawing.Point(159, 299);
             this.tabGenTextTreasurePercent.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextTreasurePercent.Name = "tabGenTextTreasurePercent";
             this.tabGenTextTreasurePercent.Size = new System.Drawing.Size(63, 22);
@@ -354,7 +354,7 @@
             // 
             // tabGenTextHeight
             // 
-            this.tabGenTextHeight.Location = new System.Drawing.Point(88, 107);
+            this.tabGenTextHeight.Location = new System.Drawing.Point(148, 111);
             this.tabGenTextHeight.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextHeight.Name = "tabGenTextHeight";
             this.tabGenTextHeight.Size = new System.Drawing.Size(144, 22);
@@ -362,7 +362,7 @@
             // 
             // tabGenTextWidth
             // 
-            this.tabGenTextWidth.Location = new System.Drawing.Point(115, 58);
+            this.tabGenTextWidth.Location = new System.Drawing.Point(148, 83);
             this.tabGenTextWidth.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextWidth.Name = "tabGenTextWidth";
             this.tabGenTextWidth.Size = new System.Drawing.Size(144, 22);
@@ -371,7 +371,7 @@
             // tabGenLabelTrap
             // 
             this.tabGenLabelTrap.AutoSize = true;
-            this.tabGenLabelTrap.Location = new System.Drawing.Point(11, 282);
+            this.tabGenLabelTrap.Location = new System.Drawing.Point(18, 331);
             this.tabGenLabelTrap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelTrap.Name = "tabGenLabelTrap";
             this.tabGenLabelTrap.Size = new System.Drawing.Size(44, 16);
@@ -381,7 +381,7 @@
             // tabGenLabelTreasure
             // 
             this.tabGenLabelTreasure.AutoSize = true;
-            this.tabGenLabelTreasure.Location = new System.Drawing.Point(11, 254);
+            this.tabGenLabelTreasure.Location = new System.Drawing.Point(18, 303);
             this.tabGenLabelTreasure.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelTreasure.Name = "tabGenLabelTreasure";
             this.tabGenLabelTreasure.Size = new System.Drawing.Size(49, 16);
@@ -390,7 +390,7 @@
             // 
             // tabGenButtonTrapNo
             // 
-            this.tabGenButtonTrapNo.Location = new System.Drawing.Point(88, 279);
+            this.tabGenButtonTrapNo.Location = new System.Drawing.Point(113, 325);
             this.tabGenButtonTrapNo.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTrapNo.Name = "tabGenButtonTrapNo";
             this.tabGenButtonTrapNo.Size = new System.Drawing.Size(38, 15);
@@ -400,7 +400,7 @@
             // 
             // tabGenButtonTrapYes
             // 
-            this.tabGenButtonTrapYes.Location = new System.Drawing.Point(47, 279);
+            this.tabGenButtonTrapYes.Location = new System.Drawing.Point(72, 325);
             this.tabGenButtonTrapYes.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTrapYes.Name = "tabGenButtonTrapYes";
             this.tabGenButtonTrapYes.Size = new System.Drawing.Size(38, 15);
@@ -410,7 +410,7 @@
             // 
             // tabGenButtonTreasureNo
             // 
-            this.tabGenButtonTreasureNo.Location = new System.Drawing.Point(88, 253);
+            this.tabGenButtonTreasureNo.Location = new System.Drawing.Point(113, 299);
             this.tabGenButtonTreasureNo.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTreasureNo.Name = "tabGenButtonTreasureNo";
             this.tabGenButtonTreasureNo.Size = new System.Drawing.Size(38, 15);
@@ -420,7 +420,7 @@
             // 
             // tabGenButtonTreasureYes
             // 
-            this.tabGenButtonTreasureYes.Location = new System.Drawing.Point(47, 253);
+            this.tabGenButtonTreasureYes.Location = new System.Drawing.Point(72, 299);
             this.tabGenButtonTreasureYes.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTreasureYes.Name = "tabGenButtonTreasureYes";
             this.tabGenButtonTreasureYes.Size = new System.Drawing.Size(38, 15);
@@ -475,7 +475,7 @@
             this.tabSettingTitleLableColor.Location = new System.Drawing.Point(8, 11);
             this.tabSettingTitleLableColor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabSettingTitleLableColor.Name = "tabSettingTitleLableColor";
-            this.tabSettingTitleLableColor.Size = new System.Drawing.Size(105, 13);
+            this.tabSettingTitleLableColor.Size = new System.Drawing.Size(134, 17);
             this.tabSettingTitleLableColor.TabIndex = 18;
             this.tabSettingTitleLableColor.Text = "Dungeon Farben:";
             // 
