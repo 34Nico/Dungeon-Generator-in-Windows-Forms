@@ -105,11 +105,11 @@
             this.tabsUI.Controls.Add(this.tabPageExport);
             this.tabsUI.Dock = System.Windows.Forms.DockStyle.Left;
             this.tabsUI.Location = new System.Drawing.Point(0, 0);
-            this.tabsUI.Margin = new System.Windows.Forms.Padding(2);
-            this.tabsUI.MaximumSize = new System.Drawing.Size(280, 600);
+            this.tabsUI.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabsUI.MaximumSize = new System.Drawing.Size(373, 738);
             this.tabsUI.Name = "tabsUI";
             this.tabsUI.SelectedIndex = 0;
-            this.tabsUI.Size = new System.Drawing.Size(280, 600);
+            this.tabsUI.Size = new System.Drawing.Size(373, 738);
             this.tabsUI.TabIndex = 0;
             // 
             // tabPageGenerate
@@ -145,11 +145,11 @@
             this.tabPageGenerate.Controls.Add(this.tabGenButtonTreasureNo);
             this.tabPageGenerate.Controls.Add(this.tabGenButtonTreasureYes);
             this.tabPageGenerate.Controls.Add(this.tabGenButtonGenerate);
-            this.tabPageGenerate.Location = new System.Drawing.Point(4, 25);
-            this.tabPageGenerate.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPageGenerate.Location = new System.Drawing.Point(4, 28);
+            this.tabPageGenerate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPageGenerate.Name = "tabPageGenerate";
-            this.tabPageGenerate.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageGenerate.Size = new System.Drawing.Size(272, 571);
+            this.tabPageGenerate.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageGenerate.Size = new System.Drawing.Size(365, 706);
             this.tabPageGenerate.TabIndex = 0;
             this.tabPageGenerate.Text = "Genierung";
             // 
@@ -302,7 +302,7 @@
             this.tabGenDropPreset.Location = new System.Drawing.Point(88, 53);
             this.tabGenDropPreset.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenDropPreset.Name = "tabGenDropPreset";
-            this.tabGenDropPreset.Size = new System.Drawing.Size(109, 21);
+            this.tabGenDropPreset.Size = new System.Drawing.Size(144, 24);
             this.tabGenDropPreset.TabIndex = 17;
             this.tabGenDropPreset.SelectedIndexChanged += new System.EventHandler(this.tabGenDropPreset_SelectedIndexChanged);
             // 
@@ -312,7 +312,7 @@
             this.tabGenLabelPreset.Location = new System.Drawing.Point(11, 54);
             this.tabGenLabelPreset.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelPreset.Name = "tabGenLabelPreset";
-            this.tabGenLabelPreset.Size = new System.Drawing.Size(84, 13);
+            this.tabGenLabelPreset.Size = new System.Drawing.Size(104, 16);
             this.tabGenLabelPreset.TabIndex = 16;
             this.tabGenLabelPreset.Text = "Dungeon Preset";
             // 
@@ -322,7 +322,7 @@
             this.tabGenLabelHeight.Location = new System.Drawing.Point(11, 110);
             this.tabGenLabelHeight.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelHeight.Name = "tabGenLabelHeight";
-            this.tabGenLabelHeight.Size = new System.Drawing.Size(83, 13);
+            this.tabGenLabelHeight.Size = new System.Drawing.Size(101, 16);
             this.tabGenLabelHeight.TabIndex = 15;
             this.tabGenLabelHeight.Text = "Dungeon  Höhe";
             // 
@@ -332,7 +332,7 @@
             this.tabGenLabelWidth.Location = new System.Drawing.Point(11, 82);
             this.tabGenLabelWidth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelWidth.Name = "tabGenLabelWidth";
-            this.tabGenLabelWidth.Size = new System.Drawing.Size(84, 13);
+            this.tabGenLabelWidth.Size = new System.Drawing.Size(103, 16);
             this.tabGenLabelWidth.TabIndex = 14;
             this.tabGenLabelWidth.Text = "Dungeon  Breite";
             // 
@@ -341,7 +341,7 @@
             this.tabGenTextTrapPercent.Location = new System.Drawing.Point(134, 279);
             this.tabGenTextTrapPercent.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextTrapPercent.Name = "tabGenTextTrapPercent";
-            this.tabGenTextTrapPercent.Size = new System.Drawing.Size(48, 20);
+            this.tabGenTextTrapPercent.Size = new System.Drawing.Size(63, 22);
             this.tabGenTextTrapPercent.TabIndex = 13;
             // 
             // tabGenTextTreasurePercent
@@ -349,7 +349,7 @@
             this.tabGenTextTreasurePercent.Location = new System.Drawing.Point(134, 253);
             this.tabGenTextTreasurePercent.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextTreasurePercent.Name = "tabGenTextTreasurePercent";
-            this.tabGenTextTreasurePercent.Size = new System.Drawing.Size(48, 20);
+            this.tabGenTextTreasurePercent.Size = new System.Drawing.Size(63, 22);
             this.tabGenTextTreasurePercent.TabIndex = 12;
             // 
             // tabGenTextHeight
@@ -357,15 +357,15 @@
             this.tabGenTextHeight.Location = new System.Drawing.Point(88, 107);
             this.tabGenTextHeight.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextHeight.Name = "tabGenTextHeight";
-            this.tabGenTextHeight.Size = new System.Drawing.Size(109, 20);
+            this.tabGenTextHeight.Size = new System.Drawing.Size(144, 22);
             this.tabGenTextHeight.TabIndex = 11;
             // 
             // tabGenTextWidth
             // 
-            this.tabGenTextWidth.Location = new System.Drawing.Point(88, 80);
+            this.tabGenTextWidth.Location = new System.Drawing.Point(115, 58);
             this.tabGenTextWidth.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextWidth.Name = "tabGenTextWidth";
-            this.tabGenTextWidth.Size = new System.Drawing.Size(109, 20);
+            this.tabGenTextWidth.Size = new System.Drawing.Size(144, 22);
             this.tabGenTextWidth.TabIndex = 10;
             // 
             // tabGenLabelTrap
@@ -374,7 +374,7 @@
             this.tabGenLabelTrap.Location = new System.Drawing.Point(11, 282);
             this.tabGenLabelTrap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelTrap.Name = "tabGenLabelTrap";
-            this.tabGenLabelTrap.Size = new System.Drawing.Size(35, 13);
+            this.tabGenLabelTrap.Size = new System.Drawing.Size(44, 16);
             this.tabGenLabelTrap.TabIndex = 9;
             this.tabGenLabelTrap.Text = "Fallen";
             // 
@@ -384,7 +384,7 @@
             this.tabGenLabelTreasure.Location = new System.Drawing.Point(11, 254);
             this.tabGenLabelTreasure.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelTreasure.Name = "tabGenLabelTreasure";
-            this.tabGenLabelTreasure.Size = new System.Drawing.Size(41, 13);
+            this.tabGenLabelTreasure.Size = new System.Drawing.Size(49, 16);
             this.tabGenLabelTreasure.TabIndex = 8;
             this.tabGenLabelTreasure.Text = "Truhen";
             // 
@@ -434,7 +434,7 @@
             this.tabGenButtonGenerate.Location = new System.Drawing.Point(37, 398);
             this.tabGenButtonGenerate.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonGenerate.Name = "tabGenButtonGenerate";
-            this.tabGenButtonGenerate.Size = new System.Drawing.Size(177, 54);
+            this.tabGenButtonGenerate.Size = new System.Drawing.Size(236, 66);
             this.tabGenButtonGenerate.TabIndex = 1;
             this.tabGenButtonGenerate.Text = "Generieren starten";
             this.tabGenButtonGenerate.UseVisualStyleBackColor = true;
@@ -460,11 +460,11 @@
             this.tabPageSettings.Controls.Add(this.tabSettingLabelEnd);
             this.tabPageSettings.Controls.Add(this.tabSettingLabelStart);
             this.tabPageSettings.Controls.Add(this.tabSettingDropStart);
-            this.tabPageSettings.Location = new System.Drawing.Point(4, 25);
-            this.tabPageSettings.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPageSettings.Location = new System.Drawing.Point(4, 28);
+            this.tabPageSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPageSettings.Name = "tabPageSettings";
-            this.tabPageSettings.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageSettings.Size = new System.Drawing.Size(272, 571);
+            this.tabPageSettings.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageSettings.Size = new System.Drawing.Size(365, 706);
             this.tabPageSettings.TabIndex = 1;
             this.tabPageSettings.Text = "Einstellungen";
             // 
@@ -504,17 +504,19 @@
             // tabSettingLabelConfigExpImp
             // 
             this.tabSettingLabelConfigExpImp.AutoSize = true;
-            this.tabSettingLabelConfigExpImp.Location = new System.Drawing.Point(16, 497);
+            this.tabSettingLabelConfigExpImp.Location = new System.Drawing.Point(21, 612);
+            this.tabSettingLabelConfigExpImp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tabSettingLabelConfigExpImp.Name = "tabSettingLabelConfigExpImp";
-            this.tabSettingLabelConfigExpImp.Size = new System.Drawing.Size(182, 13);
+            this.tabSettingLabelConfigExpImp.Size = new System.Drawing.Size(226, 16);
             this.tabSettingLabelConfigExpImp.TabIndex = 13;
             this.tabSettingLabelConfigExpImp.Text = "Konfiguration Importieren/Exportieren";
             // 
             // tabSettingTextConfigExpImp
             // 
-            this.tabSettingTextConfigExpImp.Location = new System.Drawing.Point(5, 517);
+            this.tabSettingTextConfigExpImp.Location = new System.Drawing.Point(7, 636);
+            this.tabSettingTextConfigExpImp.Margin = new System.Windows.Forms.Padding(4);
             this.tabSettingTextConfigExpImp.Name = "tabSettingTextConfigExpImp";
-            this.tabSettingTextConfigExpImp.Size = new System.Drawing.Size(262, 20);
+            this.tabSettingTextConfigExpImp.Size = new System.Drawing.Size(348, 22);
             this.tabSettingTextConfigExpImp.TabIndex = 12;
             // 
             // tabSettingDropWalls
@@ -523,7 +525,7 @@
             this.tabSettingDropWalls.Location = new System.Drawing.Point(68, 132);
             this.tabSettingDropWalls.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingDropWalls.Name = "tabSettingDropWalls";
-            this.tabSettingDropWalls.Size = new System.Drawing.Size(92, 21);
+            this.tabSettingDropWalls.Size = new System.Drawing.Size(121, 24);
             this.tabSettingDropWalls.TabIndex = 11;
             // 
             // tabSettingLabelWalls
@@ -532,7 +534,7 @@
             this.tabSettingLabelWalls.Location = new System.Drawing.Point(12, 134);
             this.tabSettingLabelWalls.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabSettingLabelWalls.Name = "tabSettingLabelWalls";
-            this.tabSettingLabelWalls.Size = new System.Drawing.Size(42, 13);
+            this.tabSettingLabelWalls.Size = new System.Drawing.Size(51, 16);
             this.tabSettingLabelWalls.TabIndex = 10;
             this.tabSettingLabelWalls.Text = "Wände";
             // 
@@ -542,7 +544,7 @@
             this.tabSettingDropFloor.Location = new System.Drawing.Point(68, 111);
             this.tabSettingDropFloor.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingDropFloor.Name = "tabSettingDropFloor";
-            this.tabSettingDropFloor.Size = new System.Drawing.Size(92, 21);
+            this.tabSettingDropFloor.Size = new System.Drawing.Size(121, 24);
             this.tabSettingDropFloor.TabIndex = 9;
             // 
             // tabSettingLabelFloor
@@ -551,7 +553,7 @@
             this.tabSettingLabelFloor.Location = new System.Drawing.Point(12, 114);
             this.tabSettingLabelFloor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabSettingLabelFloor.Name = "tabSettingLabelFloor";
-            this.tabSettingLabelFloor.Size = new System.Drawing.Size(36, 13);
+            this.tabSettingLabelFloor.Size = new System.Drawing.Size(44, 16);
             this.tabSettingLabelFloor.TabIndex = 8;
             this.tabSettingLabelFloor.Text = "Wege";
             // 
@@ -561,7 +563,7 @@
             this.tabSettingDropTrap.Location = new System.Drawing.Point(68, 91);
             this.tabSettingDropTrap.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingDropTrap.Name = "tabSettingDropTrap";
-            this.tabSettingDropTrap.Size = new System.Drawing.Size(92, 21);
+            this.tabSettingDropTrap.Size = new System.Drawing.Size(121, 24);
             this.tabSettingDropTrap.TabIndex = 7;
             // 
             // tabSettingDropTreasure
@@ -570,7 +572,7 @@
             this.tabSettingDropTreasure.Location = new System.Drawing.Point(68, 71);
             this.tabSettingDropTreasure.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingDropTreasure.Name = "tabSettingDropTreasure";
-            this.tabSettingDropTreasure.Size = new System.Drawing.Size(92, 21);
+            this.tabSettingDropTreasure.Size = new System.Drawing.Size(121, 24);
             this.tabSettingDropTreasure.TabIndex = 6;
             // 
             // tabSettingDropEnd
@@ -579,7 +581,7 @@
             this.tabSettingDropEnd.Location = new System.Drawing.Point(68, 50);
             this.tabSettingDropEnd.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingDropEnd.Name = "tabSettingDropEnd";
-            this.tabSettingDropEnd.Size = new System.Drawing.Size(92, 21);
+            this.tabSettingDropEnd.Size = new System.Drawing.Size(121, 24);
             this.tabSettingDropEnd.TabIndex = 5;
             // 
             // tabSettingLabelTraps
@@ -588,7 +590,7 @@
             this.tabSettingLabelTraps.Location = new System.Drawing.Point(12, 93);
             this.tabSettingLabelTraps.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabSettingLabelTraps.Name = "tabSettingLabelTraps";
-            this.tabSettingLabelTraps.Size = new System.Drawing.Size(35, 13);
+            this.tabSettingLabelTraps.Size = new System.Drawing.Size(44, 16);
             this.tabSettingLabelTraps.TabIndex = 4;
             this.tabSettingLabelTraps.Text = "Fallen";
             // 
@@ -598,7 +600,7 @@
             this.tabSettingLabelTreasure.Location = new System.Drawing.Point(12, 73);
             this.tabSettingLabelTreasure.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabSettingLabelTreasure.Name = "tabSettingLabelTreasure";
-            this.tabSettingLabelTreasure.Size = new System.Drawing.Size(41, 13);
+            this.tabSettingLabelTreasure.Size = new System.Drawing.Size(49, 16);
             this.tabSettingLabelTreasure.TabIndex = 3;
             this.tabSettingLabelTreasure.Text = "Truhen";
             // 
@@ -608,7 +610,7 @@
             this.tabSettingLabelEnd.Location = new System.Drawing.Point(12, 53);
             this.tabSettingLabelEnd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabSettingLabelEnd.Name = "tabSettingLabelEnd";
-            this.tabSettingLabelEnd.Size = new System.Drawing.Size(24, 13);
+            this.tabSettingLabelEnd.Size = new System.Drawing.Size(29, 16);
             this.tabSettingLabelEnd.TabIndex = 2;
             this.tabSettingLabelEnd.Text = "Ziel";
             // 
@@ -618,7 +620,7 @@
             this.tabSettingLabelStart.Location = new System.Drawing.Point(12, 32);
             this.tabSettingLabelStart.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabSettingLabelStart.Name = "tabSettingLabelStart";
-            this.tabSettingLabelStart.Size = new System.Drawing.Size(29, 13);
+            this.tabSettingLabelStart.Size = new System.Drawing.Size(34, 16);
             this.tabSettingLabelStart.TabIndex = 1;
             this.tabSettingLabelStart.Text = "Start";
             // 
@@ -628,7 +630,7 @@
             this.tabSettingDropStart.Location = new System.Drawing.Point(68, 30);
             this.tabSettingDropStart.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingDropStart.Name = "tabSettingDropStart";
-            this.tabSettingDropStart.Size = new System.Drawing.Size(92, 21);
+            this.tabSettingDropStart.Size = new System.Drawing.Size(121, 24);
             this.tabSettingDropStart.TabIndex = 0;
             // 
             // tabPageExport
@@ -639,20 +641,20 @@
             this.tabPageExport.Controls.Add(this.tabExportTextFilePath);
             this.tabPageExport.Controls.Add(this.tabExportTextFileName);
             this.tabPageExport.Controls.Add(this.tabExportError);
-            this.tabPageExport.Location = new System.Drawing.Point(4, 25);
-            this.tabPageExport.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPageExport.Location = new System.Drawing.Point(4, 28);
+            this.tabPageExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPageExport.Name = "tabPageExport";
-            this.tabPageExport.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageExport.Size = new System.Drawing.Size(272, 571);
+            this.tabPageExport.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageExport.Size = new System.Drawing.Size(365, 706);
             this.tabPageExport.TabIndex = 2;
             this.tabPageExport.Text = "Export";
             // 
             // tabExportButtonRandomName
             // 
-            this.tabExportButtonRandomName.Location = new System.Drawing.Point(146, 62);
-            this.tabExportButtonRandomName.Margin = new System.Windows.Forms.Padding(2);
+            this.tabExportButtonRandomName.Location = new System.Drawing.Point(195, 76);
+            this.tabExportButtonRandomName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabExportButtonRandomName.Name = "tabExportButtonRandomName";
-            this.tabExportButtonRandomName.Size = new System.Drawing.Size(85, 19);
+            this.tabExportButtonRandomName.Size = new System.Drawing.Size(113, 23);
             this.tabExportButtonRandomName.TabIndex = 4;
             this.tabExportButtonRandomName.Text = "Zufällig";
             this.tabExportButtonRandomName.UseVisualStyleBackColor = true;
@@ -660,39 +662,38 @@
             // 
             // tabExportButtonExport
             // 
-            this.tabExportButtonExport.Location = new System.Drawing.Point(94, 136);
-            this.tabExportButtonExport.Margin = new System.Windows.Forms.Padding(2);
+            this.tabExportButtonExport.Location = new System.Drawing.Point(125, 167);
+            this.tabExportButtonExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabExportButtonExport.Name = "tabExportButtonExport";
-            this.tabExportButtonExport.Size = new System.Drawing.Size(85, 19);
+            this.tabExportButtonExport.Size = new System.Drawing.Size(113, 23);
             this.tabExportButtonExport.TabIndex = 3;
             this.tabExportButtonExport.Text = "Exportieren";
             this.tabExportButtonExport.UseVisualStyleBackColor = true;
             // 
             // tabExportTextFilePath
             // 
-            this.tabExportTextFilePath.Location = new System.Drawing.Point(37, 95);
-            this.tabExportTextFilePath.Margin = new System.Windows.Forms.Padding(2);
+            this.tabExportTextFilePath.Location = new System.Drawing.Point(49, 117);
+            this.tabExportTextFilePath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabExportTextFilePath.Name = "tabExportTextFilePath";
-            this.tabExportTextFilePath.Size = new System.Drawing.Size(194, 20);
+            this.tabExportTextFilePath.Size = new System.Drawing.Size(257, 22);
             this.tabExportTextFilePath.TabIndex = 2;
             this.tabExportTextFilePath.Text = "Path";
             // 
             // tabExportTextFileName
             // 
-            this.tabExportTextFileName.Location = new System.Drawing.Point(37, 61);
-            this.tabExportTextFileName.Margin = new System.Windows.Forms.Padding(2);
+            this.tabExportTextFileName.Location = new System.Drawing.Point(49, 75);
+            this.tabExportTextFileName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabExportTextFileName.Name = "tabExportTextFileName";
-            this.tabExportTextFileName.Size = new System.Drawing.Size(101, 20);
+            this.tabExportTextFileName.Size = new System.Drawing.Size(133, 22);
             this.tabExportTextFileName.TabIndex = 1;
             this.tabExportTextFileName.Text = "Name";
             // 
             // tabExportError
             // 
             this.tabExportError.AutoSize = true;
-            this.tabExportError.Location = new System.Drawing.Point(4, 18);
-            this.tabExportError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.tabExportError.Location = new System.Drawing.Point(5, 22);
             this.tabExportError.Name = "tabExportError";
-            this.tabExportError.Size = new System.Drawing.Size(91, 13);
+            this.tabExportError.Size = new System.Drawing.Size(112, 16);
             this.tabExportError.TabIndex = 0;
             this.tabExportError.Text = "BischtDuDeppat?";
             // 
@@ -701,9 +702,9 @@
             this.panelDungeon.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panelDungeon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDungeon.Location = new System.Drawing.Point(0, 0);
-            this.panelDungeon.Margin = new System.Windows.Forms.Padding(2);
+            this.panelDungeon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelDungeon.Name = "panelDungeon";
-            this.panelDungeon.Size = new System.Drawing.Size(1184, 661);
+            this.panelDungeon.Size = new System.Drawing.Size(1579, 814);
             this.panelDungeon.TabIndex = 1;
             // 
             // panelUserInterface
@@ -714,9 +715,9 @@
             this.panelUserInterface.Controls.Add(this.tabsUI);
             this.panelUserInterface.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelUserInterface.Location = new System.Drawing.Point(0, 0);
-            this.panelUserInterface.Margin = new System.Windows.Forms.Padding(2);
+            this.panelUserInterface.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelUserInterface.Name = "panelUserInterface";
-            this.panelUserInterface.Size = new System.Drawing.Size(282, 661);
+            this.panelUserInterface.Size = new System.Drawing.Size(375, 814);
             this.panelUserInterface.TabIndex = 2;
             // 
             // buttonQuit
@@ -724,10 +725,10 @@
             this.buttonQuit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonQuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonQuit.ForeColor = System.Drawing.Color.White;
-            this.buttonQuit.Location = new System.Drawing.Point(38, 612);
-            this.buttonQuit.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonQuit.Location = new System.Drawing.Point(51, 753);
+            this.buttonQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonQuit.Name = "buttonQuit";
-            this.buttonQuit.Size = new System.Drawing.Size(202, 37);
+            this.buttonQuit.Size = new System.Drawing.Size(269, 46);
             this.buttonQuit.TabIndex = 1;
             this.buttonQuit.Text = "Beenden";
             this.buttonQuit.UseVisualStyleBackColor = false;
@@ -747,13 +748,13 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 661);
+            this.ClientSize = new System.Drawing.Size(1579, 814);
             this.Controls.Add(this.panelUserInterface);
             this.Controls.Add(this.panelDungeon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Dungeon Generator";

@@ -66,6 +66,11 @@ namespace Dungeon_aber_in_Windows_v1
         int settingsFloorColor = 6;
         int settingsWallColor = 7;
 
+        int minRoomSizeWidth = 3;
+        int maxRoomSizeWidth = 7;
+        int minRoomSizeHeight = 3;
+        int maxRoomSizeHeight = 7;
+
         // Export Defaults
         string exportFileName = "Dungeon";
         string exportFilePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -74,6 +79,7 @@ namespace Dungeon_aber_in_Windows_v1
         {
             InitializeComponent();
             loadUserInterfaceDefaults();
+
         }
 
         private void loadUserInterfaceDefaults()
@@ -88,6 +94,7 @@ namespace Dungeon_aber_in_Windows_v1
             tabGenTextTrapPercent.Text = dungeonTrapPercent.ToString();
             tabGenTextTreasurePercent.Text = dungeonTreasurePercent.ToString();
 
+            for (int i = 0; i < presetNames.Length; i++)
             tabGenTextRoomWidthMin.Text = dungeonMinRoomSizeWidth.ToString();
             tabGenTextRoomWidthMax.Text = dungeonMaxRoomSizeWidth.ToString();
             tabGenTextRoomHeightMin.Text = dungeonMinRoomSizeHeight.ToString();
