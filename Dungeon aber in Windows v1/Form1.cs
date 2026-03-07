@@ -37,7 +37,7 @@ namespace Dungeon_aber_in_Windows_v1
 
         static char[,] map;
 
-        static string[] colors = new string[] { "Rot", "Grüner", "Blau", "Gelb", "Türkis", "Lila", "Weiß", "Grau" };
+        static string[] colors = new string[] { "Rot", "Grün", "Blau", "Gelb", "Türkis", "Lila", "Weiß", "Grau" };
 
         static string[] presetNames = new string[] { "Small", "Medium", "Large", "Goldkammer", "Hölle" };
         int[,] presets =
