@@ -31,6 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.tabsUI = new System.Windows.Forms.TabControl();
             this.tabPageGenerate = new System.Windows.Forms.TabPage();
+            this.tabGenTextRoomCountMax = new System.Windows.Forms.TextBox();
+            this.tabGenLabelRoomCountMax = new System.Windows.Forms.Label();
+            this.tabGenTextRoomCountMin = new System.Windows.Forms.TextBox();
+            this.tabGenLabelRoomCountMin = new System.Windows.Forms.Label();
+            this.tabGenLabelRoomCount = new System.Windows.Forms.Label();
             this.tabGenTitleLabelObjects = new System.Windows.Forms.Label();
             this.tabGenTextRoomHeightMax = new System.Windows.Forms.TextBox();
             this.tabGenLabelRoomHeightMax = new System.Windows.Forms.Label();
@@ -86,25 +91,22 @@
             this.tabExportTextFileName = new System.Windows.Forms.TextBox();
             this.tabExportError = new System.Windows.Forms.Label();
             this.panelDungeon = new System.Windows.Forms.Panel();
+            this.statsAusgabeLabel = new System.Windows.Forms.Label();
+            this.dungeonAnzeigeLabel = new System.Windows.Forms.Label();
+            this.statsAnzeige = new System.Windows.Forms.RichTextBox();
             this.dungeonAnzeige = new System.Windows.Forms.RichTextBox();
             this.panelUserInterface = new System.Windows.Forms.Panel();
             this.buttonQuit = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.statsAnzeige = new System.Windows.Forms.RichTextBox();
-            this.dungeonAnzeigeLabel = new System.Windows.Forms.Label();
-            this.statsAusgabeLabel = new System.Windows.Forms.Label();
-            this.tabGenTextRoomCountMax = new System.Windows.Forms.TextBox();
-            this.tabGenLabelRoomCountMax = new System.Windows.Forms.Label();
-            this.tabGenTextRoomCountMin = new System.Windows.Forms.TextBox();
-            this.tabGenLabelRoomCountMin = new System.Windows.Forms.Label();
-            this.tabGenLabelRoomCount = new System.Windows.Forms.Label();
+            this.dungeonZoomSlider = new System.Windows.Forms.TrackBar();
             this.tabsUI.SuspendLayout();
             this.tabPageGenerate.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
             this.tabPageExport.SuspendLayout();
             this.panelDungeon.SuspendLayout();
             this.panelUserInterface.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dungeonZoomSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // tabsUI
@@ -167,6 +169,52 @@
             this.tabPageGenerate.Size = new System.Drawing.Size(272, 571);
             this.tabPageGenerate.TabIndex = 0;
             this.tabPageGenerate.Text = "Genierung";
+            // 
+            // tabGenTextRoomCountMax
+            // 
+            this.tabGenTextRoomCountMax.Location = new System.Drawing.Point(146, 164);
+            this.tabGenTextRoomCountMax.Margin = new System.Windows.Forms.Padding(2);
+            this.tabGenTextRoomCountMax.Name = "tabGenTextRoomCountMax";
+            this.tabGenTextRoomCountMax.Size = new System.Drawing.Size(41, 20);
+            this.tabGenTextRoomCountMax.TabIndex = 37;
+            // 
+            // tabGenLabelRoomCountMax
+            // 
+            this.tabGenLabelRoomCountMax.AutoSize = true;
+            this.tabGenLabelRoomCountMax.Location = new System.Drawing.Point(108, 167);
+            this.tabGenLabelRoomCountMax.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.tabGenLabelRoomCountMax.Name = "tabGenLabelRoomCountMax";
+            this.tabGenLabelRoomCountMax.Size = new System.Drawing.Size(27, 13);
+            this.tabGenLabelRoomCountMax.TabIndex = 36;
+            this.tabGenLabelRoomCountMax.Text = "Max";
+            // 
+            // tabGenTextRoomCountMin
+            // 
+            this.tabGenTextRoomCountMin.Location = new System.Drawing.Point(50, 163);
+            this.tabGenTextRoomCountMin.Margin = new System.Windows.Forms.Padding(2);
+            this.tabGenTextRoomCountMin.Name = "tabGenTextRoomCountMin";
+            this.tabGenTextRoomCountMin.Size = new System.Drawing.Size(36, 20);
+            this.tabGenTextRoomCountMin.TabIndex = 35;
+            // 
+            // tabGenLabelRoomCountMin
+            // 
+            this.tabGenLabelRoomCountMin.AutoSize = true;
+            this.tabGenLabelRoomCountMin.Location = new System.Drawing.Point(22, 167);
+            this.tabGenLabelRoomCountMin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.tabGenLabelRoomCountMin.Name = "tabGenLabelRoomCountMin";
+            this.tabGenLabelRoomCountMin.Size = new System.Drawing.Size(24, 13);
+            this.tabGenLabelRoomCountMin.TabIndex = 34;
+            this.tabGenLabelRoomCountMin.Text = "Min";
+            // 
+            // tabGenLabelRoomCount
+            // 
+            this.tabGenLabelRoomCount.AutoSize = true;
+            this.tabGenLabelRoomCount.Location = new System.Drawing.Point(10, 144);
+            this.tabGenLabelRoomCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.tabGenLabelRoomCount.Name = "tabGenLabelRoomCount";
+            this.tabGenLabelRoomCount.Size = new System.Drawing.Size(37, 13);
+            this.tabGenLabelRoomCount.TabIndex = 33;
+            this.tabGenLabelRoomCount.Text = "Breite:";
             // 
             // tabGenTitleLabelObjects
             // 
@@ -714,6 +762,7 @@
             // panelDungeon
             // 
             this.panelDungeon.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelDungeon.Controls.Add(this.dungeonZoomSlider);
             this.panelDungeon.Controls.Add(this.statsAusgabeLabel);
             this.panelDungeon.Controls.Add(this.dungeonAnzeigeLabel);
             this.panelDungeon.Controls.Add(this.statsAnzeige);
@@ -724,6 +773,44 @@
             this.panelDungeon.Name = "panelDungeon";
             this.panelDungeon.Size = new System.Drawing.Size(1184, 661);
             this.panelDungeon.TabIndex = 1;
+            // 
+            // statsAusgabeLabel
+            // 
+            this.statsAusgabeLabel.AutoSize = true;
+            this.statsAusgabeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.statsAusgabeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statsAusgabeLabel.Location = new System.Drawing.Point(914, 11);
+            this.statsAusgabeLabel.Name = "statsAusgabeLabel";
+            this.statsAusgabeLabel.Size = new System.Drawing.Size(217, 29);
+            this.statsAusgabeLabel.TabIndex = 3;
+            this.statsAusgabeLabel.Text = "Dungeon Statistik";
+            // 
+            // dungeonAnzeigeLabel
+            // 
+            this.dungeonAnzeigeLabel.AutoSize = true;
+            this.dungeonAnzeigeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.dungeonAnzeigeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dungeonAnzeigeLabel.Location = new System.Drawing.Point(458, 12);
+            this.dungeonAnzeigeLabel.Name = "dungeonAnzeigeLabel";
+            this.dungeonAnzeigeLabel.Size = new System.Drawing.Size(227, 29);
+            this.dungeonAnzeigeLabel.TabIndex = 2;
+            this.dungeonAnzeigeLabel.Text = "Dungeon Ausgabe";
+            // 
+            // statsAnzeige
+            // 
+            this.statsAnzeige.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.statsAnzeige.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.statsAnzeige.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.statsAnzeige.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statsAnzeige.ForeColor = System.Drawing.Color.White;
+            this.statsAnzeige.Location = new System.Drawing.Point(874, 11);
+            this.statsAnzeige.Margin = new System.Windows.Forms.Padding(2);
+            this.statsAnzeige.Name = "statsAnzeige";
+            this.statsAnzeige.ReadOnly = true;
+            this.statsAnzeige.Size = new System.Drawing.Size(299, 639);
+            this.statsAnzeige.TabIndex = 1;
+            this.statsAnzeige.Text = "";
+            this.statsAnzeige.WordWrap = false;
             // 
             // dungeonAnzeige
             // 
@@ -780,88 +867,14 @@
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
-            // statsAnzeige
+            // dungeonZoomSlider
             // 
-            this.statsAnzeige.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.statsAnzeige.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.statsAnzeige.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.statsAnzeige.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statsAnzeige.ForeColor = System.Drawing.Color.White;
-            this.statsAnzeige.Location = new System.Drawing.Point(874, 11);
-            this.statsAnzeige.Margin = new System.Windows.Forms.Padding(2);
-            this.statsAnzeige.Name = "statsAnzeige";
-            this.statsAnzeige.ReadOnly = true;
-            this.statsAnzeige.Size = new System.Drawing.Size(299, 639);
-            this.statsAnzeige.TabIndex = 1;
-            this.statsAnzeige.Text = "";
-            // 
-            // dungeonAnzeigeLabel
-            // 
-            this.dungeonAnzeigeLabel.AutoSize = true;
-            this.dungeonAnzeigeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.dungeonAnzeigeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dungeonAnzeigeLabel.Location = new System.Drawing.Point(459, 11);
-            this.dungeonAnzeigeLabel.Name = "dungeonAnzeigeLabel";
-            this.dungeonAnzeigeLabel.Size = new System.Drawing.Size(227, 29);
-            this.dungeonAnzeigeLabel.TabIndex = 2;
-            this.dungeonAnzeigeLabel.Text = "Dungeon Ausgabe";
-            // 
-            // statsAusgabeLabel
-            // 
-            this.statsAusgabeLabel.AutoSize = true;
-            this.statsAusgabeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.statsAusgabeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statsAusgabeLabel.Location = new System.Drawing.Point(914, 11);
-            this.statsAusgabeLabel.Name = "statsAusgabeLabel";
-            this.statsAusgabeLabel.Size = new System.Drawing.Size(217, 29);
-            this.statsAusgabeLabel.TabIndex = 3;
-            this.statsAusgabeLabel.Text = "Dungeon Statistik";
-            // 
-            // tabGenTextRoomCountMax
-            // 
-            this.tabGenTextRoomCountMax.Location = new System.Drawing.Point(146, 164);
-            this.tabGenTextRoomCountMax.Margin = new System.Windows.Forms.Padding(2);
-            this.tabGenTextRoomCountMax.Name = "tabGenTextRoomCountMax";
-            this.tabGenTextRoomCountMax.Size = new System.Drawing.Size(41, 20);
-            this.tabGenTextRoomCountMax.TabIndex = 37;
-            // 
-            // tabGenLabelRoomCountMax
-            // 
-            this.tabGenLabelRoomCountMax.AutoSize = true;
-            this.tabGenLabelRoomCountMax.Location = new System.Drawing.Point(108, 167);
-            this.tabGenLabelRoomCountMax.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.tabGenLabelRoomCountMax.Name = "tabGenLabelRoomCountMax";
-            this.tabGenLabelRoomCountMax.Size = new System.Drawing.Size(27, 13);
-            this.tabGenLabelRoomCountMax.TabIndex = 36;
-            this.tabGenLabelRoomCountMax.Text = "Max";
-            // 
-            // tabGenTextRoomCountMin
-            // 
-            this.tabGenTextRoomCountMin.Location = new System.Drawing.Point(50, 163);
-            this.tabGenTextRoomCountMin.Margin = new System.Windows.Forms.Padding(2);
-            this.tabGenTextRoomCountMin.Name = "tabGenTextRoomCountMin";
-            this.tabGenTextRoomCountMin.Size = new System.Drawing.Size(36, 20);
-            this.tabGenTextRoomCountMin.TabIndex = 35;
-            // 
-            // tabGenLabelRoomCountMin
-            // 
-            this.tabGenLabelRoomCountMin.AutoSize = true;
-            this.tabGenLabelRoomCountMin.Location = new System.Drawing.Point(22, 167);
-            this.tabGenLabelRoomCountMin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.tabGenLabelRoomCountMin.Name = "tabGenLabelRoomCountMin";
-            this.tabGenLabelRoomCountMin.Size = new System.Drawing.Size(24, 13);
-            this.tabGenLabelRoomCountMin.TabIndex = 34;
-            this.tabGenLabelRoomCountMin.Text = "Min";
-            // 
-            // tabGenLabelRoomCount
-            // 
-            this.tabGenLabelRoomCount.AutoSize = true;
-            this.tabGenLabelRoomCount.Location = new System.Drawing.Point(10, 144);
-            this.tabGenLabelRoomCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.tabGenLabelRoomCount.Name = "tabGenLabelRoomCount";
-            this.tabGenLabelRoomCount.Size = new System.Drawing.Size(37, 13);
-            this.tabGenLabelRoomCount.TabIndex = 33;
-            this.tabGenLabelRoomCount.Text = "Breite:";
+            this.dungeonZoomSlider.Location = new System.Drawing.Point(795, 24);
+            this.dungeonZoomSlider.Name = "dungeonZoomSlider";
+            this.dungeonZoomSlider.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.dungeonZoomSlider.Size = new System.Drawing.Size(45, 230);
+            this.dungeonZoomSlider.TabIndex = 4;
+            this.dungeonZoomSlider.Scroll += new System.EventHandler(this.dungeonZoomSlider_Scroll);
             // 
             // Form1
             // 
@@ -885,6 +898,7 @@
             this.panelDungeon.ResumeLayout(false);
             this.panelDungeon.PerformLayout();
             this.panelUserInterface.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dungeonZoomSlider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -962,6 +976,7 @@
         private System.Windows.Forms.TextBox tabGenTextRoomCountMin;
         private System.Windows.Forms.Label tabGenLabelRoomCountMin;
         private System.Windows.Forms.Label tabGenLabelRoomCount;
+        internal System.Windows.Forms.TrackBar dungeonZoomSlider;
     }
 }
 

@@ -15,7 +15,6 @@ namespace Dungeon_aber_in_Windows_v1
          *  - Dungeon exportieren
          *      - Dungeon als Textdatei exportieren
          *      - Toggle, ob man die Settings mit exportieren möchte oder nicht
-         *  - Legende + Dungeon Statistik anzeigen
          *  - vielleicht Dungeons laden können
          */
 
@@ -31,7 +30,9 @@ namespace Dungeon_aber_in_Windows_v1
          *  - Exportieren/Importieren der Einstellungen als String hinzufügen
          *  - Dungeon Seedbasiert machen
          *  - Dungeon generieren
-         *      - Dungeon als 2D Array generieren und irgendwie schön darstellen
+         *  - Dungeon als 2D Array generieren und irgendwie schön darstellen
+         *  - Legende + Dungeon Statistik anzeigen
+         *  - Dungeon zoomen können mit einem Slider
          */
 
         Random random = new Random();
@@ -86,6 +87,8 @@ namespace Dungeon_aber_in_Windows_v1
         int finishedTreasureCount = 0;
         int finishedTrapCount = 0;
         int finishedRoomCount = 0;
+
+        // Dungeon Zoom
 
         public Form1()
         {
@@ -152,6 +155,10 @@ namespace Dungeon_aber_in_Windows_v1
             tabExportTextFileName.Text = exportFileName;
 
             tabExportError.Text = "Noch keinen exportierbaren Dungeon erstellt!";
+
+
+
+            dungeonZoomSlider.Value = 5;
 
         }
 
@@ -334,6 +341,11 @@ namespace Dungeon_aber_in_Windows_v1
             }
         }
 
+        private void dungeonZoomSlider_Scroll(object sender, EventArgs e)
+        {
+            float fontSize = 26 - (dungeonZoomSlider.Value * 2);
+            dungeonAnzeige.Font = new System.Drawing.Font("Consolas", fontSize);
+        }
 
 
         /*
