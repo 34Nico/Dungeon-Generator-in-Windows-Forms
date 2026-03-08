@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Dungeon_aber_in_Windows_v1
@@ -39,14 +40,15 @@ namespace Dungeon_aber_in_Windows_v1
 
         static string[] colors = new string[] { "Rot", "Grün", "Blau", "Gelb", "Türkis", "Lila", "Weiß", "Grau" };
 
-        static string[] presetNames = new string[] { "Small", "Medium", "Large", "Goldkammer", "Hölle" };
+        static string[] presetNames = new string[] { "Small", "Medium", "Large", "Goldkammer", "Hölle", "GIGANTISCH"};
         int[,] presets =
         {
-            {10, 10, 5, 5, 1, 3, 1, 3},
-            {25, 25, 7, 6, 2, 4, 2, 4},
-            {40, 40, 10, 8, 3, 7, 3, 7},
-            {20, 20, 2, 25, 3, 4, 3, 4},
-            {20, 20, 25, 4, 3, 4, 3, 4}
+            {10, 10, 5, 5, 1, 3, 1, 3, 1, 1},
+            {25, 25, 7, 6, 2, 4, 2, 4, 1, 3},
+            {40, 40, 10, 8, 3, 7, 3, 7, 4, 6},
+            {20, 20, 2, 25, 3, 4, 3, 4, 1, 3},
+            {20, 20, 25, 4, 3, 4, 3, 4, 1, 3},
+            {1000, 1000, 4, 4, 10, 50, 10, 50, 30, 65}
         };
 
         // Generate Defaults
@@ -54,10 +56,13 @@ namespace Dungeon_aber_in_Windows_v1
         int dungeonWidth = 10;
         int dungeonTrapPercent = 5;
         int dungeonTreasurePercent = 5;
+
         int dungeonMinRoomSizeWidth = 3;
         int dungeonMaxRoomSizeWidth = 7;
         int dungeonMinRoomSizeHeight = 3;
         int dungeonMaxRoomSizeHeight = 7;
+        int dungeonMinRoomCount = 3;
+        int dungeonMaxRoomCount = 6;
 
         int dungeonSeed = 0;
 
@@ -72,6 +77,15 @@ namespace Dungeon_aber_in_Windows_v1
         // Export Defaults
         string exportFileName = "Dungeon";
         string exportFilePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+        bool dungeonGenerated = false;
+        string finishedDungeon = "";
+
+        // Variablen zur Endstatistik Ausgabe
+
+        int finishedTreasureCount = 0;
+        int finishedTrapCount = 0;
+        int finishedRoomCount = 0;
 
         public Form1()
         {
@@ -92,11 +106,12 @@ namespace Dungeon_aber_in_Windows_v1
             tabGenTextTrapPercent.Text = dungeonTrapPercent.ToString();
             tabGenTextTreasurePercent.Text = dungeonTreasurePercent.ToString();
 
-            for (int i = 0; i < presetNames.Length; i++)
             tabGenTextRoomWidthMin.Text = dungeonMinRoomSizeWidth.ToString();
             tabGenTextRoomWidthMax.Text = dungeonMaxRoomSizeWidth.ToString();
             tabGenTextRoomHeightMin.Text = dungeonMinRoomSizeHeight.ToString();
             tabGenTextRoomHeightMax.Text = dungeonMaxRoomSizeHeight.ToString();
+            tabGenTextRoomCountMin.Text = dungeonMinRoomCount.ToString();
+            tabGenTextRoomCountMax.Text = dungeonMaxRoomCount.ToString();
 
             for (int i = 0; i < presetNames.Length; i++)
             {
@@ -140,6 +155,16 @@ namespace Dungeon_aber_in_Windows_v1
 
         }
 
+
+
+        /*
+         * ===================================
+         *              Programm Features
+         * ===================================
+         */
+
+
+
         private void tabGenButtonGenerate_Click(object sender, EventArgs e)
         {
 
@@ -158,22 +183,30 @@ namespace Dungeon_aber_in_Windows_v1
             random = new Random(dungeonSeed);
             tabGenTextSeed.Text = dungeonSeed.ToString();
 
+            ResetDungeonStatisticVariables();
+
             generateDungeon();
 
-            string dungeon = "";
+            finishedDungeon = "";
+
+            StringBuilder sb = new StringBuilder();
 
             for (int y = 0; y < dungeonHeight; y++)
             {
                 for (int x = 0; x < dungeonWidth; x++)
                 {
-                    // Gibt die Wände und Gänge aus
-                    dungeon += map[x,y];
-
+                    sb.Append(map[x, y]);
                 }
-                dungeon += "\n";
+                sb.AppendLine();
             }
 
-            dungeonAnzeige.Text = dungeon;
+            finishedDungeon = sb.ToString();
+
+            dungeonAnzeige.Text = "\n\n" + finishedDungeon;
+
+            SendDungeonStatistic();
+
+            dungeonGenerated = true;
 
         }
 
@@ -225,6 +258,8 @@ namespace Dungeon_aber_in_Windows_v1
                 tabGenTextRoomWidthMax.Text = presets[presetIndex, 5].ToString();
                 tabGenTextRoomHeightMin.Text = presets[presetIndex, 6].ToString();
                 tabGenTextRoomHeightMax.Text = presets[presetIndex, 7].ToString();
+                tabGenTextRoomCountMin.Text = presets[presetIndex, 8].ToString();
+                tabGenTextRoomCountMax.Text = presets[presetIndex, 9].ToString();
             }
         }
 
@@ -234,7 +269,7 @@ namespace Dungeon_aber_in_Windows_v1
                 settingsTreasureColor + ";" + settingsFloorColor + ";" + settingsWallColor + ";" +
                 dungeonHeight + ";" + dungeonWidth + ";" + dungeonTrapPercent + ";" + dungeonTreasurePercent + ";" +
                 dungeonMinRoomSizeWidth + ";" + dungeonMaxRoomSizeWidth + ";" + dungeonMinRoomSizeHeight + ";" + dungeonMaxRoomSizeHeight + ";" +
-                exportFileName;
+                dungeonMinRoomCount + ";" + dungeonMaxRoomCount + ";" + exportFileName;
 
             tabSettingTextConfigExpImp.Text = settingsString;
         }
@@ -243,7 +278,7 @@ namespace Dungeon_aber_in_Windows_v1
         {
             string[] settings = tabSettingTextConfigExpImp.Text.Split(';');
 
-            if (settings.Length != 11)
+            if (settings.Length != 17)
             {
                 MessageBox.Show("Die Einstellungen müssen genau 11 Werte enthalten!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -267,8 +302,10 @@ namespace Dungeon_aber_in_Windows_v1
                 dungeonMaxRoomSizeWidth = int.Parse(settings[11]);
                 dungeonMinRoomSizeHeight = int.Parse(settings[12]);
                 dungeonMaxRoomSizeHeight = int.Parse(settings[13]);
+                dungeonMinRoomCount = int.Parse(settings[14]);
+                dungeonMaxRoomCount = int.Parse(settings[15]);
 
-                exportFileName = settings[14];
+                exportFileName = settings[16];
 
                 tabSettingDropStart.SelectedIndex = settingsStartColor;
                 tabSettingDropEnd.SelectedIndex = settingsEndColor;
@@ -286,6 +323,8 @@ namespace Dungeon_aber_in_Windows_v1
                 tabGenTextRoomWidthMax.Text = dungeonMaxRoomSizeHeight.ToString();
                 tabGenTextRoomHeightMin.Text = dungeonMinRoomSizeHeight.ToString();
                 tabGenTextRoomHeightMax.Text = dungeonMaxRoomSizeHeight.ToString();
+                tabGenTextRoomCountMin.Text = dungeonMinRoomCount.ToString();
+                tabGenTextRoomCountMax.Text = dungeonMaxRoomCount.ToString();
 
                 tabExportTextFileName.Text = exportFileName;
             }
@@ -295,11 +334,21 @@ namespace Dungeon_aber_in_Windows_v1
             }
         }
 
+
+
+        /*
+         * ===================================
+         *              Hilfsmethoden
+         * ===================================
+         */
+
+
+
         private bool validateUserInterface()
         {
             List<string> errors = new List<string>();
 
-            if (tabGenDropPreset.SelectedIndex != -1)
+            if (tabGenDropPreset.SelectedIndex == 5)
             {
                 dungeonHeight = presets[tabGenDropPreset.SelectedIndex, 0];
                 dungeonWidth = presets[tabGenDropPreset.SelectedIndex, 1];
@@ -310,6 +359,8 @@ namespace Dungeon_aber_in_Windows_v1
                 dungeonMaxRoomSizeWidth = presets[tabGenDropPreset.SelectedIndex, 5];
                 dungeonMinRoomSizeHeight = presets[tabGenDropPreset.SelectedIndex, 6];
                 dungeonMaxRoomSizeHeight = presets[tabGenDropPreset.SelectedIndex, 7];
+                dungeonMinRoomCount = presets[tabGenDropPreset.SelectedIndex, 8];
+                dungeonMaxRoomCount = presets[tabGenDropPreset.SelectedIndex, 9];
             }
             else
             {
@@ -338,6 +389,14 @@ namespace Dungeon_aber_in_Windows_v1
                 if (dungeonMinRoomSizeHeight > dungeonMaxRoomSizeHeight)
                 {
                     errors.Add("Mindest Höhe eines Raumes darf nicht größer sein als das Maximum!");
+                }
+
+                ValidateInt(tabGenTextRoomCountMin, 1, 20, "Minimale Raumanzahl", errors, out dungeonMinRoomCount);
+                ValidateInt(tabGenTextRoomCountMax, 1, 20, "Maximale Raumanzahl", errors, out dungeonMaxRoomCount);
+
+                if (dungeonMinRoomCount > dungeonMaxRoomCount)
+                {
+                    errors.Add("Mindest Raumanzahl darf nicht größer sein als das Maximum!");
                 }
             }
 
@@ -396,6 +455,48 @@ namespace Dungeon_aber_in_Windows_v1
             }
         }
 
+        private void SendDungeonStatistic()
+        {
+            string statsString =
+                "===== Dungeon Statistik =====\r\n\r\n" +
+
+                $"{"Größe:",-20}{dungeonWidth} x {dungeonHeight}\r\n" +
+                $"{"Fallen:",-20}{dungeonTrapPercent}%\r\n" +
+                $"{"Schätze:",-20}{dungeonTreasurePercent}%\r\n" +
+                $"{"Raumanzahl:",-20}{finishedRoomCount}\r\n" +
+                $"{"Raumbreite:",-20}{dungeonMinRoomSizeWidth} bis {dungeonMaxRoomSizeWidth}\r\n" +
+                $"{"Raumhöhe:",-20}{dungeonMinRoomSizeHeight} bis {dungeonMaxRoomSizeHeight}\r\n" +
+                "\r\n" +
+                $"{"Insgesamt:",-20}{finishedDungeon.Count(c => c != '\n')} Chars\r\n" +
+                $"{"Fallen:",-20}{finishedTrapCount} \r\n" +
+                $"{"Schätze:",-20}{finishedTreasureCount} \r\n" +
+
+                "\r\n========== Legende ==========\r\n\r\n" +
+
+                $"{"S",-5}Startpunkt\r\n" +
+                $"{"E",-5}Endpunkt\r\n" +
+                $"{".",-5}Freier Weg\r\n" +
+                $"{"#",-5}Wand\r\n" +
+                $"{"T",-5}Schatztruhe\r\n" +
+                $"{"F",-5}Falle";
+
+            statsAnzeige.Text = "\n\n" + statsString;
+        }
+
+        private void ResetDungeonStatisticVariables()
+        {
+            finishedTrapCount = 0;
+            finishedTreasureCount = 0;
+        }
+
+
+        /*
+         * ===================================
+         *              Dungeon Generierung
+         * ===================================
+         */
+
+
 
         private void generateDungeon()
         {
@@ -406,8 +507,8 @@ namespace Dungeon_aber_in_Windows_v1
             // Methoden aufrufen zum generieren des Dungeons
             int[] startCoords = generateStart();
 
-            int roomCount = (dungeonWidth * dungeonHeight) / 150; // 1 Raum pro 150 Felder
-            roomCount = Math.Max(0, Math.Min(roomCount, 6)); // mindestens 0  maximal 6
+            int roomCount = random.Next(dungeonMinRoomCount, dungeonMaxRoomCount + 1);
+            finishedRoomCount = roomCount;
             generateRandomRooms(roomCount);
 
             generateMaze(startCoords[0], startCoords[1]);
@@ -472,8 +573,8 @@ namespace Dungeon_aber_in_Windows_v1
             for (int i = 0; i < roomCount; i++)
             {
                 // Erstellt Random Zahlen zwischen 3 und 6 für die obere und Linke Wand des Raums
-                int roomWidth = random.Next(3, 6);
-                int roomHeight = random.Next(3, 6);
+                int roomWidth = random.Next(dungeonMinRoomSizeWidth, dungeonMaxRoomSizeWidth);
+                int roomHeight = random.Next(dungeonMinRoomSizeHeight, dungeonMaxRoomSizeHeight);
 
                 // Erstellt eine Random Koordinate wo der Raum spawnt
                 int roomX = random.Next(1, dungeonWidth - roomWidth - 1);
@@ -504,50 +605,55 @@ namespace Dungeon_aber_in_Windows_v1
         */
         private void generateMaze(int startX, int startY)
         {
-            // 4 mögliche Richtungen
-            int[,] directions = new int[,]
-            {              // x, y
-                { 0, -2 }, // nach oben
-                { 2, 0 },  // nach rechts
-                { 0, 2 },  // nach unten
-                { -2, 0 }  // nach links
-            };
+            Stack<(int x, int y)> stack = new Stack<(int, int)>();
+            stack.Push((startX, startY));
 
-            // Direction Array zufällig anordnen
-            for (int i = 3; i > 0; i--)
+            while (stack.Count > 0)
             {
-                int j = random.Next(i + 1); // 0 bis i
-                                            // Tausche i und j
-                int tempX = directions[i, 0];
-                int tempY = directions[i, 1];
-                directions[i, 0] = directions[j, 0];
-                directions[i, 1] = directions[j, 1];
-                directions[j, 0] = tempX;
-                directions[j, 1] = tempY;
-            }
+                var current = stack.Pop();
+                int x = current.x;
+                int y = current.y;
 
-            // Führt den Code vier mal pro Methodenaufruf auf
-            for (int i = 0; i < 4; i++)
-            {
-                // Berechnet wo der nächste Weg hingeht
-                int targetX = startX + directions[i, 0];
-                int targetY = startY + directions[i, 1];
-
-                // Die nächste Koordinate darf nicht außerhalb des Dungeons sein
-                if (targetX < 1 || targetX > dungeonWidth - 2 || targetY < 1 || targetY > dungeonHeight - 2)
-                    continue;
-
-                // Wenn die berechnete Koordinate nicht besetzt ist
-                if (map[targetX, targetY] == '\0')
+                int[,] directions =
                 {
-                    // Berechnet die Zwischenkoordinate und setzt beide Koordinaten als Weg
-                    int zwischenX = startX + directions[i, 0] / 2;
-                    int zwischenY = startY + directions[i, 1] / 2;
-                    map[zwischenX, zwischenY] = '.';
-                    map[targetX, targetY] = '.';
+                    {0,-2},
+                    {2,0},
+                    {0,2},
+                    {-2,0}
+                };
 
-                    // Führt solange aus bis der Weg nicht mehr weitergeführt werden kann
-                    generateMaze(targetX, targetY);
+                for (int i = 3; i > 0; i--)
+                {
+                    int j = random.Next(i + 1);
+
+                    int tempX = directions[i, 0];
+                    int tempY = directions[i, 1];
+
+                    directions[i, 0] = directions[j, 0];
+                    directions[i, 1] = directions[j, 1];
+
+                    directions[j, 0] = tempX;
+                    directions[j, 1] = tempY;
+                }
+
+                for (int i = 0; i < 4; i++)
+                {
+                    int targetX = x + directions[i, 0];
+                    int targetY = y + directions[i, 1];
+
+                    if (targetX < 1 || targetX > dungeonWidth - 2 || targetY < 1 || targetY > dungeonHeight - 2)
+                        continue;
+
+                    if (map[targetX, targetY] == '\0')
+                    {
+                        int betweenX = x + directions[i, 0] / 2;
+                        int betweenY = y + directions[i, 1] / 2;
+
+                        map[betweenX, betweenY] = '.';
+                        map[targetX, targetY] = '.';
+
+                        stack.Push((targetX, targetY));
+                    }
                 }
             }
         }
@@ -590,9 +696,7 @@ namespace Dungeon_aber_in_Windows_v1
         /* 
         * generateObjects()
         * Verteilt zufällig Schatzkisten T und Fallen F im Dungeon.
-        *  - Nur auf freien Feldern .
-        *  - Wahrscheinlichkeit für Objekte liegt bei 5%
-        *  - Für jedes gewählte Feld 50/50 Chance: T oder F
+        *  - Nur auf freien Feldern
         */
         private void generateObjects()
         {
@@ -600,22 +704,21 @@ namespace Dungeon_aber_in_Windows_v1
             {
                 for (int x = 0; x < dungeonWidth; x++)
                 {
-                    // Überspringt die Koordinate wenn sie schon belegt ist
+                    // Nur auf freien Wegen platzieren
                     if (map[x, y] != '.')
                         continue;
 
-                    // Setzt die Chance der Objekte auf 5%
-                    if (random.NextDouble() > 0.05)
-                        continue;
+                    int roll = random.Next(1, 100);
 
-                    // Entscheidet mit einer 50/50 Chance ob es eine Truhe oder eine Falle sein soll
-                    if (random.NextDouble() > 0.5)
+                    if (roll <= dungeonTrapPercent)
                     {
-                        map[x, y] = 'T';
+                        map[x, y] = 'F'; // Falle
+                        finishedTrapCount++;
                     }
-                    else
+                    else if (roll <= dungeonTrapPercent + dungeonTreasurePercent)
                     {
-                        map[x, y] = 'F';
+                        map[x, y] = 'T'; // Schatz
+                        finishedTreasureCount++;
                     }
                 }
             }

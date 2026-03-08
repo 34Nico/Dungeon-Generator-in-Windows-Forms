@@ -86,11 +86,19 @@
             this.tabExportTextFileName = new System.Windows.Forms.TextBox();
             this.tabExportError = new System.Windows.Forms.Label();
             this.panelDungeon = new System.Windows.Forms.Panel();
+            this.dungeonAnzeige = new System.Windows.Forms.RichTextBox();
             this.panelUserInterface = new System.Windows.Forms.Panel();
             this.buttonQuit = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.dungeonAnzeige = new System.Windows.Forms.RichTextBox();
+            this.statsAnzeige = new System.Windows.Forms.RichTextBox();
+            this.dungeonAnzeigeLabel = new System.Windows.Forms.Label();
+            this.statsAusgabeLabel = new System.Windows.Forms.Label();
+            this.tabGenTextRoomCountMax = new System.Windows.Forms.TextBox();
+            this.tabGenLabelRoomCountMax = new System.Windows.Forms.Label();
+            this.tabGenTextRoomCountMin = new System.Windows.Forms.TextBox();
+            this.tabGenLabelRoomCountMin = new System.Windows.Forms.Label();
+            this.tabGenLabelRoomCount = new System.Windows.Forms.Label();
             this.tabsUI.SuspendLayout();
             this.tabPageGenerate.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
@@ -107,16 +115,21 @@
             this.tabsUI.Controls.Add(this.tabPageExport);
             this.tabsUI.Dock = System.Windows.Forms.DockStyle.Left;
             this.tabsUI.Location = new System.Drawing.Point(0, 0);
-            this.tabsUI.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabsUI.MaximumSize = new System.Drawing.Size(373, 738);
+            this.tabsUI.Margin = new System.Windows.Forms.Padding(2);
+            this.tabsUI.MaximumSize = new System.Drawing.Size(280, 600);
             this.tabsUI.Name = "tabsUI";
             this.tabsUI.SelectedIndex = 0;
-            this.tabsUI.Size = new System.Drawing.Size(373, 738);
+            this.tabsUI.Size = new System.Drawing.Size(280, 600);
             this.tabsUI.TabIndex = 0;
             // 
             // tabPageGenerate
             // 
             this.tabPageGenerate.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabPageGenerate.Controls.Add(this.tabGenTextRoomCountMax);
+            this.tabPageGenerate.Controls.Add(this.tabGenLabelRoomCountMax);
+            this.tabPageGenerate.Controls.Add(this.tabGenTextRoomCountMin);
+            this.tabPageGenerate.Controls.Add(this.tabGenLabelRoomCountMin);
+            this.tabPageGenerate.Controls.Add(this.tabGenLabelRoomCount);
             this.tabPageGenerate.Controls.Add(this.tabGenTitleLabelObjects);
             this.tabPageGenerate.Controls.Add(this.tabGenTextRoomHeightMax);
             this.tabPageGenerate.Controls.Add(this.tabGenLabelRoomHeightMax);
@@ -147,11 +160,11 @@
             this.tabPageGenerate.Controls.Add(this.tabGenButtonTreasureNo);
             this.tabPageGenerate.Controls.Add(this.tabGenButtonTreasureYes);
             this.tabPageGenerate.Controls.Add(this.tabGenButtonGenerate);
-            this.tabPageGenerate.Location = new System.Drawing.Point(4, 28);
-            this.tabPageGenerate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageGenerate.Location = new System.Drawing.Point(4, 25);
+            this.tabPageGenerate.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageGenerate.Name = "tabPageGenerate";
-            this.tabPageGenerate.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPageGenerate.Size = new System.Drawing.Size(365, 706);
+            this.tabPageGenerate.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPageGenerate.Size = new System.Drawing.Size(272, 571);
             this.tabPageGenerate.TabIndex = 0;
             this.tabPageGenerate.Text = "Genierung";
             // 
@@ -159,102 +172,102 @@
             // 
             this.tabGenTitleLabelObjects.AutoSize = true;
             this.tabGenTitleLabelObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabGenTitleLabelObjects.Location = new System.Drawing.Point(12, 280);
+            this.tabGenTitleLabelObjects.Location = new System.Drawing.Point(4, 290);
             this.tabGenTitleLabelObjects.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenTitleLabelObjects.Name = "tabGenTitleLabelObjects";
-            this.tabGenTitleLabelObjects.Size = new System.Drawing.Size(139, 17);
+            this.tabGenTitleLabelObjects.Size = new System.Drawing.Size(110, 13);
             this.tabGenTitleLabelObjects.TabIndex = 32;
             this.tabGenTitleLabelObjects.Text = "Dungeon Objekte:";
             // 
             // tabGenTextRoomHeightMax
             // 
-            this.tabGenTextRoomHeightMax.Location = new System.Drawing.Point(195, 250);
+            this.tabGenTextRoomHeightMax.Location = new System.Drawing.Point(146, 262);
             this.tabGenTextRoomHeightMax.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextRoomHeightMax.Name = "tabGenTextRoomHeightMax";
-            this.tabGenTextRoomHeightMax.Size = new System.Drawing.Size(44, 22);
+            this.tabGenTextRoomHeightMax.Size = new System.Drawing.Size(41, 20);
             this.tabGenTextRoomHeightMax.TabIndex = 31;
             // 
             // tabGenLabelRoomHeightMax
             // 
             this.tabGenLabelRoomHeightMax.AutoSize = true;
-            this.tabGenLabelRoomHeightMax.Location = new System.Drawing.Point(145, 250);
+            this.tabGenLabelRoomHeightMax.Location = new System.Drawing.Point(108, 262);
             this.tabGenLabelRoomHeightMax.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelRoomHeightMax.Name = "tabGenLabelRoomHeightMax";
-            this.tabGenLabelRoomHeightMax.Size = new System.Drawing.Size(32, 16);
+            this.tabGenLabelRoomHeightMax.Size = new System.Drawing.Size(27, 13);
             this.tabGenLabelRoomHeightMax.TabIndex = 30;
             this.tabGenLabelRoomHeightMax.Text = "Max";
             // 
             // tabGenTextRoomHeightMin
             // 
-            this.tabGenTextRoomHeightMin.Location = new System.Drawing.Point(86, 250);
+            this.tabGenTextRoomHeightMin.Location = new System.Drawing.Point(50, 259);
             this.tabGenTextRoomHeightMin.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextRoomHeightMin.Name = "tabGenTextRoomHeightMin";
-            this.tabGenTextRoomHeightMin.Size = new System.Drawing.Size(47, 22);
+            this.tabGenTextRoomHeightMin.Size = new System.Drawing.Size(36, 20);
             this.tabGenTextRoomHeightMin.TabIndex = 29;
             // 
             // tabGenLabelRoomHeightMin
             // 
             this.tabGenLabelRoomHeightMin.AutoSize = true;
-            this.tabGenLabelRoomHeightMin.Location = new System.Drawing.Point(19, 253);
+            this.tabGenLabelRoomHeightMin.Location = new System.Drawing.Point(22, 262);
             this.tabGenLabelRoomHeightMin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelRoomHeightMin.Name = "tabGenLabelRoomHeightMin";
-            this.tabGenLabelRoomHeightMin.Size = new System.Drawing.Size(28, 16);
+            this.tabGenLabelRoomHeightMin.Size = new System.Drawing.Size(24, 13);
             this.tabGenLabelRoomHeightMin.TabIndex = 28;
             this.tabGenLabelRoomHeightMin.Text = "Min";
             // 
             // tabGenLabelRoomHeight
             // 
             this.tabGenLabelRoomHeight.AutoSize = true;
-            this.tabGenLabelRoomHeight.Location = new System.Drawing.Point(13, 222);
+            this.tabGenLabelRoomHeight.Location = new System.Drawing.Point(10, 239);
             this.tabGenLabelRoomHeight.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelRoomHeight.Name = "tabGenLabelRoomHeight";
-            this.tabGenLabelRoomHeight.Size = new System.Drawing.Size(43, 16);
+            this.tabGenLabelRoomHeight.Size = new System.Drawing.Size(36, 13);
             this.tabGenLabelRoomHeight.TabIndex = 27;
             this.tabGenLabelRoomHeight.Text = "Höhe:";
             // 
             // tabGenTextRoomWidthMax
             // 
-            this.tabGenTextRoomWidthMax.Location = new System.Drawing.Point(195, 203);
+            this.tabGenTextRoomWidthMax.Location = new System.Drawing.Point(146, 212);
             this.tabGenTextRoomWidthMax.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextRoomWidthMax.Name = "tabGenTextRoomWidthMax";
-            this.tabGenTextRoomWidthMax.Size = new System.Drawing.Size(44, 22);
+            this.tabGenTextRoomWidthMax.Size = new System.Drawing.Size(41, 20);
             this.tabGenTextRoomWidthMax.TabIndex = 26;
             // 
             // tabGenLabelRoomWidthMax
             // 
             this.tabGenLabelRoomWidthMax.AutoSize = true;
-            this.tabGenLabelRoomWidthMax.Location = new System.Drawing.Point(146, 206);
+            this.tabGenLabelRoomWidthMax.Location = new System.Drawing.Point(108, 215);
             this.tabGenLabelRoomWidthMax.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelRoomWidthMax.Name = "tabGenLabelRoomWidthMax";
-            this.tabGenLabelRoomWidthMax.Size = new System.Drawing.Size(32, 16);
+            this.tabGenLabelRoomWidthMax.Size = new System.Drawing.Size(27, 13);
             this.tabGenLabelRoomWidthMax.TabIndex = 25;
             this.tabGenLabelRoomWidthMax.Text = "Max";
             // 
             // tabGenTextRoomWidthMin
             // 
-            this.tabGenTextRoomWidthMin.Location = new System.Drawing.Point(86, 203);
+            this.tabGenTextRoomWidthMin.Location = new System.Drawing.Point(50, 211);
             this.tabGenTextRoomWidthMin.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextRoomWidthMin.Name = "tabGenTextRoomWidthMin";
-            this.tabGenTextRoomWidthMin.Size = new System.Drawing.Size(47, 22);
+            this.tabGenTextRoomWidthMin.Size = new System.Drawing.Size(36, 20);
             this.tabGenTextRoomWidthMin.TabIndex = 24;
             // 
             // tabGenLabelRoomWidthMin
             // 
             this.tabGenLabelRoomWidthMin.AutoSize = true;
-            this.tabGenLabelRoomWidthMin.Location = new System.Drawing.Point(19, 206);
+            this.tabGenLabelRoomWidthMin.Location = new System.Drawing.Point(22, 215);
             this.tabGenLabelRoomWidthMin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelRoomWidthMin.Name = "tabGenLabelRoomWidthMin";
-            this.tabGenLabelRoomWidthMin.Size = new System.Drawing.Size(28, 16);
+            this.tabGenLabelRoomWidthMin.Size = new System.Drawing.Size(24, 13);
             this.tabGenLabelRoomWidthMin.TabIndex = 23;
             this.tabGenLabelRoomWidthMin.Text = "Min";
             // 
             // tabGenLabelRoomWidth
             // 
             this.tabGenLabelRoomWidth.AutoSize = true;
-            this.tabGenLabelRoomWidth.Location = new System.Drawing.Point(11, 179);
+            this.tabGenLabelRoomWidth.Location = new System.Drawing.Point(10, 192);
             this.tabGenLabelRoomWidth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelRoomWidth.Name = "tabGenLabelRoomWidth";
-            this.tabGenLabelRoomWidth.Size = new System.Drawing.Size(45, 16);
+            this.tabGenLabelRoomWidth.Size = new System.Drawing.Size(37, 13);
             this.tabGenLabelRoomWidth.TabIndex = 22;
             this.tabGenLabelRoomWidth.Text = "Breite:";
             // 
@@ -262,10 +275,10 @@
             // 
             this.tabGenTitleLabelRooms.AutoSize = true;
             this.tabGenTitleLabelRooms.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabGenTitleLabelRooms.Location = new System.Drawing.Point(6, 149);
+            this.tabGenTitleLabelRooms.Location = new System.Drawing.Point(4, 123);
             this.tabGenTitleLabelRooms.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenTitleLabelRooms.Name = "tabGenTitleLabelRooms";
-            this.tabGenTitleLabelRooms.Size = new System.Drawing.Size(63, 17);
+            this.tabGenTitleLabelRooms.Size = new System.Drawing.Size(50, 13);
             this.tabGenTitleLabelRooms.TabIndex = 21;
             this.tabGenTitleLabelRooms.Text = "Räume:";
             // 
@@ -273,159 +286,159 @@
             // 
             this.tabGenTitleLabelGeneral.AutoSize = true;
             this.tabGenTitleLabelGeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabGenTitleLabelGeneral.Location = new System.Drawing.Point(5, 11);
+            this.tabGenTitleLabelGeneral.Location = new System.Drawing.Point(4, 9);
             this.tabGenTitleLabelGeneral.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenTitleLabelGeneral.Name = "tabGenTitleLabelGeneral";
-            this.tabGenTitleLabelGeneral.Size = new System.Drawing.Size(83, 17);
+            this.tabGenTitleLabelGeneral.Size = new System.Drawing.Size(65, 13);
             this.tabGenTitleLabelGeneral.TabIndex = 20;
             this.tabGenTitleLabelGeneral.Text = "Allgemein:";
             // 
             // tabGenLabelSeed
             // 
             this.tabGenLabelSeed.AutoSize = true;
-            this.tabGenLabelSeed.Location = new System.Drawing.Point(11, 37);
+            this.tabGenLabelSeed.Location = new System.Drawing.Point(8, 30);
             this.tabGenLabelSeed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelSeed.Name = "tabGenLabelSeed";
-            this.tabGenLabelSeed.Size = new System.Drawing.Size(98, 16);
+            this.tabGenLabelSeed.Size = new System.Drawing.Size(79, 13);
             this.tabGenLabelSeed.TabIndex = 19;
             this.tabGenLabelSeed.Text = "Dungeon Seed";
             // 
             // tabGenTextSeed
             // 
-            this.tabGenTextSeed.Location = new System.Drawing.Point(148, 31);
+            this.tabGenTextSeed.Location = new System.Drawing.Point(111, 25);
             this.tabGenTextSeed.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextSeed.Name = "tabGenTextSeed";
-            this.tabGenTextSeed.Size = new System.Drawing.Size(84, 22);
+            this.tabGenTextSeed.Size = new System.Drawing.Size(109, 20);
             this.tabGenTextSeed.TabIndex = 18;
             // 
             // tabGenDropPreset
             // 
             this.tabGenDropPreset.FormattingEnabled = true;
-            this.tabGenDropPreset.Location = new System.Drawing.Point(148, 53);
+            this.tabGenDropPreset.Location = new System.Drawing.Point(111, 49);
             this.tabGenDropPreset.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenDropPreset.Name = "tabGenDropPreset";
-            this.tabGenDropPreset.Size = new System.Drawing.Size(144, 24);
+            this.tabGenDropPreset.Size = new System.Drawing.Size(109, 21);
             this.tabGenDropPreset.TabIndex = 17;
             this.tabGenDropPreset.SelectedIndexChanged += new System.EventHandler(this.tabGenDropPreset_SelectedIndexChanged);
             // 
             // tabGenLabelPreset
             // 
             this.tabGenLabelPreset.AutoSize = true;
-            this.tabGenLabelPreset.Location = new System.Drawing.Point(11, 61);
+            this.tabGenLabelPreset.Location = new System.Drawing.Point(8, 52);
             this.tabGenLabelPreset.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelPreset.Name = "tabGenLabelPreset";
-            this.tabGenLabelPreset.Size = new System.Drawing.Size(104, 16);
+            this.tabGenLabelPreset.Size = new System.Drawing.Size(84, 13);
             this.tabGenLabelPreset.TabIndex = 16;
             this.tabGenLabelPreset.Text = "Dungeon Preset";
             // 
             // tabGenLabelHeight
             // 
             this.tabGenLabelHeight.AutoSize = true;
-            this.tabGenLabelHeight.Location = new System.Drawing.Point(11, 117);
+            this.tabGenLabelHeight.Location = new System.Drawing.Point(8, 101);
             this.tabGenLabelHeight.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelHeight.Name = "tabGenLabelHeight";
-            this.tabGenLabelHeight.Size = new System.Drawing.Size(101, 16);
+            this.tabGenLabelHeight.Size = new System.Drawing.Size(83, 13);
             this.tabGenLabelHeight.TabIndex = 15;
             this.tabGenLabelHeight.Text = "Dungeon  Höhe";
             // 
             // tabGenLabelWidth
             // 
             this.tabGenLabelWidth.AutoSize = true;
-            this.tabGenLabelWidth.Location = new System.Drawing.Point(11, 89);
+            this.tabGenLabelWidth.Location = new System.Drawing.Point(8, 77);
             this.tabGenLabelWidth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelWidth.Name = "tabGenLabelWidth";
-            this.tabGenLabelWidth.Size = new System.Drawing.Size(103, 16);
+            this.tabGenLabelWidth.Size = new System.Drawing.Size(84, 13);
             this.tabGenLabelWidth.TabIndex = 14;
             this.tabGenLabelWidth.Text = "Dungeon  Breite";
             // 
             // tabGenTextTrapPercent
             // 
-            this.tabGenTextTrapPercent.Location = new System.Drawing.Point(159, 325);
+            this.tabGenTextTrapPercent.Location = new System.Drawing.Point(146, 340);
             this.tabGenTextTrapPercent.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextTrapPercent.Name = "tabGenTextTrapPercent";
-            this.tabGenTextTrapPercent.Size = new System.Drawing.Size(63, 22);
+            this.tabGenTextTrapPercent.Size = new System.Drawing.Size(48, 20);
             this.tabGenTextTrapPercent.TabIndex = 13;
             // 
             // tabGenTextTreasurePercent
             // 
-            this.tabGenTextTreasurePercent.Location = new System.Drawing.Point(159, 299);
+            this.tabGenTextTreasurePercent.Location = new System.Drawing.Point(146, 312);
             this.tabGenTextTreasurePercent.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextTreasurePercent.Name = "tabGenTextTreasurePercent";
-            this.tabGenTextTreasurePercent.Size = new System.Drawing.Size(63, 22);
+            this.tabGenTextTreasurePercent.Size = new System.Drawing.Size(48, 20);
             this.tabGenTextTreasurePercent.TabIndex = 12;
             // 
             // tabGenTextHeight
             // 
-            this.tabGenTextHeight.Location = new System.Drawing.Point(148, 111);
+            this.tabGenTextHeight.Location = new System.Drawing.Point(111, 98);
             this.tabGenTextHeight.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextHeight.Name = "tabGenTextHeight";
-            this.tabGenTextHeight.Size = new System.Drawing.Size(144, 22);
+            this.tabGenTextHeight.Size = new System.Drawing.Size(109, 20);
             this.tabGenTextHeight.TabIndex = 11;
             // 
             // tabGenTextWidth
             // 
-            this.tabGenTextWidth.Location = new System.Drawing.Point(148, 83);
+            this.tabGenTextWidth.Location = new System.Drawing.Point(111, 74);
             this.tabGenTextWidth.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenTextWidth.Name = "tabGenTextWidth";
-            this.tabGenTextWidth.Size = new System.Drawing.Size(144, 22);
+            this.tabGenTextWidth.Size = new System.Drawing.Size(109, 20);
             this.tabGenTextWidth.TabIndex = 10;
             // 
             // tabGenLabelTrap
             // 
             this.tabGenLabelTrap.AutoSize = true;
-            this.tabGenLabelTrap.Location = new System.Drawing.Point(18, 331);
+            this.tabGenLabelTrap.Location = new System.Drawing.Point(12, 340);
             this.tabGenLabelTrap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelTrap.Name = "tabGenLabelTrap";
-            this.tabGenLabelTrap.Size = new System.Drawing.Size(44, 16);
+            this.tabGenLabelTrap.Size = new System.Drawing.Size(35, 13);
             this.tabGenLabelTrap.TabIndex = 9;
             this.tabGenLabelTrap.Text = "Fallen";
             // 
             // tabGenLabelTreasure
             // 
             this.tabGenLabelTreasure.AutoSize = true;
-            this.tabGenLabelTreasure.Location = new System.Drawing.Point(18, 303);
+            this.tabGenLabelTreasure.Location = new System.Drawing.Point(10, 315);
             this.tabGenLabelTreasure.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabGenLabelTreasure.Name = "tabGenLabelTreasure";
-            this.tabGenLabelTreasure.Size = new System.Drawing.Size(49, 16);
+            this.tabGenLabelTreasure.Size = new System.Drawing.Size(41, 13);
             this.tabGenLabelTreasure.TabIndex = 8;
             this.tabGenLabelTreasure.Text = "Truhen";
             // 
             // tabGenButtonTrapNo
             // 
-            this.tabGenButtonTrapNo.Location = new System.Drawing.Point(113, 325);
+            this.tabGenButtonTrapNo.Location = new System.Drawing.Point(103, 340);
             this.tabGenButtonTrapNo.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTrapNo.Name = "tabGenButtonTrapNo";
-            this.tabGenButtonTrapNo.Size = new System.Drawing.Size(42, 22);
+            this.tabGenButtonTrapNo.Size = new System.Drawing.Size(37, 18);
             this.tabGenButtonTrapNo.TabIndex = 5;
             this.tabGenButtonTrapNo.Text = "Aus";
             this.tabGenButtonTrapNo.UseVisualStyleBackColor = true;
             // 
             // tabGenButtonTrapYes
             // 
-            this.tabGenButtonTrapYes.Location = new System.Drawing.Point(72, 325);
+            this.tabGenButtonTrapYes.Location = new System.Drawing.Point(54, 340);
             this.tabGenButtonTrapYes.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTrapYes.Name = "tabGenButtonTrapYes";
-            this.tabGenButtonTrapYes.Size = new System.Drawing.Size(43, 22);
+            this.tabGenButtonTrapYes.Size = new System.Drawing.Size(38, 18);
             this.tabGenButtonTrapYes.TabIndex = 4;
             this.tabGenButtonTrapYes.Text = "An";
             this.tabGenButtonTrapYes.UseVisualStyleBackColor = true;
             // 
             // tabGenButtonTreasureNo
             // 
-            this.tabGenButtonTreasureNo.Location = new System.Drawing.Point(113, 299);
+            this.tabGenButtonTreasureNo.Location = new System.Drawing.Point(103, 312);
             this.tabGenButtonTreasureNo.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTreasureNo.Name = "tabGenButtonTreasureNo";
-            this.tabGenButtonTreasureNo.Size = new System.Drawing.Size(42, 22);
+            this.tabGenButtonTreasureNo.Size = new System.Drawing.Size(37, 18);
             this.tabGenButtonTreasureNo.TabIndex = 3;
             this.tabGenButtonTreasureNo.Text = "Aus";
             this.tabGenButtonTreasureNo.UseVisualStyleBackColor = true;
             // 
             // tabGenButtonTreasureYes
             // 
-            this.tabGenButtonTreasureYes.Location = new System.Drawing.Point(72, 299);
+            this.tabGenButtonTreasureYes.Location = new System.Drawing.Point(54, 312);
             this.tabGenButtonTreasureYes.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonTreasureYes.Name = "tabGenButtonTreasureYes";
-            this.tabGenButtonTreasureYes.Size = new System.Drawing.Size(42, 22);
+            this.tabGenButtonTreasureYes.Size = new System.Drawing.Size(37, 18);
             this.tabGenButtonTreasureYes.TabIndex = 2;
             this.tabGenButtonTreasureYes.Text = "An";
             this.tabGenButtonTreasureYes.UseVisualStyleBackColor = true;
@@ -433,10 +446,10 @@
             // tabGenButtonGenerate
             // 
             this.tabGenButtonGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabGenButtonGenerate.Location = new System.Drawing.Point(37, 398);
+            this.tabGenButtonGenerate.Location = new System.Drawing.Point(49, 486);
             this.tabGenButtonGenerate.Margin = new System.Windows.Forms.Padding(2);
             this.tabGenButtonGenerate.Name = "tabGenButtonGenerate";
-            this.tabGenButtonGenerate.Size = new System.Drawing.Size(236, 66);
+            this.tabGenButtonGenerate.Size = new System.Drawing.Size(177, 54);
             this.tabGenButtonGenerate.TabIndex = 1;
             this.tabGenButtonGenerate.Text = "Generieren starten";
             this.tabGenButtonGenerate.UseVisualStyleBackColor = true;
@@ -462,11 +475,11 @@
             this.tabPageSettings.Controls.Add(this.tabSettingLabelEnd);
             this.tabPageSettings.Controls.Add(this.tabSettingLabelStart);
             this.tabPageSettings.Controls.Add(this.tabSettingDropStart);
-            this.tabPageSettings.Location = new System.Drawing.Point(4, 28);
-            this.tabPageSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageSettings.Location = new System.Drawing.Point(4, 25);
+            this.tabPageSettings.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageSettings.Name = "tabPageSettings";
-            this.tabPageSettings.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPageSettings.Size = new System.Drawing.Size(365, 706);
+            this.tabPageSettings.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPageSettings.Size = new System.Drawing.Size(272, 571);
             this.tabPageSettings.TabIndex = 1;
             this.tabPageSettings.Text = "Einstellungen";
             // 
@@ -474,19 +487,19 @@
             // 
             this.tabSettingTitleLableColor.AutoSize = true;
             this.tabSettingTitleLableColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabSettingTitleLableColor.Location = new System.Drawing.Point(8, 11);
+            this.tabSettingTitleLableColor.Location = new System.Drawing.Point(6, 9);
             this.tabSettingTitleLableColor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabSettingTitleLableColor.Name = "tabSettingTitleLableColor";
-            this.tabSettingTitleLableColor.Size = new System.Drawing.Size(134, 17);
+            this.tabSettingTitleLableColor.Size = new System.Drawing.Size(105, 13);
             this.tabSettingTitleLableColor.TabIndex = 18;
             this.tabSettingTitleLableColor.Text = "Dungeon Farben:";
             // 
             // tabSettingButtonConfigImport
             // 
-            this.tabSettingButtonConfigImport.Location = new System.Drawing.Point(104, 441);
+            this.tabSettingButtonConfigImport.Location = new System.Drawing.Point(136, 542);
             this.tabSettingButtonConfigImport.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingButtonConfigImport.Name = "tabSettingButtonConfigImport";
-            this.tabSettingButtonConfigImport.Size = new System.Drawing.Size(96, 25);
+            this.tabSettingButtonConfigImport.Size = new System.Drawing.Size(131, 20);
             this.tabSettingButtonConfigImport.TabIndex = 15;
             this.tabSettingButtonConfigImport.Text = "Importieren (paste)";
             this.tabSettingButtonConfigImport.UseVisualStyleBackColor = true;
@@ -494,10 +507,10 @@
             // 
             // tabSettingButtonConfigExport
             // 
-            this.tabSettingButtonConfigExport.Location = new System.Drawing.Point(4, 441);
+            this.tabSettingButtonConfigExport.Location = new System.Drawing.Point(5, 542);
             this.tabSettingButtonConfigExport.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingButtonConfigExport.Name = "tabSettingButtonConfigExport";
-            this.tabSettingButtonConfigExport.Size = new System.Drawing.Size(98, 25);
+            this.tabSettingButtonConfigExport.Size = new System.Drawing.Size(127, 20);
             this.tabSettingButtonConfigExport.TabIndex = 14;
             this.tabSettingButtonConfigExport.Text = "Exportieren (copy)";
             this.tabSettingButtonConfigExport.UseVisualStyleBackColor = true;
@@ -506,133 +519,131 @@
             // tabSettingLabelConfigExpImp
             // 
             this.tabSettingLabelConfigExpImp.AutoSize = true;
-            this.tabSettingLabelConfigExpImp.Location = new System.Drawing.Point(7, 423);
-            this.tabSettingLabelConfigExpImp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.tabSettingLabelConfigExpImp.Location = new System.Drawing.Point(2, 492);
             this.tabSettingLabelConfigExpImp.Name = "tabSettingLabelConfigExpImp";
-            this.tabSettingLabelConfigExpImp.Size = new System.Drawing.Size(226, 16);
+            this.tabSettingLabelConfigExpImp.Size = new System.Drawing.Size(182, 13);
             this.tabSettingLabelConfigExpImp.TabIndex = 13;
             this.tabSettingLabelConfigExpImp.Text = "Konfiguration Importieren/Exportieren";
             // 
             // tabSettingTextConfigExpImp
             // 
-            this.tabSettingTextConfigExpImp.Location = new System.Drawing.Point(7, 636);
-            this.tabSettingTextConfigExpImp.Margin = new System.Windows.Forms.Padding(4);
+            this.tabSettingTextConfigExpImp.Location = new System.Drawing.Point(5, 517);
             this.tabSettingTextConfigExpImp.Name = "tabSettingTextConfigExpImp";
-            this.tabSettingTextConfigExpImp.Size = new System.Drawing.Size(348, 22);
+            this.tabSettingTextConfigExpImp.Size = new System.Drawing.Size(262, 20);
             this.tabSettingTextConfigExpImp.TabIndex = 12;
             // 
             // tabSettingDropWalls
             // 
             this.tabSettingDropWalls.FormattingEnabled = true;
-            this.tabSettingDropWalls.Location = new System.Drawing.Point(68, 132);
+            this.tabSettingDropWalls.Location = new System.Drawing.Point(51, 152);
             this.tabSettingDropWalls.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingDropWalls.Name = "tabSettingDropWalls";
-            this.tabSettingDropWalls.Size = new System.Drawing.Size(121, 24);
+            this.tabSettingDropWalls.Size = new System.Drawing.Size(136, 21);
             this.tabSettingDropWalls.TabIndex = 11;
             // 
             // tabSettingLabelWalls
             // 
             this.tabSettingLabelWalls.AutoSize = true;
-            this.tabSettingLabelWalls.Location = new System.Drawing.Point(12, 134);
+            this.tabSettingLabelWalls.Location = new System.Drawing.Point(9, 155);
             this.tabSettingLabelWalls.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabSettingLabelWalls.Name = "tabSettingLabelWalls";
-            this.tabSettingLabelWalls.Size = new System.Drawing.Size(51, 16);
+            this.tabSettingLabelWalls.Size = new System.Drawing.Size(42, 13);
             this.tabSettingLabelWalls.TabIndex = 10;
             this.tabSettingLabelWalls.Text = "Wände";
             // 
             // tabSettingDropFloor
             // 
             this.tabSettingDropFloor.FormattingEnabled = true;
-            this.tabSettingDropFloor.Location = new System.Drawing.Point(68, 111);
+            this.tabSettingDropFloor.Location = new System.Drawing.Point(51, 127);
             this.tabSettingDropFloor.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingDropFloor.Name = "tabSettingDropFloor";
-            this.tabSettingDropFloor.Size = new System.Drawing.Size(121, 24);
+            this.tabSettingDropFloor.Size = new System.Drawing.Size(136, 21);
             this.tabSettingDropFloor.TabIndex = 9;
             // 
             // tabSettingLabelFloor
             // 
             this.tabSettingLabelFloor.AutoSize = true;
-            this.tabSettingLabelFloor.Location = new System.Drawing.Point(12, 114);
+            this.tabSettingLabelFloor.Location = new System.Drawing.Point(9, 130);
             this.tabSettingLabelFloor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabSettingLabelFloor.Name = "tabSettingLabelFloor";
-            this.tabSettingLabelFloor.Size = new System.Drawing.Size(44, 16);
+            this.tabSettingLabelFloor.Size = new System.Drawing.Size(36, 13);
             this.tabSettingLabelFloor.TabIndex = 8;
             this.tabSettingLabelFloor.Text = "Wege";
             // 
             // tabSettingDropTrap
             // 
             this.tabSettingDropTrap.FormattingEnabled = true;
-            this.tabSettingDropTrap.Location = new System.Drawing.Point(68, 91);
+            this.tabSettingDropTrap.Location = new System.Drawing.Point(51, 102);
             this.tabSettingDropTrap.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingDropTrap.Name = "tabSettingDropTrap";
-            this.tabSettingDropTrap.Size = new System.Drawing.Size(121, 24);
+            this.tabSettingDropTrap.Size = new System.Drawing.Size(136, 21);
             this.tabSettingDropTrap.TabIndex = 7;
             // 
             // tabSettingDropTreasure
             // 
             this.tabSettingDropTreasure.FormattingEnabled = true;
-            this.tabSettingDropTreasure.Location = new System.Drawing.Point(68, 71);
+            this.tabSettingDropTreasure.Location = new System.Drawing.Point(51, 77);
             this.tabSettingDropTreasure.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingDropTreasure.Name = "tabSettingDropTreasure";
-            this.tabSettingDropTreasure.Size = new System.Drawing.Size(121, 24);
+            this.tabSettingDropTreasure.Size = new System.Drawing.Size(136, 21);
             this.tabSettingDropTreasure.TabIndex = 6;
             // 
             // tabSettingDropEnd
             // 
             this.tabSettingDropEnd.FormattingEnabled = true;
-            this.tabSettingDropEnd.Location = new System.Drawing.Point(68, 50);
+            this.tabSettingDropEnd.Location = new System.Drawing.Point(51, 52);
             this.tabSettingDropEnd.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingDropEnd.Name = "tabSettingDropEnd";
-            this.tabSettingDropEnd.Size = new System.Drawing.Size(121, 24);
+            this.tabSettingDropEnd.Size = new System.Drawing.Size(136, 21);
             this.tabSettingDropEnd.TabIndex = 5;
             // 
             // tabSettingLabelTraps
             // 
             this.tabSettingLabelTraps.AutoSize = true;
-            this.tabSettingLabelTraps.Location = new System.Drawing.Point(12, 93);
+            this.tabSettingLabelTraps.Location = new System.Drawing.Point(9, 105);
             this.tabSettingLabelTraps.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabSettingLabelTraps.Name = "tabSettingLabelTraps";
-            this.tabSettingLabelTraps.Size = new System.Drawing.Size(44, 16);
+            this.tabSettingLabelTraps.Size = new System.Drawing.Size(35, 13);
             this.tabSettingLabelTraps.TabIndex = 4;
             this.tabSettingLabelTraps.Text = "Fallen";
             // 
             // tabSettingLabelTreasure
             // 
             this.tabSettingLabelTreasure.AutoSize = true;
-            this.tabSettingLabelTreasure.Location = new System.Drawing.Point(12, 73);
+            this.tabSettingLabelTreasure.Location = new System.Drawing.Point(9, 80);
             this.tabSettingLabelTreasure.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabSettingLabelTreasure.Name = "tabSettingLabelTreasure";
-            this.tabSettingLabelTreasure.Size = new System.Drawing.Size(49, 16);
+            this.tabSettingLabelTreasure.Size = new System.Drawing.Size(41, 13);
             this.tabSettingLabelTreasure.TabIndex = 3;
             this.tabSettingLabelTreasure.Text = "Truhen";
             // 
             // tabSettingLabelEnd
             // 
             this.tabSettingLabelEnd.AutoSize = true;
-            this.tabSettingLabelEnd.Location = new System.Drawing.Point(12, 53);
+            this.tabSettingLabelEnd.Location = new System.Drawing.Point(9, 55);
             this.tabSettingLabelEnd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabSettingLabelEnd.Name = "tabSettingLabelEnd";
-            this.tabSettingLabelEnd.Size = new System.Drawing.Size(29, 16);
+            this.tabSettingLabelEnd.Size = new System.Drawing.Size(24, 13);
             this.tabSettingLabelEnd.TabIndex = 2;
             this.tabSettingLabelEnd.Text = "Ziel";
             // 
             // tabSettingLabelStart
             // 
             this.tabSettingLabelStart.AutoSize = true;
-            this.tabSettingLabelStart.Location = new System.Drawing.Point(12, 32);
+            this.tabSettingLabelStart.Location = new System.Drawing.Point(9, 30);
             this.tabSettingLabelStart.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabSettingLabelStart.Name = "tabSettingLabelStart";
-            this.tabSettingLabelStart.Size = new System.Drawing.Size(34, 16);
+            this.tabSettingLabelStart.Size = new System.Drawing.Size(29, 13);
             this.tabSettingLabelStart.TabIndex = 1;
             this.tabSettingLabelStart.Text = "Start";
             // 
             // tabSettingDropStart
             // 
             this.tabSettingDropStart.FormattingEnabled = true;
-            this.tabSettingDropStart.Location = new System.Drawing.Point(68, 30);
+            this.tabSettingDropStart.Location = new System.Drawing.Point(51, 27);
             this.tabSettingDropStart.Margin = new System.Windows.Forms.Padding(2);
             this.tabSettingDropStart.Name = "tabSettingDropStart";
-            this.tabSettingDropStart.Size = new System.Drawing.Size(121, 24);
+            this.tabSettingDropStart.Size = new System.Drawing.Size(136, 21);
             this.tabSettingDropStart.TabIndex = 0;
             // 
             // tabPageExport
@@ -643,20 +654,20 @@
             this.tabPageExport.Controls.Add(this.tabExportTextFilePath);
             this.tabPageExport.Controls.Add(this.tabExportTextFileName);
             this.tabPageExport.Controls.Add(this.tabExportError);
-            this.tabPageExport.Location = new System.Drawing.Point(4, 28);
-            this.tabPageExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageExport.Location = new System.Drawing.Point(4, 25);
+            this.tabPageExport.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageExport.Name = "tabPageExport";
-            this.tabPageExport.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPageExport.Size = new System.Drawing.Size(365, 706);
+            this.tabPageExport.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPageExport.Size = new System.Drawing.Size(272, 571);
             this.tabPageExport.TabIndex = 2;
             this.tabPageExport.Text = "Export";
             // 
             // tabExportButtonRandomName
             // 
-            this.tabExportButtonRandomName.Location = new System.Drawing.Point(195, 76);
-            this.tabExportButtonRandomName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabExportButtonRandomName.Location = new System.Drawing.Point(146, 62);
+            this.tabExportButtonRandomName.Margin = new System.Windows.Forms.Padding(2);
             this.tabExportButtonRandomName.Name = "tabExportButtonRandomName";
-            this.tabExportButtonRandomName.Size = new System.Drawing.Size(113, 23);
+            this.tabExportButtonRandomName.Size = new System.Drawing.Size(85, 19);
             this.tabExportButtonRandomName.TabIndex = 4;
             this.tabExportButtonRandomName.Text = "Zufällig";
             this.tabExportButtonRandomName.UseVisualStyleBackColor = true;
@@ -664,51 +675,71 @@
             // 
             // tabExportButtonExport
             // 
-            this.tabExportButtonExport.Location = new System.Drawing.Point(125, 167);
-            this.tabExportButtonExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabExportButtonExport.Location = new System.Drawing.Point(94, 136);
+            this.tabExportButtonExport.Margin = new System.Windows.Forms.Padding(2);
             this.tabExportButtonExport.Name = "tabExportButtonExport";
-            this.tabExportButtonExport.Size = new System.Drawing.Size(113, 23);
+            this.tabExportButtonExport.Size = new System.Drawing.Size(85, 19);
             this.tabExportButtonExport.TabIndex = 3;
             this.tabExportButtonExport.Text = "Exportieren";
             this.tabExportButtonExport.UseVisualStyleBackColor = true;
             // 
             // tabExportTextFilePath
             // 
-            this.tabExportTextFilePath.Location = new System.Drawing.Point(49, 117);
-            this.tabExportTextFilePath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabExportTextFilePath.Location = new System.Drawing.Point(37, 95);
+            this.tabExportTextFilePath.Margin = new System.Windows.Forms.Padding(2);
             this.tabExportTextFilePath.Name = "tabExportTextFilePath";
-            this.tabExportTextFilePath.Size = new System.Drawing.Size(257, 22);
+            this.tabExportTextFilePath.Size = new System.Drawing.Size(194, 20);
             this.tabExportTextFilePath.TabIndex = 2;
             this.tabExportTextFilePath.Text = "Path";
             // 
             // tabExportTextFileName
             // 
-            this.tabExportTextFileName.Location = new System.Drawing.Point(49, 75);
-            this.tabExportTextFileName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabExportTextFileName.Location = new System.Drawing.Point(37, 61);
+            this.tabExportTextFileName.Margin = new System.Windows.Forms.Padding(2);
             this.tabExportTextFileName.Name = "tabExportTextFileName";
-            this.tabExportTextFileName.Size = new System.Drawing.Size(133, 22);
+            this.tabExportTextFileName.Size = new System.Drawing.Size(101, 20);
             this.tabExportTextFileName.TabIndex = 1;
             this.tabExportTextFileName.Text = "Name";
             // 
             // tabExportError
             // 
             this.tabExportError.AutoSize = true;
-            this.tabExportError.Location = new System.Drawing.Point(5, 22);
+            this.tabExportError.Location = new System.Drawing.Point(4, 18);
+            this.tabExportError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tabExportError.Name = "tabExportError";
-            this.tabExportError.Size = new System.Drawing.Size(112, 16);
+            this.tabExportError.Size = new System.Drawing.Size(91, 13);
             this.tabExportError.TabIndex = 0;
             this.tabExportError.Text = "BischtDuDeppat?";
             // 
             // panelDungeon
             // 
             this.panelDungeon.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelDungeon.Controls.Add(this.statsAusgabeLabel);
+            this.panelDungeon.Controls.Add(this.dungeonAnzeigeLabel);
+            this.panelDungeon.Controls.Add(this.statsAnzeige);
             this.panelDungeon.Controls.Add(this.dungeonAnzeige);
             this.panelDungeon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDungeon.Location = new System.Drawing.Point(0, 0);
-            this.panelDungeon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelDungeon.Margin = new System.Windows.Forms.Padding(2);
             this.panelDungeon.Name = "panelDungeon";
-            this.panelDungeon.Size = new System.Drawing.Size(1579, 814);
+            this.panelDungeon.Size = new System.Drawing.Size(1184, 661);
             this.panelDungeon.TabIndex = 1;
+            // 
+            // dungeonAnzeige
+            // 
+            this.dungeonAnzeige.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.dungeonAnzeige.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dungeonAnzeige.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.dungeonAnzeige.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dungeonAnzeige.ForeColor = System.Drawing.Color.White;
+            this.dungeonAnzeige.Location = new System.Drawing.Point(296, 11);
+            this.dungeonAnzeige.Margin = new System.Windows.Forms.Padding(2);
+            this.dungeonAnzeige.Name = "dungeonAnzeige";
+            this.dungeonAnzeige.ReadOnly = true;
+            this.dungeonAnzeige.Size = new System.Drawing.Size(574, 639);
+            this.dungeonAnzeige.TabIndex = 0;
+            this.dungeonAnzeige.Text = "";
+            this.dungeonAnzeige.WordWrap = false;
             // 
             // panelUserInterface
             // 
@@ -718,9 +749,9 @@
             this.panelUserInterface.Controls.Add(this.tabsUI);
             this.panelUserInterface.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelUserInterface.Location = new System.Drawing.Point(0, 0);
-            this.panelUserInterface.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelUserInterface.Margin = new System.Windows.Forms.Padding(2);
             this.panelUserInterface.Name = "panelUserInterface";
-            this.panelUserInterface.Size = new System.Drawing.Size(375, 814);
+            this.panelUserInterface.Size = new System.Drawing.Size(282, 661);
             this.panelUserInterface.TabIndex = 2;
             // 
             // buttonQuit
@@ -728,10 +759,10 @@
             this.buttonQuit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonQuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonQuit.ForeColor = System.Drawing.Color.White;
-            this.buttonQuit.Location = new System.Drawing.Point(51, 753);
-            this.buttonQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonQuit.Location = new System.Drawing.Point(38, 612);
+            this.buttonQuit.Margin = new System.Windows.Forms.Padding(2);
             this.buttonQuit.Name = "buttonQuit";
-            this.buttonQuit.Size = new System.Drawing.Size(269, 46);
+            this.buttonQuit.Size = new System.Drawing.Size(202, 37);
             this.buttonQuit.TabIndex = 1;
             this.buttonQuit.Text = "Beenden";
             this.buttonQuit.UseVisualStyleBackColor = false;
@@ -749,29 +780,98 @@
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
-            // dungeonAnzeige
+            // statsAnzeige
             // 
-            this.dungeonAnzeige.BackColor = System.Drawing.Color.DimGray;
-            this.dungeonAnzeige.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dungeonAnzeige.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.dungeonAnzeige.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dungeonAnzeige.ForeColor = System.Drawing.Color.White;
-            this.dungeonAnzeige.Location = new System.Drawing.Point(439, 90);
-            this.dungeonAnzeige.Name = "dungeonAnzeige";
-            this.dungeonAnzeige.ReadOnly = true;
-            this.dungeonAnzeige.Size = new System.Drawing.Size(715, 433);
-            this.dungeonAnzeige.TabIndex = 0;
-            this.dungeonAnzeige.Text = "";
+            this.statsAnzeige.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.statsAnzeige.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.statsAnzeige.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.statsAnzeige.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statsAnzeige.ForeColor = System.Drawing.Color.White;
+            this.statsAnzeige.Location = new System.Drawing.Point(874, 11);
+            this.statsAnzeige.Margin = new System.Windows.Forms.Padding(2);
+            this.statsAnzeige.Name = "statsAnzeige";
+            this.statsAnzeige.ReadOnly = true;
+            this.statsAnzeige.Size = new System.Drawing.Size(299, 639);
+            this.statsAnzeige.TabIndex = 1;
+            this.statsAnzeige.Text = "";
+            // 
+            // dungeonAnzeigeLabel
+            // 
+            this.dungeonAnzeigeLabel.AutoSize = true;
+            this.dungeonAnzeigeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.dungeonAnzeigeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dungeonAnzeigeLabel.Location = new System.Drawing.Point(459, 11);
+            this.dungeonAnzeigeLabel.Name = "dungeonAnzeigeLabel";
+            this.dungeonAnzeigeLabel.Size = new System.Drawing.Size(227, 29);
+            this.dungeonAnzeigeLabel.TabIndex = 2;
+            this.dungeonAnzeigeLabel.Text = "Dungeon Ausgabe";
+            // 
+            // statsAusgabeLabel
+            // 
+            this.statsAusgabeLabel.AutoSize = true;
+            this.statsAusgabeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.statsAusgabeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statsAusgabeLabel.Location = new System.Drawing.Point(914, 11);
+            this.statsAusgabeLabel.Name = "statsAusgabeLabel";
+            this.statsAusgabeLabel.Size = new System.Drawing.Size(217, 29);
+            this.statsAusgabeLabel.TabIndex = 3;
+            this.statsAusgabeLabel.Text = "Dungeon Statistik";
+            // 
+            // tabGenTextRoomCountMax
+            // 
+            this.tabGenTextRoomCountMax.Location = new System.Drawing.Point(146, 164);
+            this.tabGenTextRoomCountMax.Margin = new System.Windows.Forms.Padding(2);
+            this.tabGenTextRoomCountMax.Name = "tabGenTextRoomCountMax";
+            this.tabGenTextRoomCountMax.Size = new System.Drawing.Size(41, 20);
+            this.tabGenTextRoomCountMax.TabIndex = 37;
+            // 
+            // tabGenLabelRoomCountMax
+            // 
+            this.tabGenLabelRoomCountMax.AutoSize = true;
+            this.tabGenLabelRoomCountMax.Location = new System.Drawing.Point(108, 167);
+            this.tabGenLabelRoomCountMax.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.tabGenLabelRoomCountMax.Name = "tabGenLabelRoomCountMax";
+            this.tabGenLabelRoomCountMax.Size = new System.Drawing.Size(27, 13);
+            this.tabGenLabelRoomCountMax.TabIndex = 36;
+            this.tabGenLabelRoomCountMax.Text = "Max";
+            // 
+            // tabGenTextRoomCountMin
+            // 
+            this.tabGenTextRoomCountMin.Location = new System.Drawing.Point(50, 163);
+            this.tabGenTextRoomCountMin.Margin = new System.Windows.Forms.Padding(2);
+            this.tabGenTextRoomCountMin.Name = "tabGenTextRoomCountMin";
+            this.tabGenTextRoomCountMin.Size = new System.Drawing.Size(36, 20);
+            this.tabGenTextRoomCountMin.TabIndex = 35;
+            // 
+            // tabGenLabelRoomCountMin
+            // 
+            this.tabGenLabelRoomCountMin.AutoSize = true;
+            this.tabGenLabelRoomCountMin.Location = new System.Drawing.Point(22, 167);
+            this.tabGenLabelRoomCountMin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.tabGenLabelRoomCountMin.Name = "tabGenLabelRoomCountMin";
+            this.tabGenLabelRoomCountMin.Size = new System.Drawing.Size(24, 13);
+            this.tabGenLabelRoomCountMin.TabIndex = 34;
+            this.tabGenLabelRoomCountMin.Text = "Min";
+            // 
+            // tabGenLabelRoomCount
+            // 
+            this.tabGenLabelRoomCount.AutoSize = true;
+            this.tabGenLabelRoomCount.Location = new System.Drawing.Point(10, 144);
+            this.tabGenLabelRoomCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.tabGenLabelRoomCount.Name = "tabGenLabelRoomCount";
+            this.tabGenLabelRoomCount.Size = new System.Drawing.Size(37, 13);
+            this.tabGenLabelRoomCount.TabIndex = 33;
+            this.tabGenLabelRoomCount.Text = "Breite:";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1579, 814);
+            this.ClientSize = new System.Drawing.Size(1184, 661);
             this.Controls.Add(this.panelUserInterface);
             this.Controls.Add(this.panelDungeon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Dungeon Generator";
@@ -783,6 +883,7 @@
             this.tabPageExport.ResumeLayout(false);
             this.tabPageExport.PerformLayout();
             this.panelDungeon.ResumeLayout(false);
+            this.panelDungeon.PerformLayout();
             this.panelUserInterface.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -853,6 +954,14 @@
         private System.Windows.Forms.Label tabGenLabelRoomWidth;
         private System.Windows.Forms.Label tabGenTitleLabelObjects;
         private System.Windows.Forms.RichTextBox dungeonAnzeige;
+        private System.Windows.Forms.RichTextBox statsAnzeige;
+        private System.Windows.Forms.Label dungeonAnzeigeLabel;
+        private System.Windows.Forms.Label statsAusgabeLabel;
+        private System.Windows.Forms.TextBox tabGenTextRoomCountMax;
+        private System.Windows.Forms.Label tabGenLabelRoomCountMax;
+        private System.Windows.Forms.TextBox tabGenTextRoomCountMin;
+        private System.Windows.Forms.Label tabGenLabelRoomCountMin;
+        private System.Windows.Forms.Label tabGenLabelRoomCount;
     }
 }
 
