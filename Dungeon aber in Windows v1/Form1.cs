@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace Dungeon_aber_in_Windows_v1
          *      - Dungeon als Textdatei exportieren
          *      - Toggle, ob man die Settings mit exportieren möchte oder nicht
          *  - vielleicht Dungeons laden können
+         *  - Truhen/Traps an und aus schalten
          */
 
         /*
@@ -41,7 +43,7 @@ namespace Dungeon_aber_in_Windows_v1
 
         static string[] colors = new string[] { "Rot", "Grün", "Blau", "Gelb", "Türkis", "Lila", "Weiß", "Grau" };
 
-        static string[] presetNames = new string[] { "Small", "Medium", "Large", "Goldkammer", "Hölle", "GIGANTISCH"};
+        static string[] presetNames = new string[] { "Small", "Medium", "Large", "Goldkammer", "Hölle", "GIGANTISCH" };
         int[,] presets =
         {
             {10, 10, 5, 5, 1, 3, 1, 3, 1, 1},
@@ -49,7 +51,7 @@ namespace Dungeon_aber_in_Windows_v1
             {40, 40, 10, 8, 3, 7, 3, 7, 4, 6},
             {20, 20, 2, 25, 3, 4, 3, 4, 1, 3},
             {20, 20, 25, 4, 3, 4, 3, 4, 1, 3},
-            {1000, 1000, 4, 4, 10, 50, 10, 50, 30, 65}
+            {250, 250, 4, 4, 10, 50, 10, 50, 30, 65}
         };
 
         // Generate Defaults
@@ -87,8 +89,6 @@ namespace Dungeon_aber_in_Windows_v1
         int finishedTreasureCount = 0;
         int finishedTrapCount = 0;
         int finishedRoomCount = 0;
-
-        // Dungeon Zoom
 
         public Form1()
         {
@@ -156,10 +156,6 @@ namespace Dungeon_aber_in_Windows_v1
 
             tabExportError.Text = "Noch keinen exportierbaren Dungeon erstellt!";
 
-
-
-            dungeonZoomSlider.Value = 5;
-
         }
 
 
@@ -190,26 +186,33 @@ namespace Dungeon_aber_in_Windows_v1
             random = new Random(dungeonSeed);
             tabGenTextSeed.Text = dungeonSeed.ToString();
 
-            ResetDungeonStatisticVariables();
+            finishedTrapCount = 0;
+            finishedTreasureCount = 0;
 
             generateDungeon();
 
             finishedDungeon = "";
 
-            StringBuilder sb = new StringBuilder();
+            dungeonAnzeige.SuspendLayout();
+            dungeonAnzeige.Clear();
+            dungeonAnzeige.AppendText("\n\n");
 
+            // Dungeon zeichnen
             for (int y = 0; y < dungeonHeight; y++)
             {
                 for (int x = 0; x < dungeonWidth; x++)
                 {
-                    sb.Append(map[x, y]);
+                    char tile = map[x, y];
+
+                    Color color = GetTileColor(tile);
+
+                    AppendColoredText(dungeonAnzeige, tile.ToString(), color);
                 }
-                sb.AppendLine();
+
+                dungeonAnzeige.AppendText("\n");
             }
 
-            finishedDungeon = sb.ToString();
-
-            dungeonAnzeige.Text = "\n\n" + finishedDungeon;
+            dungeonAnzeige.ResumeLayout();
 
             SendDungeonStatistic();
 
@@ -341,13 +344,6 @@ namespace Dungeon_aber_in_Windows_v1
             }
         }
 
-        private void dungeonZoomSlider_Scroll(object sender, EventArgs e)
-        {
-            float fontSize = 26 - (dungeonZoomSlider.Value * 2);
-            dungeonAnzeige.Font = new System.Drawing.Font("Consolas", fontSize);
-        }
-
-
         /*
          * ===================================
          *              Hilfsmethoden
@@ -469,9 +465,17 @@ namespace Dungeon_aber_in_Windows_v1
 
         private void SendDungeonStatistic()
         {
+            int charsCount = dungeonHeight * dungeonWidth;
+            int wallCount = finishedDungeon.Count(c => c == '#');
+            int floorCount = finishedDungeon.Count(c => c == '.');
+
+            double endTrapPercent = Math.Round((double)finishedTrapCount / charsCount * 100, 2);
+            double endTreasurePercent = Math.Round((double)finishedTreasureCount / charsCount * 100, 2);
+
             string statsString =
                 "===== Dungeon Statistik =====\r\n\r\n" +
 
+                $"{"Seed:",-20}{dungeonSeed}\r\n" +
                 $"{"Größe:",-20}{dungeonWidth} x {dungeonHeight}\r\n" +
                 $"{"Fallen:",-20}{dungeonTrapPercent}%\r\n" +
                 $"{"Schätze:",-20}{dungeonTreasurePercent}%\r\n" +
@@ -479,26 +483,112 @@ namespace Dungeon_aber_in_Windows_v1
                 $"{"Raumbreite:",-20}{dungeonMinRoomSizeWidth} bis {dungeonMaxRoomSizeWidth}\r\n" +
                 $"{"Raumhöhe:",-20}{dungeonMinRoomSizeHeight} bis {dungeonMaxRoomSizeHeight}\r\n" +
                 "\r\n" +
-                $"{"Insgesamt:",-20}{finishedDungeon.Count(c => c != '\n')} Chars\r\n" +
-                $"{"Fallen:",-20}{finishedTrapCount} \r\n" +
-                $"{"Schätze:",-20}{finishedTreasureCount} \r\n" +
+                $"{"Insgesamt:",-20}{charsCount}\r\n" +
+                $"{"Boden:",-20}{floorCount}\r\n" +
+                $"{"Wände:",-20}{wallCount}\r\n" +
+                $"{"Fallen:",-20}{finishedTrapCount} {endTrapPercent}%\r\n" +
+                $"{"Schätze:",-20}{finishedTreasureCount} {endTreasurePercent}%\r\n" +
+                "\r\n========== Legende ==========\r\n\r\n";
 
-                "\r\n========== Legende ==========\r\n\r\n" +
+            statsAnzeige.Clear();
+            statsAnzeige.AppendText("\n\n" + statsString);
 
-                $"{"S",-5}Startpunkt\r\n" +
-                $"{"E",-5}Endpunkt\r\n" +
-                $"{".",-5}Freier Weg\r\n" +
-                $"{"#",-5}Wand\r\n" +
-                $"{"T",-5}Schatztruhe\r\n" +
-                $"{"F",-5}Falle";
+            AppendColoredText(statsAnzeige, "S ", GetColorFromIndex(settingsStartColor));
+            statsAnzeige.AppendText("Startpunkt\n");
 
-            statsAnzeige.Text = "\n\n" + statsString;
+            AppendColoredText(statsAnzeige, "E ", GetColorFromIndex(settingsEndColor));
+            statsAnzeige.AppendText("Endpunkt\n");
+
+            AppendColoredText(statsAnzeige, ". ", GetColorFromIndex(settingsFloorColor));
+            statsAnzeige.AppendText("Freier Weg\n");
+
+            AppendColoredText(statsAnzeige, "# ", GetColorFromIndex(settingsWallColor));
+            statsAnzeige.AppendText("Wand\n");
+
+            AppendColoredText(statsAnzeige, "T ", GetColorFromIndex(settingsTreasureColor));
+            statsAnzeige.AppendText("Schatztruhe\n");
+
+            AppendColoredText(statsAnzeige, "F ", GetColorFromIndex(settingsTrapColor));
+            statsAnzeige.AppendText("Falle\n");
         }
 
-        private void ResetDungeonStatisticVariables()
+        private Color GetColorFromIndex(int index)
         {
-            finishedTrapCount = 0;
-            finishedTreasureCount = 0;
+            Color color = Color.Gray;
+
+            switch (index)
+            {
+                case 0:
+                    color = Color.Red;
+
+                    break;
+                case 1:
+                    color = Color.Green;
+
+                    break;
+                case 2:
+                    color = Color.Blue;
+
+                    break;
+                case 3:
+                    color = Color.Yellow;
+
+                    break;
+                case 4:
+                    color = Color.Cyan;
+
+                    break;
+                case 5:
+                    color = Color.Magenta;
+
+                    break;
+                case 6:
+                    color = Color.White;
+
+                    break;
+                default:
+                    break;
+            }
+
+            return color;
+        }
+
+        private Color GetTileColor(char tile)
+        {
+            switch (tile)
+            {
+                case 'S':
+                    return GetColorFromIndex(settingsStartColor);
+
+                case 'E':
+                    return GetColorFromIndex(settingsEndColor);
+
+                case '.':
+                    return GetColorFromIndex(settingsFloorColor);
+
+                case '#':
+                    return GetColorFromIndex(settingsWallColor);
+
+                case 'T':
+                    return GetColorFromIndex(settingsTreasureColor);
+
+                case 'F':
+                    return GetColorFromIndex(settingsTrapColor);
+
+                default:
+                    return Color.White;
+            }
+        }
+
+        private void AppendColoredText(RichTextBox box, string text, Color color)
+        {
+            box.SelectionStart = box.TextLength;
+            box.SelectionLength = 0;
+            box.SelectionColor = color;
+
+            box.AppendText(text);
+
+            box.SelectionColor = box.ForeColor;
         }
 
 
