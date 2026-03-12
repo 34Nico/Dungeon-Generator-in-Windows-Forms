@@ -556,7 +556,7 @@
             // tabSettingTextConfigExpImp
             // 
             this.tabSettingTextConfigExpImp.Location = new System.Drawing.Point(7, 636);
-            this.tabSettingTextConfigExpImp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabSettingTextConfigExpImp.Margin = new System.Windows.Forms.Padding(4);
             this.tabSettingTextConfigExpImp.Name = "tabSettingTextConfigExpImp";
             this.tabSettingTextConfigExpImp.Size = new System.Drawing.Size(348, 22);
             this.tabSettingTextConfigExpImp.TabIndex = 12;
@@ -705,6 +705,7 @@
             this.tabExportButtonExport.TabIndex = 3;
             this.tabExportButtonExport.Text = "Exportieren";
             this.tabExportButtonExport.UseVisualStyleBackColor = true;
+            this.tabExportButtonExport.Click += new System.EventHandler(this.tabExportButtonExport_Click);
             // 
             // tabExportTextFilePath
             // 

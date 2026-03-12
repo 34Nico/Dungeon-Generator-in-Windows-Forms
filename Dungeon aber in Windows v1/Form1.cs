@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -823,6 +824,44 @@ namespace Dungeon_aber_in_Windows_v1
                         finishedTreasureCount++;
                     }
                 }
+            }
+        }
+
+        private void tabExportButtonExport_Click(object sender, EventArgs e)
+        {
+
+
+            foreach (char c in Path.GetInvalidFileNameChars())
+            {
+                exportFileName = exportFileName.Replace(c.ToString(), "\0");
+            }
+
+            if (!string.IsNullOrWhiteSpace(tabExportTextFileName.Text))
+            {
+                exportFileName = tabExportTextFileName.Text;
+            }
+
+            foreach (char c in Path.GetInvalidPathChars())
+            {
+                exportFilePath = exportFilePath.Replace(c.ToString(), "\0");
+            }
+
+            if (!string.IsNullOrWhiteSpace(tabExportTextFilePath.Text))
+            {
+                exportFilePath = tabExportTextFilePath.Text;
+            }
+
+
+            try
+            {
+                File.WriteAllText(Path.Combine(exportFilePath, exportFileName + ".txt"), finishedDungeon);
+                MessageBox.Show("Dungeon wurde erfolgreich in '" + exportFilePath + "' mit dem Namen '" + exportFileName + "' gespeichert.");
+            }
+            catch
+            {
+                File.WriteAllText(Path.Combine(exportFilePath, "Dungeon.txt"), finishedDungeon);
+                MessageBox.Show("Ein Fehler ist beim Speichern der Datei aufgetreten.\n" +
+                    $"Es wurde mit dem Namen 'Dungeon' unter dem Pfad '" + exportFilePath + "' gespeichert.");
             }
         }
     }
