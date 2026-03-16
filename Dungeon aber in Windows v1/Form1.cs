@@ -219,6 +219,12 @@ namespace Dungeon_aber_in_Windows_v1
 
             dungeonGenerated = true;
 
+            tabExportButtonExport.Enabled = true;
+            tabExportTextFileName.Enabled = true;
+            tabExportTextFilePath.Enabled = true;
+            tabExportButtonRandomName.Enabled = true;
+            tabExportError.Text = "";
+
         }
 
         private void buttonQuit_Click(object sender, EventArgs e)
@@ -852,13 +858,14 @@ namespace Dungeon_aber_in_Windows_v1
             }
 
 
-            try
+            if (Directory.Exists(exportFilePath))
             {
                 File.WriteAllText(Path.Combine(exportFilePath, exportFileName + ".txt"), finishedDungeon);
                 MessageBox.Show("Dungeon wurde erfolgreich in '" + exportFilePath + "' mit dem Namen '" + exportFileName + "' gespeichert.");
             }
-            catch
+            else
             {
+                exportFilePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 File.WriteAllText(Path.Combine(exportFilePath, "Dungeon.txt"), finishedDungeon);
                 MessageBox.Show("Ein Fehler ist beim Speichern der Datei aufgetreten.\n" +
                     $"Es wurde mit dem Namen 'Dungeon' unter dem Pfad '" + exportFilePath + "' gespeichert.");
