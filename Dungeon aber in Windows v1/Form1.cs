@@ -192,8 +192,6 @@ namespace Dungeon_aber_in_Windows_v1
 
             generateDungeon();
 
-            finishedDungeon = "";
-
             dungeonAnzeige.SuspendLayout();
             dungeonAnzeige.Clear();
             dungeonAnzeige.AppendText("\n\n");
@@ -835,7 +833,17 @@ namespace Dungeon_aber_in_Windows_v1
 
         private void tabExportButtonExport_Click(object sender, EventArgs e)
         {
+            finishedDungeon = "";
 
+            for (int y = 0; y < dungeonHeight; y++)
+            {
+                for (int x = 0; x < dungeonWidth; x++)
+                {
+                    finishedDungeon += map[x, y];
+                }
+
+                finishedDungeon += ("\n");
+            }
 
             foreach (char c in Path.GetInvalidFileNameChars())
             {
@@ -870,6 +878,7 @@ namespace Dungeon_aber_in_Windows_v1
                 MessageBox.Show("Ein Fehler ist beim Speichern der Datei aufgetreten.\n" +
                     $"Es wurde mit dem Namen 'Dungeon' unter dem Pfad '" + exportFilePath + "' gespeichert.");
             }
+
         }
     }
 }
