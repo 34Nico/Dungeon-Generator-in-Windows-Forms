@@ -16,7 +16,7 @@ namespace Dungeon_aber_in_Windows_v1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new HauptForm());
         }
     }
 }

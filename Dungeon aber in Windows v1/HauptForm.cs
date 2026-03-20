@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Dungeon_aber_in_Windows_v1
 {
-    public partial class Form1 : Form
+    public partial class HauptForm : Form
     {
 
         /*
@@ -91,7 +91,7 @@ namespace Dungeon_aber_in_Windows_v1
         int finishedTrapCount = 0;
         int finishedRoomCount = 0;
 
-        public Form1()
+        public HauptForm()
         {
             InitializeComponent();
             loadUserInterfaceDefaults();
@@ -347,6 +347,14 @@ namespace Dungeon_aber_in_Windows_v1
             {
                 MessageBox.Show("Fehler beim Importieren: " + ex.Message);
             }
+        }
+
+        private void playButton_Click(object sender, EventArgs e)
+        {
+            PlayForm playWindow = new PlayForm();
+            playWindow.Show();
+
+            this.WindowState = FormWindowState.Minimized;
         }
 
         /*

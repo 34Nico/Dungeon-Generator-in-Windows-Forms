@@ -1,6 +1,6 @@
 ﻿namespace Dungeon_aber_in_Windows_v1
 {
-    partial class Form1
+    partial class HauptForm
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -91,6 +91,7 @@
             this.tabExportTextFileName = new System.Windows.Forms.TextBox();
             this.tabExportError = new System.Windows.Forms.Label();
             this.panelDungeon = new System.Windows.Forms.Panel();
+            this.playButton = new System.Windows.Forms.Button();
             this.statsAusgabeLabel = new System.Windows.Forms.Label();
             this.dungeonAnzeigeLabel = new System.Windows.Forms.Label();
             this.statsAnzeige = new System.Windows.Forms.RichTextBox();
@@ -737,6 +738,7 @@
             // panelDungeon
             // 
             this.panelDungeon.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panelDungeon.Controls.Add(this.playButton);
             this.panelDungeon.Controls.Add(this.statsAusgabeLabel);
             this.panelDungeon.Controls.Add(this.dungeonAnzeigeLabel);
             this.panelDungeon.Controls.Add(this.statsAnzeige);
@@ -747,6 +749,19 @@
             this.panelDungeon.Name = "panelDungeon";
             this.panelDungeon.Size = new System.Drawing.Size(1579, 814);
             this.panelDungeon.TabIndex = 1;
+            // 
+            // playButton
+            // 
+            this.playButton.BackColor = System.Drawing.Color.Teal;
+            this.playButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playButton.ForeColor = System.Drawing.Color.White;
+            this.playButton.Location = new System.Drawing.Point(1173, 710);
+            this.playButton.Name = "playButton";
+            this.playButton.Size = new System.Drawing.Size(365, 77);
+            this.playButton.TabIndex = 4;
+            this.playButton.Text = "Spielen";
+            this.playButton.UseVisualStyleBackColor = false;
+            this.playButton.Click += new System.EventHandler(this.playButton_Click);
             // 
             // statsAusgabeLabel
             // 
@@ -779,11 +794,11 @@
             this.statsAnzeige.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.statsAnzeige.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statsAnzeige.ForeColor = System.Drawing.Color.White;
-            this.statsAnzeige.Location = new System.Drawing.Point(1165, 14);
+            this.statsAnzeige.Location = new System.Drawing.Point(1147, 14);
             this.statsAnzeige.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.statsAnzeige.Name = "statsAnzeige";
             this.statsAnzeige.ReadOnly = true;
-            this.statsAnzeige.Size = new System.Drawing.Size(399, 786);
+            this.statsAnzeige.Size = new System.Drawing.Size(417, 679);
             this.statsAnzeige.TabIndex = 1;
             this.statsAnzeige.Text = "";
             this.statsAnzeige.WordWrap = false;
@@ -795,11 +810,11 @@
             this.dungeonAnzeige.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.dungeonAnzeige.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dungeonAnzeige.ForeColor = System.Drawing.Color.White;
-            this.dungeonAnzeige.Location = new System.Drawing.Point(395, 14);
+            this.dungeonAnzeige.Location = new System.Drawing.Point(381, 14);
             this.dungeonAnzeige.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dungeonAnzeige.Name = "dungeonAnzeige";
             this.dungeonAnzeige.ReadOnly = true;
-            this.dungeonAnzeige.Size = new System.Drawing.Size(765, 786);
+            this.dungeonAnzeige.Size = new System.Drawing.Size(760, 786);
             this.dungeonAnzeige.TabIndex = 0;
             this.dungeonAnzeige.Text = "";
             this.dungeonAnzeige.WordWrap = false;
@@ -843,7 +858,7 @@
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
-            // Form1
+            // HauptForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -853,7 +868,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "HauptForm";
             this.Text = "Dungeon Generator";
             this.tabsUI.ResumeLayout(false);
             this.tabPageGenerate.ResumeLayout(false);
@@ -942,5 +957,6 @@
         private System.Windows.Forms.TextBox tabGenTextRoomCountMin;
         private System.Windows.Forms.Label tabGenLabelRoomCountMin;
         private System.Windows.Forms.Label tabGenLabelRoomCount;
+        private System.Windows.Forms.Button playButton;
     }
 }
