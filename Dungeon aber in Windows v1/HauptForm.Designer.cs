@@ -818,6 +818,7 @@
             this.dungeonAnzeige.TabIndex = 0;
             this.dungeonAnzeige.Text = "";
             this.dungeonAnzeige.WordWrap = false;
+            this.dungeonAnzeige.TextChanged += new System.EventHandler(this.dungeonAnzeige_TextChanged);
             // 
             // panelUserInterface
             // 

@@ -13,7 +13,6 @@ namespace Dungeon_aber_in_Windows_v1
 
         /*
          * TODO:
-         *  - Farben machen
          *  - Dungeon exportieren
          *      - Dungeon als Textdatei exportieren
          *      - Toggle, ob man die Settings mit exportieren möchte oder nicht
@@ -36,6 +35,7 @@ namespace Dungeon_aber_in_Windows_v1
          *  - Dungeon als 2D Array generieren und irgendwie schön darstellen
          *  - Legende + Dungeon Statistik anzeigen
          *  - Dungeon zoomen können mit einem Slider
+         *  - Farben machen
          */
 
         Random random = new Random();
@@ -90,6 +90,7 @@ namespace Dungeon_aber_in_Windows_v1
         int finishedTreasureCount = 0;
         int finishedTrapCount = 0;
         int finishedRoomCount = 0;
+
 
         public HauptForm()
         {
@@ -351,8 +352,8 @@ namespace Dungeon_aber_in_Windows_v1
 
         private void playButton_Click(object sender, EventArgs e)
         {
-            PlayForm playWindow = new PlayForm();
-            playWindow.Show();
+            PlayForm playForm = new PlayForm(this);
+            playForm.Show();
 
             this.WindowState = FormWindowState.Minimized;
         }
@@ -886,6 +887,11 @@ namespace Dungeon_aber_in_Windows_v1
                 MessageBox.Show("Ein Fehler ist beim Speichern der Datei aufgetreten.\n" +
                     $"Es wurde mit dem Namen 'Dungeon' unter dem Pfad '" + exportFilePath + "' gespeichert.");
             }
+
+        }
+
+        private void dungeonAnzeige_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

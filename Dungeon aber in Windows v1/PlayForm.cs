@@ -12,15 +12,44 @@ namespace Dungeon_aber_in_Windows_v1
 {
     public partial class PlayForm : Form
     {
-        public PlayForm()
+
+        /*
+         * TODO:
+         * - Dungeon spielbar machen
+         * - Mukke (WE LIVE WE LOVE WE LIE)
+         */
+
+        /*
+         * feddisch:
+         * - Dungeon spielbar machen
+         */
+
+
+        // Variablen zum Spielen
+
+        int lifes = 5;
+        int treasureCollected = 0;
+        int moves = 0;
+
+        private HauptForm hauptForm;
+
+        public PlayForm(HauptForm hauptForm)
         {
             InitializeComponent();
+            this.hauptForm = hauptForm;
         }
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
-            HauptForm form1 = new HauptForm();
-            form1.WindowState = FormWindowState.Normal;
+            if (hauptForm != null)
+            {
+                if (hauptForm.WindowState == FormWindowState.Minimized)
+                {
+                    hauptForm.WindowState = FormWindowState.Normal;
+                }
+
+                hauptForm.Activate();
+            }
         }
     }
 }
