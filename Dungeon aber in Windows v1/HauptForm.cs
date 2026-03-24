@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dungeon_aber_in_Windows_v1.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -13,10 +14,6 @@ namespace Dungeon_aber_in_Windows_v1
 
         /*
          * TODO:
-         *  - Dungeon exportieren
-         *      - Dungeon als Textdatei exportieren
-         *      - Toggle, ob man die Settings mit exportieren möchte oder nicht
-         *  - vielleicht Dungeons laden können
          *  - Truhen/Traps an und aus schalten
          */
 
@@ -36,6 +33,8 @@ namespace Dungeon_aber_in_Windows_v1
          *  - Legende + Dungeon Statistik anzeigen
          *  - Dungeon zoomen können mit einem Slider
          *  - Farben machen
+         *  - Dungeon als Bild darstellen können (mit Farben und so)
+         *  - zwischen Bild und Text wechseln können
          */
 
         Random random = new Random();
@@ -54,6 +53,13 @@ namespace Dungeon_aber_in_Windows_v1
             {20, 20, 25, 4, 3, 4, 3, 4, 1, 3},
             {250, 250, 4, 4, 10, 50, 10, 50, 30, 65}
         };
+
+        Image wallImg = Properties.Resources.Wall;
+        Image floorImg = Properties.Resources.Floor;
+        Image startImg = Properties.Resources.Start;
+        Image exitImg = Properties.Resources.Ende;
+        Image chestImg = Properties.Resources.Treasure;
+        Image trapImg = Properties.Resources.Bomb;
 
         // Generate Defaults
         int dungeonHeight = 10;
@@ -83,6 +89,7 @@ namespace Dungeon_aber_in_Windows_v1
         string exportFilePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
         bool dungeonGenerated = false;
+        bool pictureGenerated = false;
         string finishedDungeon = "";
 
         // Variablen zur Endstatistik Ausgabe
@@ -141,7 +148,7 @@ namespace Dungeon_aber_in_Windows_v1
             tabSettingDropEnd.SelectedIndex = settingsEndColor;
             tabSettingDropTrap.SelectedIndex = settingsTrapColor;
             tabSettingDropTreasure.SelectedIndex = settingsTreasureColor;
-            tabSettingDropFloor.SelectedIndex = settingsFloorColor;
+            tabSettingDropFloor.SelectedIndex = settingsFloorColor; 
             tabSettingDropWalls.SelectedIndex = settingsWallColor;
 
             /*
@@ -157,6 +164,12 @@ namespace Dungeon_aber_in_Windows_v1
             tabExportTextFileName.Text = exportFileName;
 
             tabExportError.Text = "Noch keinen exportierbaren Dungeon erstellt!";
+
+            /*
+             *      Dungeon Bildanzeige
+             */
+
+            panelDungeonAnzeigePicture.Controls.Add(dungeonAnzeigePicture);
 
         }
 
@@ -217,6 +230,11 @@ namespace Dungeon_aber_in_Windows_v1
             SendDungeonStatistic();
 
             dungeonGenerated = true;
+            pictureGenerated = false;
+
+            dungeonAnzeige.Visible = true;
+            panelDungeonAnzeigePicture.Visible = false;
+            dungeonAnzeigePictureCheckbox.Checked = false;
 
             tabExportButtonExport.Enabled = true;
             tabExportTextFileName.Enabled = true;
@@ -356,6 +374,30 @@ namespace Dungeon_aber_in_Windows_v1
             playForm.Show();
 
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void dungeonAnzeigePictureCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (!dungeonGenerated)
+            {
+                dungeonAnzeigePictureCheckbox.Checked = false;
+            }
+
+            if (dungeonAnzeigePictureCheckbox.Checked)
+            {
+                dungeonAnzeige.Visible = false;
+                panelDungeonAnzeigePicture.Visible = true;
+
+                if(!pictureGenerated)
+                    generateDungeonPicture();
+            }
+            else
+            {
+                dungeonAnzeige.Visible = true;
+                panelDungeonAnzeigePicture.Visible = false;
+            }
+
         }
 
         /*
@@ -840,6 +882,54 @@ namespace Dungeon_aber_in_Windows_v1
             }
         }
 
+        public void generateDungeonPicture()
+        {
+            dungeonAnzeigePicture.Controls.Clear();
+
+            int tileSize = 17;
+
+            dungeonAnzeigePicture.Width = map.GetLength(0) * tileSize;
+            dungeonAnzeigePicture.Height = map.GetLength(1) * tileSize;
+
+            for (int y = 0; y < map.GetLength(1); y++)
+            {
+                for (int x = 0; x < map.GetLength(0); x++)
+                {
+                    PictureBox pic = new PictureBox
+                    {
+                        Width = tileSize,
+                        Height = tileSize,
+                        Left = x * tileSize,
+                        Top = y * tileSize,
+                        SizeMode = PictureBoxSizeMode.StretchImage
+                    };
+
+                    char c = map[x, y];
+
+                    switch (c)
+                    {
+                        case '#': pic.Image = wallImg; break;
+                        case '.': pic.Image = floorImg; break;
+                        case 'S': pic.Image = startImg; break;
+                        case 'E': pic.Image = exitImg; break;
+                        case 'T': pic.Image = chestImg; break;
+                        case 'F': pic.Image = trapImg; break;
+                    }
+
+                    dungeonAnzeigePicture.Controls.Add(pic);
+                }
+            }
+
+            pictureGenerated = true;
+        }
+
+
+        /*
+         * ===================================
+         *              Dungeon Export
+         * ===================================
+         */
+
         private void tabExportButtonExport_Click(object sender, EventArgs e)
         {
             finishedDungeon = "";
@@ -887,11 +977,6 @@ namespace Dungeon_aber_in_Windows_v1
                 MessageBox.Show("Ein Fehler ist beim Speichern der Datei aufgetreten.\n" +
                     $"Es wurde mit dem Namen 'Dungeon' unter dem Pfad '" + exportFilePath + "' gespeichert.");
             }
-
-        }
-
-        private void dungeonAnzeige_TextChanged(object sender, EventArgs e)
-        {
 
         }
     }
