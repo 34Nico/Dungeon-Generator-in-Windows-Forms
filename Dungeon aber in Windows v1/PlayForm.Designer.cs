@@ -28,22 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panelStats = new System.Windows.Forms.Panel();
+            this.panelGame = new System.Windows.Forms.Panel();
             this.SuspendLayout();
+            // 
+            // panelStats
+            // 
+            this.panelStats.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelStats.Location = new System.Drawing.Point(0, 0);
+            this.panelStats.Name = "panelStats";
+            this.panelStats.Size = new System.Drawing.Size(784, 100);
+            this.panelStats.TabIndex = 0;
+            // 
+            // panelGame
+            // 
+            this.panelGame.AutoScroll = true;
+            this.panelGame.CausesValidation = false;
+            this.panelGame.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGame.Location = new System.Drawing.Point(0, 100);
+            this.panelGame.Name = "panelGame";
+            this.panelGame.Size = new System.Drawing.Size(784, 661);
+            this.panelGame.TabIndex = 1;
             // 
             // PlayForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 761);
+            this.Controls.Add(this.panelGame);
+            this.Controls.Add(this.panelStats);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PlayForm";
-            this.Text = "Form2";
+            this.Text = "Spiel";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
+            this.Load += new System.EventHandler(this.PlayForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panelStats;
+        private System.Windows.Forms.Panel panelGame;
     }
 }

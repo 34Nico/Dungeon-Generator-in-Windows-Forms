@@ -41,6 +41,7 @@ namespace Dungeon_aber_in_Windows_v1
         Random random = new Random();
 
         static char[,] map;
+        PictureBox pictureBox;
 
         static string[] colors = new string[] { "Rot", "Grün", "Blau", "Gelb", "Türkis", "Lila", "Weiß", "Grau" };
 
@@ -176,6 +177,7 @@ namespace Dungeon_aber_in_Windows_v1
              */
 
             panelDungeonAnzeigePicture.Controls.Add(dungeonAnzeigePicture);
+            pictureBox = dungeonAnzeigePicture;
 
         }
 
@@ -376,7 +378,17 @@ namespace Dungeon_aber_in_Windows_v1
 
         private void playButton_Click(object sender, EventArgs e)
         {
-            PlayForm playForm = new PlayForm(this);
+            if (!dungeonGenerated)
+            {
+                MessageBox.Show("Du hast noch kein spielbaren Dungeon erstellt!");
+                return; 
+            }
+
+            if(!pictureGenerated)
+            {
+                generateDungeonPicture();
+            }
+            PlayForm playForm = new PlayForm(this, map);
             playForm.Show();
 
             this.WindowState = FormWindowState.Minimized;
@@ -411,7 +423,6 @@ namespace Dungeon_aber_in_Windows_v1
          *              Hilfsmethoden
          * ===================================
          */
-
 
 
         private bool validateUserInterface()
