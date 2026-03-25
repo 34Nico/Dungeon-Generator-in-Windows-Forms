@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Dungeon_aber_in_Windows_v1
@@ -103,6 +104,11 @@ namespace Dungeon_aber_in_Windows_v1
         {
             InitializeComponent();
             loadUserInterfaceDefaults();
+            typeof(Panel).InvokeMember("DoubleBuffered",
+            System.Reflection.BindingFlags.SetProperty |
+            System.Reflection.BindingFlags.Instance |
+            System.Reflection.BindingFlags.NonPublic,
+            null, dungeonAnzeigePicture, new object[] { true });
 
         }
 
@@ -148,7 +154,7 @@ namespace Dungeon_aber_in_Windows_v1
             tabSettingDropEnd.SelectedIndex = settingsEndColor;
             tabSettingDropTrap.SelectedIndex = settingsTrapColor;
             tabSettingDropTreasure.SelectedIndex = settingsTreasureColor;
-            tabSettingDropFloor.SelectedIndex = settingsFloorColor; 
+            tabSettingDropFloor.SelectedIndex = settingsFloorColor;
             tabSettingDropWalls.SelectedIndex = settingsWallColor;
 
             /*
@@ -389,7 +395,7 @@ namespace Dungeon_aber_in_Windows_v1
                 dungeonAnzeige.Visible = false;
                 panelDungeonAnzeigePicture.Visible = true;
 
-                if(!pictureGenerated)
+                if (!pictureGenerated)
                     generateDungeonPicture();
             }
             else
@@ -663,6 +669,7 @@ namespace Dungeon_aber_in_Windows_v1
             map = new char[dungeonWidth, dungeonHeight];
 
             // Methoden aufrufen zum generieren des Dungeons
+
             int[] startCoords = generateStart();
 
             int roomCount = random.Next(dungeonMinRoomCount, dungeonMaxRoomCount + 1);
@@ -672,7 +679,6 @@ namespace Dungeon_aber_in_Windows_v1
             generateMaze(startCoords[0], startCoords[1]);
             generateEnd(startCoords[0], startCoords[1]);
             generateObjects();
-
 
             // Restlichen Wände hinzufügen
             // Zwei for Schleifen um ein Koordinatensystem zu simulieren
@@ -884,43 +890,44 @@ namespace Dungeon_aber_in_Windows_v1
 
         public void generateDungeonPicture()
         {
-            dungeonAnzeigePicture.Controls.Clear();
-
-            int tileSize = 17;
+            int tileSize = 14;
 
             dungeonAnzeigePicture.Width = map.GetLength(0) * tileSize;
             dungeonAnzeigePicture.Height = map.GetLength(1) * tileSize;
+
+            dungeonAnzeigePicture.Invalidate(); // neu zeichnen auslösen
+            pictureGenerated = true;
+        }
+
+        private void dungeonAnzeigePicture_Paint(object sender, PaintEventArgs e)
+        {
+            if (map == null) return;
+
+            int tileSize = 14;
+            Graphics g = e.Graphics;
 
             for (int y = 0; y < map.GetLength(1); y++)
             {
                 for (int x = 0; x < map.GetLength(0); x++)
                 {
-                    PictureBox pic = new PictureBox
-                    {
-                        Width = tileSize,
-                        Height = tileSize,
-                        Left = x * tileSize,
-                        Top = y * tileSize,
-                        SizeMode = PictureBoxSizeMode.StretchImage
-                    };
+                    Image img = null;
 
-                    char c = map[x, y];
-
-                    switch (c)
+                    switch (map[x, y])
                     {
-                        case '#': pic.Image = wallImg; break;
-                        case '.': pic.Image = floorImg; break;
-                        case 'S': pic.Image = startImg; break;
-                        case 'E': pic.Image = exitImg; break;
-                        case 'T': pic.Image = chestImg; break;
-                        case 'F': pic.Image = trapImg; break;
+                        case '#': img = wallImg; break;
+                        case '.': img = floorImg; break;
+                        case 'S': img = startImg; break;
+                        case 'E': img = exitImg; break;
+                        case 'T': img = chestImg; break;
+                        case 'F': img = trapImg; break;
                     }
 
-                    dungeonAnzeigePicture.Controls.Add(pic);
+                    if (img != null)
+                    {
+                        g.DrawImage(img, x * tileSize, y * tileSize, tileSize, tileSize);
+                    }
                 }
             }
-
-            pictureGenerated = true;
         }
 
 
