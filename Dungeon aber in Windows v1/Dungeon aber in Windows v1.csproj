@@ -93,6 +93,7 @@
     <Content Include="Assets\Bomb.png" />
     <Content Include="Assets\Ende.png" />
     <Content Include="Assets\Floor.png" />
+    <Content Include="Assets\heart.png" />
     <Content Include="Assets\Start.png" />
     <Content Include="Assets\Treasure.png" />
     <Content Include="Assets\Wall.png" />

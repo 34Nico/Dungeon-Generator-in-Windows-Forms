@@ -13,31 +13,6 @@ namespace Dungeon_aber_in_Windows_v1
     public partial class HauptForm : Form
     {
 
-        /*
-         * TODO:
-         *  - Truhen/Traps an und aus schalten
-         */
-
-        /*
-         * FERTIG:
-         *  - User Interface erstellen
-         *  - User Interface mit Default Werten füllen
-         *  - User Interface validieren
-         *  - Quit Button zum Schließen des Programms hinzufügen
-         *  - Fehler anzeigen, wenn die Validierung fehlschlägt
-         *  - Random Name Generator für den Export hinzufügen
-         *  - Presets zum Generieren hinzufügen
-         *  - Exportieren/Importieren der Einstellungen als String hinzufügen
-         *  - Dungeon Seedbasiert machen
-         *  - Dungeon generieren
-         *  - Dungeon als 2D Array generieren und irgendwie schön darstellen
-         *  - Legende + Dungeon Statistik anzeigen
-         *  - Dungeon zoomen können mit einem Slider
-         *  - Farben machen
-         *  - Dungeon als Bild darstellen können (mit Farben und so)
-         *  - zwischen Bild und Text wechseln können
-         */
-
         Random random = new Random();
 
         static char[,] map;
@@ -381,10 +356,10 @@ namespace Dungeon_aber_in_Windows_v1
             if (!dungeonGenerated)
             {
                 MessageBox.Show("Du hast noch kein spielbaren Dungeon erstellt!");
-                return; 
+                return;
             }
 
-            if(!pictureGenerated)
+            if (!pictureGenerated)
             {
                 generateDungeonPicture();
             }
@@ -539,8 +514,15 @@ namespace Dungeon_aber_in_Windows_v1
         private void SendDungeonStatistic()
         {
             int charsCount = dungeonHeight * dungeonWidth;
-            int wallCount = finishedDungeon.Count(c => c == '#');
-            int floorCount = finishedDungeon.Count(c => c == '.');
+
+            // Direkt über das map-Array zählen, nicht über finishedDungeon
+            int wallCount = 0, floorCount = 0;
+            for (int y = 0; y < dungeonHeight; y++)
+                for (int x = 0; x < dungeonWidth; x++)
+                {
+                    if (map[x, y] == '#') wallCount++;
+                    else if (map[x, y] == '.') floorCount++;
+                }
 
             double endTrapPercent = Math.Round((double)finishedTrapCount / charsCount * 100, 2);
             double endTreasurePercent = Math.Round((double)finishedTreasureCount / charsCount * 100, 2);
@@ -593,31 +575,24 @@ namespace Dungeon_aber_in_Windows_v1
             {
                 case 0:
                     color = Color.Red;
-
                     break;
                 case 1:
                     color = Color.Green;
-
                     break;
                 case 2:
                     color = Color.Blue;
-
                     break;
                 case 3:
                     color = Color.Yellow;
-
                     break;
                 case 4:
                     color = Color.Cyan;
-
                     break;
                 case 5:
                     color = Color.Magenta;
-
                     break;
                 case 6:
                     color = Color.White;
-
                     break;
                 default:
                     break;
@@ -632,22 +607,16 @@ namespace Dungeon_aber_in_Windows_v1
             {
                 case 'S':
                     return GetColorFromIndex(settingsStartColor);
-
                 case 'E':
                     return GetColorFromIndex(settingsEndColor);
-
                 case '.':
                     return GetColorFromIndex(settingsFloorColor);
-
                 case '#':
                     return GetColorFromIndex(settingsWallColor);
-
                 case 'T':
                     return GetColorFromIndex(settingsTreasureColor);
-
                 case 'F':
                     return GetColorFromIndex(settingsTrapColor);
-
                 default:
                     return Color.White;
             }
@@ -725,9 +694,9 @@ namespace Dungeon_aber_in_Windows_v1
         private int[] generateStart()
         {
 
-            int startWidth = random.Next(1, dungeonWidth - 1);      // Erstellt eine Random Zahl zwischen 1 und der Dungeon Breite -1
-            int startHeight = random.Next(1, dungeonHeight - 1);    // Erstellt eine Random Zahl zwischen 1 und der Dungeon Höhe -1
-            map[startWidth, startHeight] = 'S';                     // Speichert diese Zahlen dann im Koordinatensystem und speichert S bei diesen Koordinaten 
+            int startWidth = random.Next(1, dungeonWidth - 1);
+            int startHeight = random.Next(1, dungeonHeight - 1);
+            map[startWidth, startHeight] = 'S';
 
             return new int[] { startWidth, startHeight };
 
@@ -737,21 +706,15 @@ namespace Dungeon_aber_in_Windows_v1
         /* 
         * generateRandomRooms(int roomCount)
         * Erstellt eine bestimmte Anzahl rechteckiger Räume im Dungeon.
-        *  - Räume werden zufällig positioniert
-        *  - Größe zwischen 3x3 und 6x6
-        *  - Räume überschreiben nur leere Felder
-        *  - Räume werden mit . markiert
         */
         private void generateRandomRooms(int roomCount)
         {
 
             for (int i = 0; i < roomCount; i++)
             {
-                // Erstellt Random Zahlen zwischen 3 und 6 für die obere und Linke Wand des Raums
                 int roomWidth = random.Next(dungeonMinRoomSizeWidth, dungeonMaxRoomSizeWidth);
                 int roomHeight = random.Next(dungeonMinRoomSizeHeight, dungeonMaxRoomSizeHeight);
 
-                // Erstellt eine Random Koordinate wo der Raum spawnt
                 int roomX = random.Next(1, dungeonWidth - roomWidth - 1);
                 int roomY = random.Next(1, dungeonHeight - roomHeight - 1);
 
@@ -759,7 +722,6 @@ namespace Dungeon_aber_in_Windows_v1
                 {
                     for (int x = roomX; x < roomX + roomWidth; x++)
                     {
-                        // Überprüft ob die Koordinate schon besetzt ist
                         if (map[x, y] != '\0')
                         {
                             continue;
@@ -775,8 +737,6 @@ namespace Dungeon_aber_in_Windows_v1
         /* 
         * generateMaze(int startX, int startY)
         * Erstellt ein Labyrinth ab einer Startposition.
-        *  - Bewegt sich nur in vertikal/horizontal (keine Diagonalen)
-        *  - Markiert den Pfad mit .
         */
         private void generateMaze(int startX, int startY)
         {
@@ -837,31 +797,25 @@ namespace Dungeon_aber_in_Windows_v1
         /* 
         * generateEnd(int startX, int startY)
         * Wählt eine zufällige Endposition für den Dungeon und markiert sie mit E.
-        * - Endpunkt wird nur gewählt wenn er mindestens minDistance Felder vom Start entfernt ist
-        * - Gibt die Koordinaten x y zurück
         */
         private int[] generateEnd(int startX, int startY)
         {
 
-            // Variablen Deklarieren
             int endX;
             int endY;
             int distance;
-            int minDistance = 7; // Mindestabstand zwischen Start und Ende
+            int minDistance = 7;
 
-            // Überprüft ob der Abstand zwischen Start und Ende minDistance beträgt
             do
             {
-                // Erstellt Random Koordinaten für das Ende
                 endX = random.Next(1, dungeonWidth - 1);
                 endY = random.Next(1, dungeonHeight - 1);
 
-                // Rechnet den Abstand zwischen Start und Ende aus
                 distance = Math.Abs(endX - startX) + Math.Abs(endY - startY);
 
             } while (map[endX, endY] != '.' || distance < minDistance);
 
-            map[endX, endY] = 'E';      // Speichert diese Zahlen dann im Koordinatensystem und speichert S bei diesen Koordinaten
+            map[endX, endY] = 'E';
 
             return new int[] { endX, endY };
 
@@ -871,7 +825,6 @@ namespace Dungeon_aber_in_Windows_v1
         /* 
         * generateObjects()
         * Verteilt zufällig Schatzkisten T und Fallen F im Dungeon.
-        *  - Nur auf freien Feldern
         */
         private void generateObjects()
         {
@@ -879,7 +832,6 @@ namespace Dungeon_aber_in_Windows_v1
             {
                 for (int x = 0; x < dungeonWidth; x++)
                 {
-                    // Nur auf freien Wegen platzieren
                     if (map[x, y] != '.')
                         continue;
 
@@ -887,12 +839,12 @@ namespace Dungeon_aber_in_Windows_v1
 
                     if (roll <= dungeonTrapPercent)
                     {
-                        map[x, y] = 'F'; // Falle
+                        map[x, y] = 'F';
                         finishedTrapCount++;
                     }
                     else if (roll <= dungeonTrapPercent + dungeonTreasurePercent)
                     {
-                        map[x, y] = 'T'; // Schatz
+                        map[x, y] = 'T';
                         finishedTreasureCount++;
                     }
                 }
@@ -906,7 +858,7 @@ namespace Dungeon_aber_in_Windows_v1
             dungeonAnzeigePicture.Width = map.GetLength(0) * tileSize;
             dungeonAnzeigePicture.Height = map.GetLength(1) * tileSize;
 
-            dungeonAnzeigePicture.Invalidate(); // neu zeichnen auslösen
+            dungeonAnzeigePicture.Invalidate();
             pictureGenerated = true;
         }
 

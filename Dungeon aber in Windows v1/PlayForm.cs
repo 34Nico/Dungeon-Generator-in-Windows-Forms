@@ -12,15 +12,6 @@ namespace Dungeon_aber_in_Windows_v1
 {
     public partial class PlayForm : Form
     {
-        /*
-         * TODO:
-         * - Mukke (WE LIVE WE LOVE WE LIE)
-         */
-
-        /*
-         * feddisch:
-         * - Dungeon spielbar machen
-         */
 
         char[,] map = null;
         Bitmap bmp = null;
@@ -56,6 +47,23 @@ namespace Dungeon_aber_in_Windows_v1
 
             DrawMap();
             DrawPlayer();
+            DrawHearts();
+        }
+
+        private void DrawHearts()
+        {
+            panelStats.Controls.Clear();
+            int heartSize = 32;
+            int padding = 4;
+            for (int i = 0; i < lifes; i++)
+            {
+                PictureBox pb = new PictureBox();
+                pb.Image = Properties.Resources.heart;
+                pb.SizeMode = PictureBoxSizeMode.Zoom;
+                pb.Size = new Size(heartSize, heartSize);
+                pb.Location = new Point(i * (heartSize + padding) + padding, padding);
+                panelStats.Controls.Add(pb);
+            }
         }
 
         private void DrawMap()
@@ -133,11 +141,12 @@ namespace Dungeon_aber_in_Windows_v1
             if (tile == 'T')
             {
                 treasureCollected++;
+                if (lifes < 10) lifes++;
                 map[newX, newY] = '.';
                 playerX = newX;
                 playerY = newY;
                 DrawPlayer();
-                MessageBox.Show($"Du hast eine Schatztruhe gefunden! ({treasureCollected} gesamt)");
+                DrawHearts();
             }
             else if (tile == 'F')
             {
@@ -146,7 +155,7 @@ namespace Dungeon_aber_in_Windows_v1
                 playerX = newX;
                 playerY = newY;
                 DrawPlayer();
-                MessageBox.Show($"Du bist in eine Falle getreten! Leben übrig: {lifes}");
+                DrawHearts();
                 if (lifes <= 0)
                 {
                     MessageBox.Show($"Game Over! Du hast {treasureCollected} Schätze gesammelt in {moves} Zügen.");
